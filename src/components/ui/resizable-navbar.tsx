@@ -180,7 +180,7 @@ export const MobileNav = ({
         damping: 50,
       }}
       className={cn(
-        "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between px-4 py-2.5 lg:hidden overflow-hidden",
+        "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between px-4 py-2.5 lg:hidden",
         visible
           ? "bg-white/50 border border-white/80"
           : "bg-transparent border-b border-transparent",
@@ -188,7 +188,7 @@ export const MobileNav = ({
       )}
     >
       {visible && (
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-[60%] bg-gradient-to-b from-white/60 to-transparent rounded-t-2xl" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-[60%] bg-gradient-to-b from-white/60 to-transparent rounded-t-2xl overflow-hidden" />
       )}
       <div className="relative z-10 flex w-full flex-col items-center justify-between">
         {children}
@@ -222,16 +222,26 @@ export const MobileNavMenu = ({
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.2 }}
+          initial={{ opacity: 0, y: -8, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: -8, scale: 0.98 }}
+          transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
           className={cn(
-            "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-2xl bg-white/60 backdrop-blur-3xl border border-white/70 px-6 py-8 shadow-[0_8px_40px_rgba(0,0,0,0.08),0_1px_0_rgba(255,255,255,0.8)_inset]",
+            "fixed inset-x-4 top-20 z-[70] flex flex-col items-start justify-start gap-4 rounded-2xl px-6 py-8 overflow-hidden",
+            "bg-white/50 border border-white/80",
+            "shadow-[0_8px_40px_rgba(0,0,0,0.07),0_2px_0_rgba(255,255,255,0.9)_inset,0_-1px_0_rgba(0,0,0,0.04),0_0_0_0.5px_rgba(255,255,255,0.6)]",
             className
           )}
+          style={{
+            backdropFilter: "blur(50px) saturate(200%) brightness(1.1)",
+            WebkitBackdropFilter: "blur(50px) saturate(200%) brightness(1.1)",
+          }}
         >
-          {children}
+          {/* Glossy shine on the dropdown */}
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-[50%] bg-gradient-to-b from-white/60 to-transparent rounded-t-2xl" />
+          <div className="relative z-10 flex w-full flex-col items-start gap-4">
+            {children}
+          </div>
         </motion.div>
       )}
     </AnimatePresence>
@@ -287,7 +297,7 @@ export const NavbarButton = ({
   as?: React.ElementType;
   children: React.ReactNode;
   className?: string;
-  variant?: "primary" | "secondary" | "dark" | "gradient";
+  variant?: "primary" | "secondary" | "dark" | "gradient" | "glass";
 } & (
   | React.ComponentPropsWithoutRef<"a">
   | React.ComponentPropsWithoutRef<"button">
@@ -303,7 +313,41 @@ export const NavbarButton = ({
     dark: "bg-neutral-100 text-neutral-700 border border-neutral-200 hover:bg-neutral-200/80",
     gradient:
       "bg-gradient-to-r from-amber-400 to-amber-600 text-white shadow-md shadow-amber-500/20 hover:shadow-amber-500/30",
+    glass: "",
   };
+
+  if (variant === "glass") {
+    return (
+      <Tag
+        href={href || undefined}
+        className={cn(
+          "group relative px-6 py-2.5 rounded-full text-sm font-semibold cursor-pointer inline-block text-center overflow-hidden",
+          "bg-gradient-to-b from-neutral-800 via-neutral-900 to-black text-white",
+          "border border-white/[0.15]",
+          "shadow-[0_4px_24px_rgba(0,0,0,0.15),0_1px_0_rgba(255,255,255,0.15)_inset,0_-1px_0_rgba(0,0,0,0.3)_inset]",
+          "hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(0,0,0,0.2),0_1px_0_rgba(255,255,255,0.2)_inset,0_-1px_0_rgba(0,0,0,0.3)_inset]",
+          "active:translate-y-0 active:shadow-[0_2px_12px_rgba(0,0,0,0.15),0_1px_0_rgba(255,255,255,0.1)_inset]",
+          "transition-all duration-300",
+          className
+        )}
+        {...props}
+      >
+        {/* Noise grain texture */}
+        <svg className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.08] mix-blend-overlay" aria-hidden="true">
+          <filter id="noiseBtn">
+            <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch" />
+            <feColorMatrix type="saturate" values="0" />
+          </filter>
+          <rect width="100%" height="100%" filter="url(#noiseBtn)" />
+        </svg>
+        {/* Glossy top highlight arc */}
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-[50%] bg-gradient-to-b from-white/25 to-transparent rounded-t-full" />
+        {/* Animated shine sweep on hover */}
+        <div className="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out bg-gradient-to-r from-transparent via-white/15 to-transparent skew-x-[-20deg]" />
+        <span className="relative z-10 drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)]">{children}</span>
+      </Tag>
+    );
+  }
 
   return (
     <Tag

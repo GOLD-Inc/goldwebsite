@@ -30,7 +30,7 @@ export function NavbarComponent() {
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className="flex items-center gap-3">
-            <NavbarButton variant="primary">Download App</NavbarButton>
+            <NavbarButton variant="glass">Download App</NavbarButton>
           </div>
         </NavBody>
 
@@ -58,10 +58,10 @@ export function NavbarComponent() {
                 <span className="block">{item.name}</span>
               </a>
             ))}
-            <div className="flex w-full flex-col gap-3 pt-4 border-t border-black/6">
+            <div className="flex w-full flex-col gap-3 pt-4 border-t border-black/[0.06]">
               <NavbarButton
                 onClick={() => setIsMobileMenuOpen(false)}
-                variant="primary"
+                variant="glass"
                 className="w-full"
               >
                 Download App
