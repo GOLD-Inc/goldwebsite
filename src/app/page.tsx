@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <div className="min-h-[200vh] bg-[#fafafa] relative">
+    <div className="min-h-[200vh] relative">
       {/* Soft ambient color blobs so the glass blur is visible */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute -top-24 left-1/4 h-[500px] w-[500px] rounded-full bg-amber-200/40 blur-[100px]" />
