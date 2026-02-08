@@ -87,13 +87,19 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
     <motion.div
       animate={{
         backdropFilter: visible
-          ? "blur(50px) saturate(200%) brightness(1.1)"
-          : "blur(16px) saturate(140%)",
+          ? "blur(24px) saturate(180%)"
+          : "blur(20px) saturate(150%)",
+        backgroundColor: visible
+          ? "rgba(255, 255, 255, 0.7)"
+          : "rgba(255, 255, 255, 0.5)",
         boxShadow: visible
-          ? "0 8px 40px rgba(0, 0, 0, 0.07), 0 2px 0 rgba(255, 255, 255, 0.9) inset, 0 -1px 0 rgba(0, 0, 0, 0.04), 0 0 0 0.5px rgba(255, 255, 255, 0.6)"
-          : "none",
+          ? "0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 0 rgba(255, 255, 255, 0.95) inset, 0 -1px 0 rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(255, 255, 255, 0.7) inset"
+          : "0 4px 24px rgba(0, 0, 0, 0.04), 0 1px 0 rgba(255, 255, 255, 0.8) inset, 0 0 0 1px rgba(255, 255, 255, 0.5) inset",
         width: visible ? "55%" : "100%",
         y: visible ? 14 : 0,
+        borderColor: visible
+          ? "rgba(255, 255, 255, 0.8)"
+          : "rgba(255, 255, 255, 0.6)",
       }}
       transition={{
         type: "spring",
@@ -104,17 +110,28 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
         minWidth: "800px",
       }}
       className={cn(
-        "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start px-6 py-2.5 lg:flex overflow-hidden",
-        visible
-          ? "rounded-2xl bg-white/50 border border-white/80"
-          : "bg-transparent border-b border-transparent",
+        "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start px-6 py-2.5 lg:flex overflow-hidden border",
+        visible ? "rounded-full" : "rounded-full",
         className
       )}
     >
-      {/* Glossy shine highlight — only when scrolled */}
-      {visible && (
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-[60%] bg-gradient-to-b from-white/60 to-transparent rounded-t-2xl" />
-      )}
+      {/* Glossy shine highlight — always visible, enhanced when scrolled */}
+      <motion.div
+        className="pointer-events-none absolute inset-x-0 top-0 rounded-t-2xl"
+        animate={{
+          height: visible ? "60%" : "55%",
+          background: visible
+            ? "linear-gradient(to bottom, rgba(255, 255, 255, 0.7), transparent)"
+            : "linear-gradient(to bottom, rgba(255, 255, 255, 0.5), transparent)",
+        }}
+        transition={{
+          type: "spring",
+          stiffness: 200,
+          damping: 50,
+        }}
+      />
+      {/* Subtle inner glow */}
+      <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-b from-white/20 via-transparent to-transparent" />
       <div className="relative z-10 flex w-full flex-row items-center justify-between">
         {children}
       </div>
@@ -144,7 +161,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
           {hovered === idx && (
             <motion.div
               layoutId="hovered"
-              className="absolute inset-0 h-full w-full rounded-xl bg-black/3 shadow-[0_0.5px_0_rgba(255,255,255,0.5)_inset]"
+              className="absolute inset-0 h-full w-full rounded-full bg-black/3 shadow-[0_0.5px_0_rgba(255,255,255,0.5)_inset]"
             />
           )}
           <span className="relative z-20">{item.name}</span>
@@ -163,15 +180,21 @@ export const MobileNav = ({
     <motion.div
       animate={{
         backdropFilter: visible
-          ? "blur(50px) saturate(200%) brightness(1.1)"
-          : "blur(16px) saturate(140%)",
+          ? "blur(24px) saturate(180%)"
+          : "blur(20px) saturate(150%)",
+        backgroundColor: visible
+          ? "rgba(255, 255, 255, 0.7)"
+          : "rgba(255, 255, 255, 0.5)",
         boxShadow: visible
-          ? "0 8px 40px rgba(0, 0, 0, 0.07), 0 2px 0 rgba(255, 255, 255, 0.9) inset, 0 -1px 0 rgba(0, 0, 0, 0.04), 0 0 0 0.5px rgba(255, 255, 255, 0.6)"
-          : "none",
+          ? "0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 0 rgba(255, 255, 255, 0.95) inset, 0 -1px 0 rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(255, 255, 255, 0.7) inset"
+          : "0 4px 24px rgba(0, 0, 0, 0.04), 0 1px 0 rgba(255, 255, 255, 0.8) inset, 0 0 0 1px rgba(255, 255, 255, 0.5) inset",
+        borderColor: visible
+          ? "rgba(255, 255, 255, 0.8)"
+          : "rgba(255, 255, 255, 0.6)",
         width: visible ? "92%" : "100%",
         paddingRight: visible ? "12px" : "0px",
         paddingLeft: visible ? "12px" : "0px",
-        borderRadius: visible ? "16px" : "0px",
+        borderRadius: "9999px",
         y: visible ? 14 : 0,
       }}
       transition={{
@@ -180,16 +203,31 @@ export const MobileNav = ({
         damping: 50,
       }}
       className={cn(
-        "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between px-4 py-2.5 lg:hidden",
-        visible
-          ? "bg-white/50 border border-white/80"
-          : "bg-transparent border-b border-transparent",
+        "relative z-[50] mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between px-4 py-2.5 lg:hidden border",
         className
       )}
     >
-      {visible && (
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-[60%] bg-gradient-to-b from-white/60 to-transparent rounded-t-2xl overflow-hidden" />
-      )}
+      {/* Decorative clip wrapper */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-full">
+        {/* Glossy shine highlight — always visible, enhanced when scrolled */}
+        <motion.div
+          className="absolute inset-x-0 top-0"
+          animate={{
+            height: visible ? "60%" : "55%",
+            background: visible
+              ? "linear-gradient(to bottom, rgba(255, 255, 255, 0.7), transparent)"
+              : "linear-gradient(to bottom, rgba(255, 255, 255, 0.5), transparent)",
+            borderRadius: "rounded-full",
+          }}
+          transition={{
+            type: "spring",
+            stiffness: 200,
+            damping: 50,
+          }}
+        />
+        {/* Subtle inner glow */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-transparent" />
+      </div>
       <div className="relative z-10 flex w-full flex-col items-center justify-between">
         {children}
       </div>
@@ -222,10 +260,13 @@ export const MobileNavMenu = ({
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          initial={{ opacity: 0, y: -8, scale: 0.98 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: -8, scale: 0.98 }}
-          transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
+          initial={{ opacity: 0, y: -12, scale: 0.96, rotateX: -8 }}
+          animate={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
+          exit={{ opacity: 0, y: -12, scale: 0.96, rotateX: -8 }}
+          transition={{
+            duration: 0.35,
+            ease: [0.25, 0.46, 0.45, 0.94],
+          }}
           className={cn(
             "fixed inset-x-4 top-20 z-[70] flex flex-col items-start justify-start gap-4 rounded-2xl px-6 py-8 overflow-hidden",
             "bg-white/50 border border-white/80",
@@ -234,13 +275,29 @@ export const MobileNavMenu = ({
           )}
           style={{
             backdropFilter: "blur(50px) saturate(200%) brightness(1.1)",
-            WebkitBackdropFilter: "blur(50px) saturate(200%) brightness(1.1)",
+            WebkitBackdropFilter:
+              "blur(50px) saturate(200%) brightness(1.1)",
+            perspective: "800px",
+            transformOrigin: "top center",
           }}
         >
           {/* Glossy shine on the dropdown */}
           <div className="pointer-events-none absolute inset-x-0 top-0 h-[50%] bg-gradient-to-b from-white/60 to-transparent rounded-t-2xl" />
           <div className="relative z-10 flex w-full flex-col items-start gap-4">
-            {children}
+            {React.Children.map(children, (child, index) => (
+              <motion.div
+                className="w-full"
+                initial={{ opacity: 0, x: -16 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{
+                  delay: 0.06 * index,
+                  duration: 0.3,
+                  ease: [0.25, 0.4, 0.25, 1],
+                }}
+              >
+                {child}
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       )}
