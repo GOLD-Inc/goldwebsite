@@ -86,9 +86,6 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
   return (
     <motion.div
       animate={{
-        backdropFilter: visible
-          ? "blur(24px) saturate(180%)"
-          : "blur(20px) saturate(150%)",
         backgroundColor: visible
           ? "rgba(255, 255, 255, 0.7)"
           : "rgba(255, 255, 255, 0.5)",
@@ -108,28 +105,16 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
       }}
       style={{
         minWidth: "800px",
+        backdropFilter: "blur(20px) saturate(160%)",
+        WebkitBackdropFilter: "blur(20px) saturate(160%)",
       }}
       className={cn(
-        "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start px-6 py-2.5 lg:flex overflow-hidden border",
-        visible ? "rounded-full" : "rounded-full",
+        "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start px-6 py-2.5 lg:flex overflow-hidden border rounded-full",
         className
       )}
     >
-      {/* Glossy shine highlight — always visible, enhanced when scrolled */}
-      <motion.div
-        className="pointer-events-none absolute inset-x-0 top-0 rounded-t-2xl"
-        animate={{
-          height: visible ? "60%" : "55%",
-          background: visible
-            ? "linear-gradient(to bottom, rgba(255, 255, 255, 0.7), transparent)"
-            : "linear-gradient(to bottom, rgba(255, 255, 255, 0.5), transparent)",
-        }}
-        transition={{
-          type: "spring",
-          stiffness: 200,
-          damping: 50,
-        }}
-      />
+      {/* Glossy shine highlight */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[55%] rounded-t-2xl bg-gradient-to-b from-white/50 to-transparent" />
       {/* Subtle inner glow */}
       <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-b from-white/20 via-transparent to-transparent" />
       <div className="relative z-10 flex w-full flex-row items-center justify-between">
@@ -179,9 +164,6 @@ export const MobileNav = ({
   return (
     <motion.div
       animate={{
-        backdropFilter: visible
-          ? "blur(24px) saturate(180%)"
-          : "blur(20px) saturate(150%)",
         backgroundColor: visible
           ? "rgba(255, 255, 255, 0.7)"
           : "rgba(255, 255, 255, 0.5)",
@@ -192,9 +174,6 @@ export const MobileNav = ({
           ? "rgba(255, 255, 255, 0.8)"
           : "rgba(255, 255, 255, 0.6)",
         width: visible ? "92%" : "100%",
-        paddingRight: visible ? "12px" : "0px",
-        paddingLeft: visible ? "12px" : "0px",
-        borderRadius: "9999px",
         y: visible ? 14 : 0,
       }}
       transition={{
@@ -202,29 +181,19 @@ export const MobileNav = ({
         stiffness: 200,
         damping: 50,
       }}
+      style={{
+        backdropFilter: "blur(20px) saturate(160%)",
+        WebkitBackdropFilter: "blur(20px) saturate(160%)",
+      }}
       className={cn(
-        "relative z-[50] mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between px-4 py-2.5 lg:hidden border",
+        "relative z-[50] mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between rounded-full px-5 py-2.5 lg:hidden border",
         className
       )}
     >
       {/* Decorative clip wrapper */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-full">
-        {/* Glossy shine highlight — always visible, enhanced when scrolled */}
-        <motion.div
-          className="absolute inset-x-0 top-0"
-          animate={{
-            height: visible ? "60%" : "55%",
-            background: visible
-              ? "linear-gradient(to bottom, rgba(255, 255, 255, 0.7), transparent)"
-              : "linear-gradient(to bottom, rgba(255, 255, 255, 0.5), transparent)",
-            borderRadius: "rounded-full",
-          }}
-          transition={{
-            type: "spring",
-            stiffness: 200,
-            damping: 50,
-          }}
-        />
+        {/* Glossy shine highlight */}
+        <div className="absolute inset-x-0 top-0 h-[55%] bg-gradient-to-b from-white/50 to-transparent" />
         {/* Subtle inner glow */}
         <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-transparent" />
       </div>

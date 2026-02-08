@@ -6,15 +6,16 @@ import { Confetti, ConfettiRef } from "../ui/confetti";
 import { HeroBadge } from "../ui/hero-badge";
 import { GetAppButton } from "../ui/get-app-button";
 import { AnimatedTooltip } from "../ui/animated-tooltip";
+import Image from "next/image";
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 20 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
     transition: {
-      delay: 0.15 * i,
-      duration: 0.8,
+      delay: 0.12 * i,
+      duration: 0.6,
       ease: [0.25, 0.4, 0.25, 1],
     },
   }),
@@ -33,7 +34,6 @@ const teamMembers = [
     designation: "Co-founder of Siri (Apple)",
     image: "/Team-Photos/Headshots/Tom-Gruber.jpg.webp",
   },
-  
   {
     id: 3,
     name: "Dr. Yvonne Cagle",
@@ -65,59 +65,13 @@ export default function Hero() {
   const textOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const textY = useTransform(scrollYProgress, [0, 0.5], [0, -60]);
   const phoneY = useTransform(scrollYProgress, [0, 0.5], [0, 80]);
-  const phoneScale = useTransform(scrollYProgress, [0, 0.3], [1, 0.95]);
 
   return (
     <section
       ref={containerRef}
       className="relative min-h-screen overflow-hidden"
     >
-      {/* SVG Filters */}
-      <svg className="absolute inset-0 w-0 h-0">
-        <defs>
-          <filter
-            id="glass-effect"
-            x="-50%"
-            y="-50%"
-            width="200%"
-            height="200%"
-          >
-            <feTurbulence
-              baseFrequency="0.005"
-              numOctaves="1"
-              result="noise"
-            />
-            <feDisplacementMap
-              in="SourceGraphic"
-              in2="noise"
-              scale="0.3"
-            />
-            <feColorMatrix
-              type="matrix"
-              values="1 0 0 0 0.02
-                      0 1 0 0 0.02
-                      0 0 1 0 0.05
-                      0 0 0 0.9 0"
-              result="tint"
-            />
-          </filter>
-          <filter
-            id="text-glow"
-            x="-50%"
-            y="-50%"
-            width="200%"
-            height="200%"
-          >
-            <feGaussianBlur stdDeviation="2" result="coloredBlur" />
-            <feMerge>
-              <feMergeNode in="coloredBlur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
-      </svg>
-
-      {/* Mesh Gradient backgrounds — from Background.tsx */}
+      {/* Single Mesh Gradient background */}
       <MeshGradient
         className="absolute inset-0 w-full h-full"
         colors={[
@@ -129,19 +83,7 @@ export default function Hero() {
           "#F9E0C9",
           "#0891b2",
         ]}
-        speed={0.3}
-      />
-      <MeshGradient
-        className="absolute inset-0 w-full h-full opacity-60"
-        colors={[
-          "#ffffff",
-          "#F9E0C9",
-          "#EAD0F7",
-          "#D2E9FF",
-          "#065b64",
-          "#f0c674",
-        ]}
-        speed={0.2}
+        speed={0.15}
       />
 
       {/* Confetti canvas */}
@@ -153,7 +95,7 @@ export default function Hero() {
 
       {/* Hero text content — centered near top */}
       <motion.div
-        style={{ opacity: textOpacity, y: textY }}
+        style={{ opacity: textOpacity, y: textY, willChange: "transform, opacity" }}
         className="relative z-10 mx-auto flex max-w-4xl flex-col items-center px-6 pt-32 sm:pt-36 text-center"
       >
         {/* Badge */}
@@ -179,9 +121,9 @@ export default function Hero() {
           <span className="block font-black bg-gradient-to-b from-white via-white to-white/60 bg-clip-text text-transparent drop-shadow-2xl">
             Your health
           </span>
-            <span className="block font-light bg-gradient-to-r from-amber-200 via-yellow-100 to-amber-300 bg-clip-text text-transparent italic">
-              Reimagined
-            </span>
+          <span className="block font-light bg-gradient-to-r from-amber-200 via-yellow-100 to-amber-300 bg-clip-text text-transparent italic">
+            Reimagined
+          </span>
         </motion.h1>
 
         {/* Subtitle */}
@@ -226,7 +168,7 @@ export default function Hero() {
         variants={fadeUp}
         initial="hidden"
         animate="visible"
-        style={{ y: phoneY, scale: phoneScale }}
+        style={{ y: phoneY, willChange: "transform" }}
         className="relative z-10 mx-auto mt-12 flex justify-center px-6"
       >
         <div className="relative w-[280px] sm:w-[320px] md:w-[360px]">
@@ -234,10 +176,13 @@ export default function Hero() {
           <div className="absolute -inset-4 rounded-[3rem] bg-black/10 blur-2xl" />
           {/* Phone frame */}
           <div className="relative overflow-hidden rounded-[2.5rem] border-[8px] border-black/90 bg-black shadow-2xl">
-            <img
+            <Image
               src="/AppScreenshots/welcome.png"
               alt="Gold Health App"
               className="w-full"
+              width={320}
+              height={693}
+              priority
             />
           </div>
         </div>
@@ -247,7 +192,7 @@ export default function Hero() {
       <div className="h-20" />
 
       {/* Pulsing border — bottom right */}
-      <div className="absolute bottom-8 right-8 z-20">
+      <div className="absolute bottom-8 right-8 z-20 hidden sm:block">
         <div className="relative flex h-20 w-20 items-center justify-center">
           <PulsingBorder
             colors={[
@@ -261,7 +206,7 @@ export default function Hero() {
               "#f0c674",
             ]}
             colorBack="#00000000"
-            speed={1.5}
+            speed={1.0}
             roundness={1}
             thickness={0.1}
             softness={0.2}
@@ -279,16 +224,10 @@ export default function Hero() {
               borderRadius: "50%",
             }}
           />
-          <motion.svg
-            className="absolute inset-0 h-full w-full"
+          <svg
+            className="absolute inset-0 h-full w-full animate-spin"
             viewBox="0 0 100 100"
-            animate={{ rotate: 360 }}
-            transition={{
-              duration: 20,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-            style={{ transform: "scale(1.6)" }}
+            style={{ transform: "scale(1.6)", animationDuration: "20s" }}
           >
             <defs>
               <path
@@ -296,12 +235,12 @@ export default function Hero() {
                 d="M 50, 50 m -38, 0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0"
               />
             </defs>
-            <text className="text-sm font-medium fill-black/80">
+            <text className="text-sm font-medium fill-[#928071]">
               <textPath href="#circle" startOffset="0%">
                 Health for Every Body by Gold Health
               </textPath>
             </text>
-          </motion.svg>
+          </svg>
         </div>
       </div>
     </section>

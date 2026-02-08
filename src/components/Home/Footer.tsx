@@ -17,44 +17,36 @@ import {
   Youtube,
 } from "lucide-react";
 
-function GlassIcon({
+function FooterIcon({
   children,
   size = "lg",
-  parentGroup = false,
+  variant = "default",
 }: {
   children: React.ReactNode;
-  size?: "md" | "lg";
-  parentGroup?: boolean;
+  size?: "sm" | "md" | "lg";
+  variant?: "default" | "social";
 }) {
-  const sizeMap = {
-    md: "h-10 w-10 rounded-xl",
-    lg: "h-12 w-12 rounded-2xl",
+  const sizeStyles = {
+    sm: "h-8 w-8 rounded-lg",
+    md: "h-9 w-9 rounded-xl",
+    lg: "h-11 w-11 rounded-xl",
   };
 
-  const hoverClasses = parentGroup
-    ? "group-hover:-translate-y-1 group-hover:scale-105"
-    : "hover:-translate-y-1 hover:scale-105 group-hover/icon:-translate-y-1 group-hover/icon:scale-105";
+  if (variant === "social") {
+    return (
+      <div
+        className={`${sizeStyles[size]} flex items-center justify-center bg-neutral-100 border border-neutral-200/80 text-neutral-500 transition-all duration-200 hover:-translate-y-0.5 hover:bg-gradient-to-br hover:from-cyan-500 hover:to-orange-500 hover:text-white hover:border-transparent hover:shadow-lg hover:shadow-cyan-500/20 active:scale-95`}
+      >
+        {children}
+      </div>
+    );
+  }
 
   return (
     <div
-      className={`group/icon relative ${sizeMap[size]} overflow-hidden cursor-pointer transition-all duration-300 ${hoverClasses}`}
+      className={`${sizeStyles[size]} flex shrink-0 items-center justify-center bg-neutral-100/80 border border-neutral-200/60 text-neutral-500 transition-all duration-200 group-hover:bg-neutral-200/80 group-hover:text-neutral-800 group-hover:border-neutral-300/60`}
     >
-      
-      {/* Glass base */}
-      <div
-        className={`absolute inset-0 ${sizeMap[size]} bg-white/60 backdrop-blur-2xl border border-black/[0.06] transition-all duration-300
-          shadow-[0_4px_12px_rgba(0,0,0,0.06),0_1.5px_0_rgba(255,255,255,0.9)_inset,0_-0.5px_0_rgba(0,0,0,0.04)]
-          ${parentGroup ? "group-hover:bg-white/80 group-hover:shadow-[0_8px_24px_rgba(0,0,0,0.1),0_2px_0_rgba(255,255,255,1)_inset,0_-1px_0_rgba(0,0,0,0.05)]" : "group-hover/icon:bg-white/80 group-hover/icon:shadow-[0_8px_24px_rgba(0,0,0,0.1),0_2px_0_rgba(255,255,255,1)_inset,0_-1px_0_rgba(0,0,0,0.05)]"}`}
-      />
-      {/* Glossy arc */}
-      <div
-        className={`pointer-events-none absolute inset-x-0 top-0 h-[55%] bg-gradient-to-b from-white/80 to-transparent ${size === "lg" ? "rounded-t-2xl" : "rounded-t-xl"}`}
-      />
-      {/* Icon */}
-      <div className={`relative z-10 flex h-full w-full items-center justify-center text-neutral-700 transition-colors duration-300 ${parentGroup ? "group-hover:text-neutral-950" : "group-hover/icon:text-neutral-950"}`}>
-        
-        {children}
-      </div>
+      {children}
     </div>
   );
 }
@@ -108,8 +100,8 @@ export default function Footer() {
  
 
         <div className="relative z-10 mx-auto max-w-7xl px-6 pt-16 pb-8">
-          {/* Main grid */}
-          <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
+          {/* Main grid — links first on mobile, brand first on desktop */}
+          <div className="flex flex-col-reverse gap-12 lg:flex-row lg:items-start lg:justify-between">
             {/* Brand column */}
             <div className="max-w-sm space-y-6">
               <Link href="/" className="inline-block">
@@ -142,17 +134,17 @@ export default function Footer() {
                 </div>
               </div>
 
-              {/* Social icons — big glassy */}
-              <div className="flex items-center gap-3 pt-3">
+              {/* Social icons */}
+              <div className="flex items-center gap-2.5 pt-3">
                 {socials.map((social) => (
                   <Link
                     href={social.href}
                     key={social.label}
                     aria-label={social.label}
                   >
-                    <GlassIcon size="lg">
-                      <social.icon className="h-5 w-5" />
-                    </GlassIcon>
+                    <FooterIcon size="lg" variant="social">
+                      <social.icon className="h-[18px] w-[18px]" />
+                    </FooterIcon>
                   </Link>
                 ))}
               </div>
@@ -183,22 +175,22 @@ export default function Footer() {
             </div>
 
             {/* Link columns */}
-            <div className="grid grid-cols-2 gap-10 sm:grid-cols-3 lg:gap-16">
+            <div className="grid grid-cols-3 gap-8 sm:gap-10 lg:gap-16">
               {footerSections.map((section) => (
                 <div key={section.title}>
-                  <h4 className="mb-5 text-xs font-semibold uppercase tracking-[0.15em] text-neutral-900">
+                  <h4 className="mb-4 sm:mb-5 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.12em] text-neutral-900">
                     {section.title}
                   </h4>
-                  <ul className="space-y-4">
+                  <ul className="space-y-3 sm:space-y-4">
                     {section.links.map((link) => (
                       <li key={link.name}>
                         <Link
                           href={link.href}
-                          className="group flex items-center gap-3 text-[15px] text-neutral-700 transition-colors duration-200 hover:text-neutral-900"
+                          className="group flex items-center gap-2.5 sm:gap-3 text-[13px] sm:text-[15px] text-neutral-700 transition-colors duration-200 hover:text-neutral-900"
                         >
-                          <GlassIcon size="md" parentGroup>
+                          <FooterIcon size="md">
                             <link.icon className="h-4 w-4" />
-                          </GlassIcon>
+                          </FooterIcon>
                           <span className="font-medium group-hover:underline">{link.name}</span>
                         </Link>
                       </li>
