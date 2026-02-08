@@ -105,9 +105,9 @@ export default function FeatureShowcase() {
       <div className="mx-auto max-w-7xl px-6">
         {/* Section header */}
         <div className="mb-12 text-center sm:mb-16">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-neutral-400">
+          <div className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-neutral-400">
             Features
-          </p>
+          </div>
           <h2 className="text-4xl font-bold tracking-tight text-neutral-900 sm:text-5xl md:text-6xl">
             Take a closer look.
           </h2>
@@ -288,17 +288,6 @@ export default function FeatureShowcase() {
         </div>
       </div>
 
-      {/* CSS keyframes for progress bar */}
-      <style jsx>{`
-        @keyframes progressFill {
-          from {
-            width: 0%;
-          }
-          to {
-            width: 100%;
-          }
-        }
-      `}</style>
     </section>
   );
 }

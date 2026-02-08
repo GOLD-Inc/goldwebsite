@@ -5,6 +5,7 @@ import { NavbarComponent } from "@/components/Home/Navbar";
 import Footer from "@/components/Home/Footer";
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { ThemeProvider } from "next-themes";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,14 +31,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#fafafa]`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased suppressHydrationWarning bg-[#fafafa]`}
       >
-        <NavbarComponent />
-        {children}
-        <Footer />
-        <Analytics />
-        <SpeedInsights />
+        <ThemeProvider
+            defaultTheme="light"
+          >
 
+            <NavbarComponent />
+            {children}
+            <Footer />
+            <Analytics />
+            <SpeedInsights />
+
+          </ThemeProvider>
       </body>
     </html>
   );
