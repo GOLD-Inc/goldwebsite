@@ -1,6 +1,5 @@
 "use client";
-import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { Plus, ChevronUp, ChevronDown } from "lucide-react";
 import Image from "next/image";
 
@@ -68,6 +67,7 @@ const AUTO_CYCLE_MS = 5000;
 export default function FeatureShowcase() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  const pauseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const goNext = useCallback(() => {
     setActiveIndex((prev) => (prev + 1) % features.length);
@@ -87,20 +87,24 @@ export default function FeatureShowcase() {
   const handleSelect = (index: number) => {
     setActiveIndex(index);
     setPaused(true);
-    // Resume auto-cycle after 12s of inactivity
-    setTimeout(() => setPaused(false), 12000);
+    if (pauseTimerRef.current) clearTimeout(pauseTimerRef.current);
+    pauseTimerRef.current = setTimeout(() => setPaused(false), 12000);
+  };
+
+  const handleArrow = (fn: () => void) => {
+    fn();
+    setPaused(true);
+    if (pauseTimerRef.current) clearTimeout(pauseTimerRef.current);
+    pauseTimerRef.current = setTimeout(() => setPaused(false), 12000);
   };
 
   const activeFeature = features[activeIndex];
 
   return (
-    <section className="relative py-24 sm:py-32 overflow-hidden">
-      {/* Subtle background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-neutral-50 via-white to-neutral-50" />
-
-      <div className="relative z-10 mx-auto max-w-7xl px-6">
+    <section className="relative py-20 sm:py-28">
+      <div className="mx-auto max-w-7xl px-6">
         {/* Section header */}
-        <div className="mb-14 text-center sm:mb-20">
+        <div className="mb-12 text-center sm:mb-16">
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-neutral-400">
             Features
           </p>
@@ -113,6 +117,7 @@ export default function FeatureShowcase() {
           </p>
         </div>
 
+        {/* Card */}
         {/* Glass card */}
         <div
           className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl border border-white/60 p-6 sm:p-10 lg:p-14"
@@ -128,30 +133,23 @@ export default function FeatureShowcase() {
           {/* Glass shine */}
           <div className="pointer-events-none absolute inset-x-0 top-0 h-[40%] bg-gradient-to-b from-white/50 to-transparent rounded-t-3xl" />
 
-          {/* Content grid */}
-          <div className="relative z-10 flex flex-col items-center gap-10 lg:flex-row lg:items-start lg:gap-14">
+        
+                  {/* Content grid */}
+          <div className="flex flex-col items-center gap-8 lg:flex-row lg:items-start lg:gap-14">
             {/* Left — Feature list */}
             <div className="flex w-full items-start gap-3 lg:w-[400px] lg:shrink-0">
-              {/* Navigation arrows */}
+              {/* Navigation arrows — hidden on mobile */}
               <div className="hidden flex-col items-center gap-1 pt-1 sm:flex">
                 <button
-                  onClick={() => {
-                    goPrev();
-                    setPaused(true);
-                    setTimeout(() => setPaused(false), 12000);
-                  }}
-                  className="flex h-8 w-8 items-center justify-center rounded-full text-neutral-400 transition-all duration-200 hover:bg-white/60 hover:text-neutral-700"
+                  onClick={() => handleArrow(goPrev)}
+                  className="flex h-8 w-8 items-center justify-center rounded-full text-neutral-400 transition-colors duration-150 hover:bg-neutral-200/60 hover:text-neutral-700"
                   aria-label="Previous feature"
                 >
                   <ChevronUp className="h-5 w-5" />
                 </button>
                 <button
-                  onClick={() => {
-                    goNext();
-                    setPaused(true);
-                    setTimeout(() => setPaused(false), 12000);
-                  }}
-                  className="flex h-8 w-8 items-center justify-center rounded-full text-neutral-400 transition-all duration-200 hover:bg-white/60 hover:text-neutral-700"
+                  onClick={() => handleArrow(goNext)}
+                  className="flex h-8 w-8 items-center justify-center rounded-full text-neutral-400 transition-colors duration-150 hover:bg-neutral-200/60 hover:text-neutral-700"
                   aria-label="Next feature"
                 >
                   <ChevronDown className="h-5 w-5" />
@@ -159,7 +157,7 @@ export default function FeatureShowcase() {
               </div>
 
               {/* Feature pills */}
-              <div className="flex flex-1 flex-col gap-1.5">
+              <div className="flex flex-1 flex-col gap-1">
                 {features.map((feature, index) => {
                   const isActive = activeIndex === index;
 
@@ -168,21 +166,21 @@ export default function FeatureShowcase() {
                       {/* Pill button */}
                       <button
                         onClick={() => handleSelect(index)}
-                        className={`group flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-left transition-all duration-250 ${
+                        className={`group flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-left transition-colors duration-200 ${
                           isActive
-                            ? "bg-white/70 shadow-[0_2px_12px_rgba(0,0,0,0.06)]"
-                            : "hover:bg-white/40"
+                            ? "bg-white shadow-sm"
+                            : "hover:bg-white/60"
                         }`}
                       >
                         <div
-                          className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full border transition-all duration-250 ${
+                          className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full border transition-all duration-200 ${
                             isActive
                               ? "border-neutral-400 bg-neutral-800 rotate-45"
-                              : "border-neutral-300 bg-white/80 group-hover:border-neutral-400"
+                              : "border-neutral-300 bg-white group-hover:border-neutral-400"
                           }`}
                         >
                           <Plus
-                            className={`h-3.5 w-3.5 transition-all duration-250 ${
+                            className={`h-3.5 w-3.5 transition-colors duration-200 ${
                               isActive
                                 ? "text-white"
                                 : "text-neutral-400 group-hover:text-neutral-600"
@@ -193,58 +191,47 @@ export default function FeatureShowcase() {
                           className={`text-[15px] font-semibold transition-colors duration-200 ${
                             isActive
                               ? "text-neutral-900"
-                              : "text-neutral-600 group-hover:text-neutral-800"
+                              : "text-neutral-500 group-hover:text-neutral-700"
                           }`}
                         >
                           {feature.title}
                         </span>
 
-                        {/* Progress bar for active item */}
+                        {/* Progress bar */}
                         {isActive && (
-                          <motion.div
-                            className="ml-auto h-1 w-10 overflow-hidden rounded-full bg-neutral-200"
-                          >
-                            <motion.div
+                          <div className="ml-auto h-1 w-10 overflow-hidden rounded-full bg-neutral-200">
+                            <div
                               className="h-full rounded-full bg-neutral-500"
-                              initial={{ width: paused ? "100%" : "0%" }}
-                              animate={{ width: "100%" }}
-                              transition={{
-                                duration: paused ? 0 : AUTO_CYCLE_MS / 1000,
-                                ease: "linear",
-                              }}
                               key={`progress-${activeIndex}-${paused}`}
+                              style={{
+                                width: paused ? "100%" : "0%",
+                                animation: paused
+                                  ? "none"
+                                  : `progressFill ${AUTO_CYCLE_MS}ms linear forwards`,
+                              }}
                             />
-                          </motion.div>
+                          </div>
                         )}
                       </button>
 
-                      {/* Expanded description */}
-                      <AnimatePresence>
-                        {isActive && (
-                          <motion.div
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: "auto", opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{
-                              height: {
-                                duration: 0.3,
-                                ease: [0.25, 0.4, 0.25, 1],
-                              },
-                              opacity: { duration: 0.25, delay: 0.08 },
-                            }}
-                            className="overflow-hidden"
-                          >
-                            <div className="px-4 pb-3 pt-1.5">
-                              <p className="text-[14px] leading-relaxed text-neutral-500">
-                                <span className="font-semibold text-neutral-800">
-                                  {feature.title}.
-                                </span>{" "}
-                                {feature.description}
-                              </p>
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
+                      {/* Expanded description — CSS grid-rows transition */}
+                      <div
+                        className="grid transition-[grid-template-rows] duration-300 ease-out"
+                        style={{
+                          gridTemplateRows: isActive ? "1fr" : "0fr",
+                        }}
+                      >
+                        <div className="overflow-hidden">
+                          <div className="px-4 pb-3 pt-1.5">
+                            <p className="text-[14px] leading-relaxed text-neutral-500">
+                              <span className="font-semibold text-neutral-800">
+                                {feature.title}.
+                              </span>{" "}
+                              {feature.description}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   );
                 })}
@@ -252,56 +239,39 @@ export default function FeatureShowcase() {
             </div>
 
             {/* Right — Phone mockup */}
-            <div className="relative flex flex-1 items-center justify-center" style={{ perspective: "1000px" }}>
-              <motion.div
-                className="relative w-[260px] sm:w-[280px] md:w-[320px]"
-                style={{ transformStyle: "preserve-3d" }}
-                initial={{ rotateY: -3, rotateX: 2 }}
-                animate={{ rotateY: -3, rotateX: 2 }}
-                whileHover={{ rotateY: 0, rotateX: 0, scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 200, damping: 30 }}
-              >
-                {/* Phone glow */}
-                <div className="absolute -inset-6 rounded-[3.5rem] bg-gradient-to-br from-cyan-200/25 via-transparent to-orange-200/25 blur-2xl" />
-
-                {/* Phone shadow */}
-                <div className="absolute -inset-2 top-4 rounded-[3rem] bg-black/15 blur-2xl" />
-
+            <div className="relative flex flex-1 items-center justify-center">
+              <div className="relative w-[240px] sm:w-[270px] md:w-[300px]">
                 {/* Phone frame */}
-                <div
-                  className="relative overflow-hidden rounded-[2.5rem] border-[8px] border-neutral-900 bg-black"
-                  style={{
-                    boxShadow:
-                      "0 25px 50px -12px rgba(0,0,0,0.25), 0 12px 24px -8px rgba(0,0,0,0.15), 0 0 0 1px rgba(255,255,255,0.1) inset",
-                  }}
-                >
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={activeFeature.id}
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -8 }}
-                      transition={{ duration: 0.35, ease: [0.25, 0.4, 0.25, 1] }}
-                    >
-                      <Image
-                        src={activeFeature.image}
-                        alt={activeFeature.title}
-                        width={320}
-                        height={693}
-                        className="w-full"
-                      />
-                    </motion.div>
-                  </AnimatePresence>
-
-                  {/* Screen reflection */}
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/[0.08] via-transparent to-transparent" />
+                <div className="relative overflow-hidden rounded-[2.5rem] border-[8px] border-neutral-900 bg-black shadow-[0_20px_40px_-12px_rgba(0,0,0,0.2)]">
+                  {/* Image — simple crossfade */}
+                  <div className="relative aspect-[320/693]">
+                    {features.map((feature, index) => (
+                      <div
+                        key={feature.id}
+                        className="absolute inset-0 transition-opacity duration-300"
+                        style={{
+                          opacity: activeIndex === index ? 1 : 0,
+                          zIndex: activeIndex === index ? 1 : 0,
+                        }}
+                      >
+                        <Image
+                          src={feature.image}
+                          alt={feature.title}
+                          width={320}
+                          height={693}
+                          className="h-full w-full object-cover"
+                          loading={index === 0 ? "eager" : "lazy"}
+                        />
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Feature counter */}
+        {/* Feature counter dots */}
         <div className="mt-8 flex items-center justify-center gap-1.5">
           {features.map((_, index) => (
             <button
@@ -317,6 +287,18 @@ export default function FeatureShowcase() {
           ))}
         </div>
       </div>
+
+      {/* CSS keyframes for progress bar */}
+      <style jsx>{`
+        @keyframes progressFill {
+          from {
+            width: 0%;
+          }
+          to {
+            width: 100%;
+          }
+        }
+      `}</style>
     </section>
   );
 }
