@@ -31,19 +31,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased suppressHydrationWarning bg-[#fafafa]`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased suppressHydrationWarning grain-bg relative min-h-screen w-full bg-[#fafaf8]`}
       >
-        <ThemeProvider
-            defaultTheme="light"
-          >
-
+        <div className="relative z-10">
+          <ThemeProvider defaultTheme="light">
             <NavbarComponent />
             {children}
             <Footer />
             <Analytics />
             <SpeedInsights />
-
           </ThemeProvider>
+        </div>
       </body>
     </html>
   );

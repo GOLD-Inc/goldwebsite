@@ -311,17 +311,7 @@ function TextCard({ member }: { member: TeamMember }) {
 
 export default function TeamPage() {
   return (
-    <main className="relative min-h-screen pb-24 pt-32">
-      {/* Background gradient blobs for glassmorphism */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
-        <div className="absolute -top-20 right-[10%] h-[600px] w-[600px] rounded-full bg-[#EC7013]/15 blur-[100px]" />
-        <div className="absolute top-[20%] -left-20 h-[500px] w-[500px] rounded-full bg-[#065b64]/12 blur-[100px]" />
-        <div className="absolute top-[45%] right-[5%] h-[450px] w-[450px] rounded-full bg-[#f4d03f]/15 blur-[100px]" />
-        <div className="absolute top-[65%] left-[15%] h-[400px] w-[400px] rounded-full bg-[#EC7013]/10 blur-[100px]" />
-        <div className="absolute bottom-[10%] right-[30%] h-[350px] w-[350px] rounded-full bg-[#065b64]/10 blur-[100px]" />
-      </div>
-      {/* Content (relative to sit above gradient blobs) */}
-      <div className="relative">
+    <main className="min-h-screen pb-24 pt-32">
 
       {/* Hero with team photo */}
       <section className="mx-auto max-w-5xl px-6">
@@ -427,8 +417,6 @@ export default function TeamPage() {
           ))}
         </div>
       </section>
-
-      </div>
     </main>
   );
 }
