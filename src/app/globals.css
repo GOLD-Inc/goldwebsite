@@ -156,14 +156,4 @@
   }
 }
 
-/* Dot grid background */
-.grain-bg::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background-image: radial-gradient(circle, rgba(0,0,0,0.12) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
 
