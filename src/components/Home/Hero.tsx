@@ -77,9 +77,9 @@ export default function Hero() {
         colors={[
           "#065b64",
           "#f4d03f",
-          "#ffffff",
-          "#D2E9FF",
-          "#EAD0F7",
+          "#f5e6c8",
+          "#e8d5a3",
+          "#d4c490",
           "#F9E0C9",
           "#0891b2",
         ]}

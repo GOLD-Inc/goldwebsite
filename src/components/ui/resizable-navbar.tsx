@@ -68,7 +68,7 @@ export const Navbar = ({ children, className }: NavbarProps) => {
   return (
     <motion.div
       ref={ref}
-      className={cn("fixed inset-x-0 top-6 z-40 w-full", className)}
+      className={cn("fixed inset-x-0 top-6 z-40 w-full px-4 sm:px-6 lg:px-8", className)}
     >
       {React.Children.map(children, (child) =>
         React.isValidElement(child)
@@ -237,7 +237,7 @@ export const MobileNavMenu = ({
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
           className={cn(
-            "fixed inset-x-4 top-20 z-[70] flex flex-col items-start justify-start gap-4 rounded-2xl px-6 py-8 overflow-hidden",
+            "fixed inset-x-4 top-24 z-[70] flex flex-col items-start justify-start gap-2 rounded-2xl px-8 py-10 overflow-hidden",
             "bg-white/50 border border-white/80",
             "shadow-[0_8px_40px_rgba(0,0,0,0.07),0_2px_0_rgba(255,255,255,0.9)_inset,0_-1px_0_rgba(0,0,0,0.04),0_0_0_0.5px_rgba(255,255,255,0.6)]",
             className

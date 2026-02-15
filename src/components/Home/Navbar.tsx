@@ -15,7 +15,7 @@ import { useState } from "react";
 export function NavbarComponent() {
   const navItems = [
     { name: "Features", link: "/features" },
-    { name: "Media", link: "/media" },
+    { name: "Mission", link: "/mission" },
     { name: "Team", link: "/team" },
     { name: "Support", link: "/support" },
   ];
@@ -56,20 +56,17 @@ export function NavbarComponent() {
             key={`mobile-link-${idx}`}
             href={item.link}
             onClick={() => setIsMobileMenuOpen(false)}
-            className="group relative w-full rounded-xl px-4 py-3.5 text-base font-medium text-neutral-600 transition-all duration-150 active:bg-black/[0.06] active:text-neutral-900 active:scale-[0.97] hover:bg-black/[0.04] hover:text-neutral-900"
+            className="group relative w-full rounded-xl px-4 py-4 text-2xl sm:text-3xl font-semibold text-neutral-900 transition-all duration-150 active:bg-black/[0.06] active:scale-[0.97] hover:bg-black/[0.04]"
           >
-            <span className="relative z-10 flex items-center justify-between">
+            <span className="relative z-10">
               {item.name}
-              <svg className="w-4 h-4 opacity-0 -translate-x-2 transition-all duration-150 group-active:opacity-60 group-active:translate-x-0 group-hover:opacity-40 group-hover:translate-x-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-              </svg>
             </span>
           </a>
         ))}
-        <div className="flex w-full flex-col gap-3 pt-4 border-t border-black/[0.06]">
+        <div className="flex w-full flex-col gap-3 pt-6 border-t border-black/[0.06]">
           <GetAppButton
             size="sm"
-            className="w-full justify-center"
+            className="max-w-[200px] justify-center"
             onClick={() => setIsMobileMenuOpen(false)}
           />
         </div>
