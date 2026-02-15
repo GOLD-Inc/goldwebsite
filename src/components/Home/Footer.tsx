@@ -1,78 +1,33 @@
 import Link from "next/link";
-import {
-  Apple,
-  Users,
-  Handshake,
-  TrendingUp,
-  Building2,
-  Lightbulb,
-  GraduationCap,
-  Box,
-  Mail,
-  MapPin,
-  Phone,
-  Twitter,
-  Linkedin,
-  Instagram,
-  Youtube,
-} from "lucide-react";
-
-function FooterIcon({
-  children,
-  size = "lg",
-  variant = "default",
-}: {
-  children: React.ReactNode;
-  size?: "sm" | "md" | "lg";
-  variant?: "default" | "social";
-}) {
-  const sizeStyles = {
-    sm: "h-8 w-8 rounded-lg",
-    md: "h-9 w-9 rounded-xl",
-    lg: "h-11 w-11 rounded-xl",
-  };
-
-  if (variant === "social") {
-    return (
-      <div
-        className={`${sizeStyles[size]} flex items-center justify-center bg-neutral-100 border border-neutral-200/80 text-neutral-500 transition-all duration-200 hover:-translate-y-0.5 hover:bg-gradient-to-br hover:from-cyan-500 hover:to-orange-500 hover:text-white hover:border-transparent hover:shadow-lg hover:shadow-cyan-500/20 active:scale-95`}
-      >
-        {children}
-      </div>
-    );
-  }
-
-  return (
-    <div
-      className={`${sizeStyles[size]} flex shrink-0 items-center justify-center bg-neutral-100/80 border border-neutral-200/60 text-neutral-500 transition-all duration-200 group-hover:bg-neutral-200/80 group-hover:text-neutral-800 group-hover:border-neutral-300/60`}
-    >
-      {children}
-    </div>
-  );
-}
+import { Twitter, Linkedin, Instagram, Youtube } from "lucide-react";
 
 const footerSections = [
   {
     title: "Download",
+    links: [{ name: "iOS App", href: "#" }],
+  },
+  {
+    title: "Product",
     links: [
-      { name: "iOS App", href: "/download/ios", icon: Apple },
+      { name: "Features", href: "/features" },
+      { name: "App Docs", href: "/docs" },
+      { name: "Support", href: "/support" },
+    ],
+  },
+  {
+    title: "Actions",
+    links: [
+      { name: "Request feature", href: "/support#feature" },
+      { name: "Report bug", href: "/support#bug" },
+      { name: "Contact", href: "/support#contact" },
     ],
   },
   {
     title: "Company",
     links: [
-      { name: "Team", href: "/team", icon: Users },
-      { name: "Partners", href: "/partners", icon: Handshake },
-      { name: "Investors", href: "/investors", icon: TrendingUp },
-      { name: "Companies", href: "/companies", icon: Building2 },
-    ],
-  },
-  {
-    title: "Resources",
-    links: [
-      { name: "Solutions", href: "/solutions", icon: Lightbulb },
-      { name: "Coaching", href: "/coaching", icon: GraduationCap },
-      { name: "Product", href: "/product", icon: Box },
+      { name: "About us", href: "/about" },
+      { name: "Mission", href: "/mission" },
+      { name: "Partners", href: "/partners" },
     ],
   },
 ];
@@ -97,11 +52,9 @@ export default function Footer() {
       <div className="mx-6 h-px bg-gradient-to-r from-transparent via-neutral-300/60 to-transparent" />
 
       <div className="relative overflow-hidden">
- 
-
         <div className="relative z-10 mx-auto max-w-7xl px-6 pt-16 pb-8">
-          {/* Main grid — links first on mobile, brand first on desktop */}
-          <div className="flex flex-col-reverse gap-12 lg:flex-row lg:items-start lg:justify-between">
+          {/* Main grid */}
+          <div className="flex flex-col gap-12 lg:flex-row lg:justify-between">
             {/* Brand column */}
             <div className="max-w-sm space-y-6">
               <Link href="/" className="inline-block">
@@ -113,43 +66,25 @@ export default function Footer() {
                   className="h-10 w-auto"
                 />
               </Link>
-              <p className="text-[15px] leading-relaxed text-neutral-500">
-                Clinical-grade health monitoring meets beautiful design.
-                Reimagining how you take care of yourself.
+              <p className="text-[15px] italic leading-relaxed text-neutral-900">
+                Medal-winning secrets for life.
               </p>
 
-              {/* Contact info */}
-              <div className="space-y-3">
-                <div className="flex items-center gap-3 text-[15px] text-neutral-600">
-                  <Mail className="h-4 w-4 text-neutral-400" />
-                  <span>hello@goldhealth.app</span>
-                </div>
-                <div className="flex items-center gap-3 text-[15px] text-neutral-600">
-                  <Phone className="h-4 w-4 text-neutral-400" />
-                  <span>+1 (800) GOLD-APP</span>
-                </div>
-                <div className="flex items-center gap-3 text-[15px] text-neutral-600">
-                  <MapPin className="h-4 w-4 text-neutral-400" />
-                  <span>San Francisco, CA</span>
-                </div>
-              </div>
-
               {/* Social icons */}
-              <div className="flex items-center gap-2.5 pt-3">
+              <div className="flex items-center gap-2.5 pt-2">
                 {socials.map((social) => (
                   <Link
                     href={social.href}
                     key={social.label}
                     aria-label={social.label}
+                    className="flex h-10 w-10 items-center justify-center rounded-xl bg-neutral-100 border border-neutral-200/80 text-neutral-500 transition-all duration-200 hover:-translate-y-0.5 hover:bg-gradient-to-br hover:from-cyan-500 hover:to-orange-500 hover:text-white hover:border-transparent hover:shadow-lg hover:shadow-cyan-500/20 active:scale-95"
                   >
-                    <FooterIcon size="lg" variant="social">
-                      <social.icon className="h-[18px] w-[18px]" />
-                    </FooterIcon>
+                    <social.icon className="h-[16px] w-[16px]" />
                   </Link>
                 ))}
               </div>
 
-              {/* Backed by EvoNexus — YC-style badge */}
+              {/* Backed by EvoNexus */}
               <a
                 href="https://evonexus.org"
                 target="_blank"
@@ -175,23 +110,20 @@ export default function Footer() {
             </div>
 
             {/* Link columns */}
-            <div className="grid grid-cols-3 gap-8 sm:gap-10 lg:gap-16">
+            <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 sm:gap-10 lg:gap-14">
               {footerSections.map((section) => (
                 <div key={section.title}>
-                  <h4 className="mb-4 sm:mb-5 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.12em] text-neutral-900">
+                  <h4 className="mb-4 text-sm font-semibold text-neutral-400">
                     {section.title}
                   </h4>
-                  <ul className="space-y-3 sm:space-y-4">
+                  <ul className="space-y-3">
                     {section.links.map((link) => (
                       <li key={link.name}>
                         <Link
                           href={link.href}
-                          className="group flex items-center gap-2.5 sm:gap-3 text-[13px] sm:text-[15px] text-neutral-700 transition-colors duration-200 hover:text-neutral-900"
+                          className="text-sm font-medium text-neutral-800 transition-colors duration-200 hover:text-neutral-950"
                         >
-                          <FooterIcon size="md">
-                            <link.icon className="h-4 w-4" />
-                          </FooterIcon>
-                          <span className="font-medium group-hover:underline">{link.name}</span>
+                          {link.name}
                         </Link>
                       </li>
                     ))}
@@ -221,7 +153,7 @@ export default function Footer() {
                       {link.name}
                     </Link>
                     {idx < legalLinks.length - 1 && (
-                      <span className="text-neutral-300">·</span>
+                      <span className="text-neutral-300">&middot;</span>
                     )}
                   </span>
                 ))}

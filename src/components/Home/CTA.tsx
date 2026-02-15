@@ -13,7 +13,7 @@ export default function CTA() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
-          className="relative overflow-hidden rounded-[2.5rem] border border-white/30 bg-white/40 px-8 py-16 text-center shadow-[0_8px_60px_rgba(0,0,0,0.06)] backdrop-blur-2xl sm:px-16 sm:py-20"
+          className="relative overflow-hidden rounded-[2.5rem] sm:rounded-[3rem] border border-white/30 bg-white/40 px-8 py-16 text-center shadow-[0_8px_60px_rgba(0,0,0,0.06)] backdrop-blur-2xl sm:px-16 sm:py-20"
         >
           {/* Decorative gradient orbs */}
           <div className="pointer-events-none absolute -top-20 -left-20 h-60 w-60 rounded-full bg-[#EC7013]/20 blur-[80px]" />
@@ -22,11 +22,7 @@ export default function CTA() {
 
           {/* Content */}
           <div className="relative z-10">
-            <div className="text-sm font-semibold uppercase tracking-[0.2em] text-neutral-400">
-              Ready to Start?
-            </div>
-
-            <h2 className="mx-auto mt-5 max-w-lg text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl lg:text-5xl">
+            <h2 className="mx-auto max-w-lg text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl lg:text-5xl">
               Your health deserves
               <span className="bg-gradient-to-r from-[#EC7013] to-[#f4d03f] bg-clip-text text-transparent">
                 {" "}gold standard{" "}

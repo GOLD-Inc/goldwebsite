@@ -168,7 +168,7 @@ export default function Hero() {
         variants={fadeUp}
         initial="hidden"
         animate="visible"
-        style={{ y: phoneY, willChange: "transform" }}
+        style={{ willChange: "transform" }}
         className="relative z-10 mx-auto mt-12 flex justify-center px-6"
       >
         <div className="relative w-[280px] sm:w-[320px] md:w-[360px]">

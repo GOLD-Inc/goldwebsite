@@ -105,9 +105,6 @@ export default function FeatureShowcase() {
       <div className="mx-auto max-w-7xl px-6">
         {/* Section header */}
         <div className="mb-12 text-center sm:mb-16">
-          <div className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-neutral-400">
-            Features
-          </div>
           <h2 className="text-4xl font-bold tracking-tight text-neutral-900 sm:text-5xl md:text-6xl">
             Take a closer look.
           </h2>
@@ -120,7 +117,7 @@ export default function FeatureShowcase() {
         {/* Card */}
         {/* Glass card */}
         <div
-          className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl border border-white/60 p-6 sm:p-10 lg:p-14"
+          className="relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] border border-white/60 p-6 sm:p-10 lg:p-14"
           style={{
             background:
               "linear-gradient(135deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.3) 100%)",
@@ -131,7 +128,7 @@ export default function FeatureShowcase() {
           }}
         >
           {/* Glass shine */}
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-[40%] bg-gradient-to-b from-white/50 to-transparent rounded-t-3xl" />
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-[40%] bg-gradient-to-b from-white/50 to-transparent rounded-t-[2.5rem]" />
 
         
                   {/* Content grid */}

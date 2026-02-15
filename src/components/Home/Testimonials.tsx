@@ -92,11 +92,7 @@ export default function Testimonials() {
             viewport={{ once: true }}
             className="flex flex-col items-center justify-center max-w-[540px] mx-auto"
           >
-            <div className="text-sm font-semibold uppercase tracking-[0.2em] text-white/50">
-              Testimonials
-            </div>
-
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mt-5 text-white text-center">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white text-center">
               Loved by athletes &amp; coaches worldwide
             </h2>
             <p className="text-center mt-5 text-white/60 max-w-md leading-relaxed">

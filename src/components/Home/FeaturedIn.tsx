@@ -18,9 +18,6 @@ export default function FeaturedIn() {
       <div className="mx-auto max-w-5xl px-6">
         {/* Tagline */}
         <div className="mb-10 text-center sm:mb-12">
-          <div className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-neutral-400">
-            Featured In
-          </div>
           <p className="mx-auto max-w-lg text-lg font-medium leading-relaxed text-neutral-600 sm:text-xl">
             From the Olympics to the big screen — our technology is everywhere.
           </p>
