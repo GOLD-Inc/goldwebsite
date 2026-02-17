@@ -76,31 +76,39 @@ export default function SupportPage() {
 
   const currentTopic = topics.find((t) => t.id === selectedTopic)!;
 
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSending(true);
+    setError("");
 
-    // TODO: Replace YOUR_FORM_ID with your Formspree form ID
-    // Sign up at https://formspree.io and create a form to get an ID
-    // Or use a Next.js API route with Resend/Nodemailer
     try {
-      await fetch("https://formspree.io/f/YOUR_FORM_ID", {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          _subject: `[Gold Health] ${currentTopic.label}`,
           topic: currentTopic.label,
           name: name || undefined,
           email,
-          context_question: currentTopic.prompt,
-          context_answer: contextAnswer || undefined,
+          contextQuestion: currentTopic.prompt,
+          contextAnswer: contextAnswer || undefined,
           message,
         }),
       });
-    } catch {
-      // Still show success — form data was attempted
-    }
 
-    setSubmitted(true);
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || "Something went wrong.");
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to send message.");
+    } finally {
+      setSending(false);
+    }
   };
 
   if (submitted) {
@@ -286,12 +294,20 @@ export default function SupportPage() {
             />
           </div>
 
+          {/* Error */}
+          {error && (
+            <p className="rounded-xl bg-red-50 px-4 py-3 text-sm text-red-600">
+              {error}
+            </p>
+          )}
+
           {/* Submit */}
           <button
             type="submit"
-            className="w-full rounded-xl bg-neutral-900 px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-neutral-800 cursor-pointer"
+            disabled={sending}
+            className="w-full rounded-xl bg-neutral-900 px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-neutral-800 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Send message
+            {sending ? "Sending..." : "Send message"}
           </button>
 
           <p className="text-center text-xs text-neutral-400">
