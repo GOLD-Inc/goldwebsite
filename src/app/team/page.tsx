@@ -1,11 +1,9 @@
-import type { Metadata } from "next";
-import Image from "next/image";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Our Team — Gold Health",
-  description:
-    "Meet the world-class team behind Gold Health — Olympic athletes, AI pioneers, NASA astronauts, and healthcare innovators.",
-};
+import Image from "next/image";
+import { useState, useEffect } from "react";
+import { X, ChevronDown } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 /* ------------------------------------------------------------------ */
 /*  Data                                                               */
@@ -15,8 +13,8 @@ interface TeamMember {
   name: string;
   role: string;
   photo?: string;
-  bio?: string;
-  // linkedin?: string;
+  bio?: string[];
+  linkedin?: string;
 }
 
 interface Partner {
@@ -24,268 +22,252 @@ interface Partner {
   description: string;
 }
 
-const leadership: TeamMember[] = [
+const founders: TeamMember[] = [
   {
     name: "Sky Christopherson",
-    role: "Founder & CEO",
+    role: "Founder",
     photo: "/Team-Photos/Headshots/sky-christopherson.jpg.webp",
-    bio: "Olympic Gold Medalist and pioneer in athlete health technology. Sky founded Gold Health to bring clinical-grade health monitoring to everyone.",
+    linkedin: "https://www.linkedin.com/in/skychristopherson/",
+    bio: [
+      "Sky Christopherson is an Olympic cyclist, world record holder, and multiple patent-holding innovator at the intersection of sport, technology, and public health. Featured in Fortune, Sports Illustrated, Outside Magazine, and the Financial Times, he is the inventor of 10 issued core AI coaching patents that define the next frontier of AI-powered health and wellness.",
+      "Sky pioneered a data-driven model to set a world record and supported the U.S. Olympic team in winning Olympic medals, captured in the award-winning documentary Personal Gold. At the Paris Olympic Games, he announced GOLD, the consumer platform with the mission of helping everyone thrive.",
+    ],
   },
   {
     name: "Tom Gruber",
-    role: "Co-Founder — Creator of Siri (Apple)",
+    role: "Founding Advisor",
     photo: "/Team-Photos/Headshots/Tom-Gruber.jpg.webp",
-    bio: "Co-creator of Siri at Apple and leading AI visionary. Tom brings decades of experience building intelligence systems that understand people.",
+    linkedin: "https://www.linkedin.com/in/tomgruberprofile/",
+    bio: [
+      "Tom Gruber is the co-founder of Apple\u2019s Siri, the first widely deployed intelligent assistant. As Siri\u2019s CTO and head of design, he guided the product through its acquisition by Apple, a core feature used over a billion times daily.",
+      "For over four decades, Tom has pursued a singular mission: to use AI to augment human intelligence, not replace it. In 2024, he joined GOLD as a founding advisor, then co-founder in 2025 to help build emotionally intelligent AI Avatar Coaches that combine behavioral science, real-time data, and human connection to deliver scalable wellness.",
+    ],
   },
 ];
 
-const coreTeam: TeamMember[] = [
+const buildingTheFuture: TeamMember[] = [
   {
     name: "Stefan Groschupf",
     role: "Founding Advisor",
     photo: "/Team-Photos/Headshots/Stefan-Groschupf.jpg.webp",
+    linkedin: "https://www.linkedin.com/in/stefangroschupf/",
+    bio: [
+      "Stefan Groschupf is a multi-time Silicon Valley AI founder. He founded Datameer, the company that provided data analytics to GOLD\u2019s Olympic project. He also founded Automation Hero, and Centrum-AI, with over two decades building distributed systems and AI infrastructure.",
+      "At GOLD, Stefan advises on CTO strategy and ensures the platform is scalable, secure, and investor-ready, translating the company\u2019s vision into a robust technical foundation that supports measurable health outcomes and rapid growth.",
+    ],
   },
   {
     name: "Bekzod Rakhmatov",
     role: "Lead AI Engineer",
     photo: "/Team-Photos/Headshots/Bekzod.jpg.webp",
+    linkedin: "https://www.linkedin.com/in/bekzodrakhmatov/",
+    bio: [
+      "Bekzod Rakhmatov is a Lead Software and Engineer at GOLD, where he leads mobile and AI architecture for next-generation coaching experiences. He specializes in building high-performance iOS systems paired with intelligent backend services, turning complex AI capabilities into fast, reliable product features.",
+      "He has shipped and scaled consumer apps across fitness, smart devices, and cloud streaming, and brings strong technical leadership in Swift, full-stack development, and applied AI to deliver polished, production-ready software.",
+    ],
   },
   {
-    name: "Yvonne Cagle, MD",
-    role: "Scientific Advisor — NASA Astronaut",
+    name: "Dr. Yvonne Cagle",
+    role: "Scientific Advisor",
     photo: "/Team-Photos/Headshots/Yvonne-Cagle.jpg.webp",
+    linkedin: "https://www.linkedin.com/in/yvonnedcagle/",
+    bio: [
+      "Dr. Yvonne Cagle is a physician whose pioneering research examines human health and resilience in extreme environments, including space. Her work on muscle loss, bone decline, and cognitive strain offers critical insights into the effects of modern sedentary lifestyles.",
+      "As a GOLD advisor, Dr. Cagle helps shape our AI Avatar Coaches to guide users toward more active, resilient lives \u2014 applying proven science to support mental health, vitality, and longevity, aligned with GOLD\u2019s mission to make evidence-based health accessible to all.",
+    ],
   },
   {
     name: "Bao Tran",
     role: "Patent Attorney",
     photo: "/Team-Photos/Headshots/Bao-Tran.jpg.webp",
+    linkedin: "https://www.linkedin.com/in/baotran/",
+    bio: [
+      "Bao Tran is a Silicon Valley-based investor focusing on early-stage technology ventures. He is also the founder of PowerPatent, a SaaS company streamlining IP workflows with AI, and a partner at PatentPC, where he advises startups on patent strategy and IP monetization.",
+      "Bao is an investor in GOLD and serving as our in-house IP attorney, securing 7 patents issued for core AI coaching technologies, and 3 favorably disposed (upcoming issuance).",
+    ],
   },
 ];
 
 const partners: Partner[] = [
-  {
-    name: "EvoNexus",
-    description: "Incubator — 2026 Selection",
-  },
-  {
-    name: "Cooley LLP",
-    description: "Outside Counsel",
-  },
+  { name: "EvoNexus", description: "Incubator \u2014 2026 Selection" },
+  { name: "Cooley LLP", description: "Outside Counsel" },
 ];
 
 const advisors: TeamMember[] = [
-  {
-    name: "Vince Voron",
-    role: "Former Apple. Design Advisor",
-  },
-  {
-    name: "Nataliia Karpenko",
-    role: "Former Meta, Product Advisor",
-  },
-  {
-    name: "Quincy Burgers",
-    role: "Equinox Level 1 Trainer, Advisor",
-  },
-  {
-    name: "Ben Dubin",
-    role: "Digital Health & VC Advisor",
-  },
-];
-
-const consultants: TeamMember[] = [
-  {
-    name: "Dr. Sarah Townley",
-    role: "Health Coaching Consultant",
-  },
-  {
-    name: "Michael Ostrolenk",
-    role: "Marketing Consultant",
-  },
-  {
-    name: "Elizabeth Frances",
-    role: "Health Coaching Consultant",
-  },
+  { name: "Vince Voron", role: "Former Apple. Design Advisor" },
+  { name: "Nataliia Karpenko", role: "Former Meta, Product Advisor" },
+  { name: "Ben Dubin", role: "Digital Health & VC Advisor" },
+  { name: "Dr. Sarah Townley", role: "Health Coaching Consultant" },
+  { name: "Michael Ostrolenk", role: "Marketing Consultant" },
+  { name: "Elizabeth Frances", role: "Health Coaching Consultant" },
+  { name: "Quincy Burgers", role: "Equinox Level 1 Trainer, Fitness Coaching Advisor" },
 ];
 
 const investors: TeamMember[] = [
-  {
-    name: "Philip Marshall",
-    role: "London based PE. Pre-SEED",
-  },
-  {
-    name: "Bill Simpson",
-    role: "Pre-SEED & Tech Advisory",
-  },
-  {
-    name: "D. Christopherson",
-    role: "Pre-SEED",
-  },
-  {
-    name: "Reza Kazemipour",
-    role: "Prototype Investor & VC Advisory",
-  },
+  { name: "Philip Marshall", role: "London based PE. Pre-SEED" },
+  { name: "Bill Simpson", role: "Pre-SEED & Tech Advisory" },
+  { name: "D. Christopherson", role: "Pre-SEED" },
+  { name: "Reza Kazemipour", role: "Prototype Investor & VC Advisory" },
 ];
 
 const firstOlympicProject: TeamMember[] = [
-  {
-    name: "Adam Laurent",
-    role: "Olympian, Drug-Free Program",
-  },
-  {
-    name: "Tamara Cheek",
-    role: "Olympian, Personal Gold Director",
-  },
-  {
-    name: "Dr. Eric Topol",
-    role: "Digital Health Advisor",
-  },
-  {
-    name: "Rich Yang",
-    role: "CGM Advisor & GOLD Sensing Advisor",
-  },
-  {
-    name: "CDR Mark Divine",
-    role: "Navy SEAL. Team Building Advisor",
-  },
-  {
-    name: "Michael Morris, MD",
-    role: "Medical Advisor & Pre-SEED Investor",
-  },
+  { name: "Adam Laurent", role: "Olympian, Drug-Free Program" },
+  { name: "Tamara Cheek", role: "Olympian, Personal Gold Director" },
+  { name: "Dr. Eric Topol", role: "Digital Health Advisor" },
+  { name: "Rich Yang", role: "CGM Advisor & GOLD Sensing Advisor" },
+  { name: "CDR Mark Divine", role: "Navy SEAL. Team Building Advisor" },
+  { name: "Michael Morris, MD", role: "Medical Advisor & Pre-SEED Investor" },
 ];
 
 /* ------------------------------------------------------------------ */
-/*  Helpers                                                            */
+/*  Modal                                                              */
 /* ------------------------------------------------------------------ */
 
-function getInitials(name: string) {
-  return name
-    .split(" ")
-    .filter((w) => !w.includes(".") || w.length <= 3)
-    .map((w) => w[0])
-    .join("")
-    .toUpperCase()
-    .slice(0, 2);
-}
-
-const INITIALS_COLORS = [
-  "from-[#065b64] to-[#0a8f9c]",
-  "from-[#EC7013] to-[#f4a261]",
-  "from-[#7c3aed] to-[#a78bfa]",
-  "from-[#065b64] to-[#10b981]",
-  "from-[#d97706] to-[#f4d03f]",
-  "from-[#6366f1] to-[#818cf8]",
-];
-
-function colorForName(name: string) {
-  let hash = 0;
-  for (let i = 0; i < name.length; i++) {
-    hash = name.charCodeAt(i) + ((hash << 5) - hash);
-  }
-  return INITIALS_COLORS[Math.abs(hash) % INITIALS_COLORS.length];
-}
-
-/* ------------------------------------------------------------------ */
-/*  Sub-components                                                     */
-/* ------------------------------------------------------------------ */
-
-function SectionHeading({
-  label,
-  title,
+function MemberModal({
+  member,
+  onClose,
 }: {
-  label: string;
-  title: string;
+  member: TeamMember;
+  onClose: () => void;
 }) {
+  // Lock body scroll
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, []);
+
   return (
-    <div className="mb-10 text-center">
-      <div className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-neutral-400">
-        {label}
-      </div>
-      <h2 className="text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">
-        {title}
-      </h2>
-    </div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8"
+      onClick={onClose}
+    >
+      {/* Backdrop */}
+      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
+
+      {/* Modal card */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95, y: 10 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.95, y: 10 }}
+        transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
+        className="relative z-10 flex max-h-[85vh] w-full max-w-2xl flex-col overflow-hidden rounded-[2rem] border border-neutral-200 bg-white"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Close button */}
+        <button
+          onClick={onClose}
+          className="absolute right-4 top-4 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-black/40 text-white/90 backdrop-blur-sm transition-colors hover:bg-black/60 cursor-pointer"
+        >
+          <X className="h-4 w-4" />
+        </button>
+
+        {/* Image */}
+        {member.photo && (
+          <div className="relative w-full shrink-0 bg-neutral-100">
+            <Image
+              src={member.photo}
+              alt={member.name}
+              width={672}
+              height={500}
+              className="w-full h-auto max-h-[40vh] object-contain"
+              sizes="(max-width: 768px) 100vw, 672px"
+            />
+          </div>
+        )}
+
+        {/* Bio content */}
+        <div className="flex-1 overflow-y-auto p-6 sm:p-8">
+          <h3 className="text-2xl font-bold text-neutral-900 sm:text-3xl">
+            {member.name}
+          </h3>
+          <p className="mt-1 text-base font-medium text-neutral-500">
+            {member.role}
+          </p>
+
+          <div className="mt-6 space-y-4">
+            {member.bio?.map((paragraph, i) => (
+              <p
+                key={i}
+                className="text-[15px] leading-relaxed text-neutral-600"
+              >
+                {paragraph}
+              </p>
+            ))}
+          </div>
+          {member.linkedin && (
+            <a
+              href={member.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-block text-sm font-medium text-[#065b64] hover:underline"
+              onClick={(e) => e.stopPropagation()}
+            >
+              View LinkedIn profile &rarr;
+            </a>
+          )}
+        </div>
+      </motion.div>
+    </motion.div>
   );
 }
 
-function Avatar({
-  name,
-  photo,
-  size = 80,
+/* ------------------------------------------------------------------ */
+/*  Cards                                                              */
+/* ------------------------------------------------------------------ */
+
+function PhotoCard({
+  member,
+  onOpen,
+  size = "large",
 }: {
-  name: string;
-  photo?: string;
-  size?: number;
+  member: TeamMember;
+  onOpen: () => void;
+  size?: "large" | "medium";
 }) {
-  if (photo) {
-    return (
-      <div
-        className="relative shrink-0 overflow-hidden rounded-full ring-2 ring-white/80"
-        style={{ width: size, height: size }}
-      >
+  const aspect = size === "large" ? "aspect-[3/4]" : "aspect-[3/4]";
+  const nameSize =
+    size === "large"
+      ? "text-xl font-bold sm:text-2xl"
+      : "text-base font-bold sm:text-lg";
+  const roleSize = size === "large" ? "text-sm" : "text-xs";
+  const rounding =
+    size === "large" ? "rounded-[2rem]" : "rounded-[1.75rem]";
+  const padding = size === "large" ? "p-6" : "p-4 sm:p-5";
+
+  return (
+    <button
+      onClick={onOpen}
+      className={`group relative ${aspect} w-full overflow-hidden ${rounding} border border-neutral-200/80 bg-neutral-100 text-left transition-colors duration-200 hover:border-neutral-300 cursor-pointer`}
+    >
+      {member.photo && (
         <Image
-          src={photo}
-          alt={name}
+          src={member.photo}
+          alt={member.name}
           fill
           className="object-cover"
-          sizes={`${size}px`}
+          sizes={size === "large" ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 768px) 50vw, 33vw"}
         />
-      </div>
-    );
-  }
-
-  return (
-    <div
-      className={`flex shrink-0 items-center justify-center rounded-full bg-gradient-to-br ${colorForName(name)} ring-2 ring-white/80`}
-      style={{ width: size, height: size }}
-    >
-      <span
-        className="font-semibold text-white"
-        style={{ fontSize: size * 0.35 }}
-      >
-        {getInitials(name)}
-      </span>
-    </div>
-  );
-}
-
-function FeaturedCard({ member }: { member: TeamMember }) {
-  return (
-    <div className="group flex flex-col items-center gap-6 rounded-3xl border border-white/50 bg-white/30 p-8 shadow-[0_8px_32px_rgba(0,0,0,0.08),inset_0_1px_0_rgba(255,255,255,0.6)] backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1 hover:border-white/70 hover:bg-white/40 hover:shadow-[0_16px_48px_rgba(0,0,0,0.12),inset_0_1px_0_rgba(255,255,255,0.8)] sm:flex-row sm:items-start">
-      <Avatar name={member.name} photo={member.photo} size={120} />
-      <div className="text-center sm:text-left">
-        <h3 className="text-xl font-bold text-neutral-900">{member.name}</h3>
-        <p className="mt-1 text-sm font-medium text-[#EC7013]">
+      )}
+      <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
+      <div className={`absolute inset-x-0 bottom-0 ${padding}`}>
+        <h3 className={`${nameSize} text-white`}>{member.name}</h3>
+        <p className={`mt-0.5 ${roleSize} font-medium text-white/75`}>
           {member.role}
         </p>
-        {member.bio && (
-          <p className="mt-3 text-sm leading-relaxed text-neutral-600">
-            {member.bio}
-          </p>
-        )}
-        {/* <a href="#" className="mt-3 inline-block text-sm text-neutral-400 hover:text-neutral-600">LinkedIn &rarr;</a> */}
       </div>
-    </div>
-  );
-}
-
-function MemberCard({ member }: { member: TeamMember }) {
-  return (
-    <div className="group flex flex-col items-center rounded-3xl border border-white/50 bg-white/30 p-6 shadow-[0_8px_32px_rgba(0,0,0,0.08),inset_0_1px_0_rgba(255,255,255,0.6)] backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1 hover:border-white/70 hover:bg-white/40 hover:shadow-[0_16px_48px_rgba(0,0,0,0.12),inset_0_1px_0_rgba(255,255,255,0.8)]">
-      <Avatar name={member.name} photo={member.photo} />
-      <h3 className="mt-4 text-center text-sm font-semibold text-neutral-900">
-        {member.name}
-      </h3>
-      <p className="mt-1 text-center text-xs text-neutral-500">
-        {member.role}
-      </p>
-      {/* <a href="#" className="mt-2 text-xs text-neutral-400 hover:text-neutral-600">LinkedIn</a> */}
-    </div>
+    </button>
   );
 }
 
 function PartnerCard({ partner }: { partner: Partner }) {
   return (
-    <div className="rounded-3xl border border-white/40 bg-white/20 px-6 py-5 shadow-[0_8px_32px_rgba(0,0,0,0.06)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-white/60 hover:bg-white/30 hover:shadow-[0_8px_32px_rgba(0,0,0,0.12)]">
+    <div className="rounded-[1.5rem] border border-neutral-200/80 bg-white px-6 py-5 transition-colors duration-200 hover:border-neutral-300">
       <h3 className="text-sm font-semibold text-neutral-900">
         {partner.name}
       </h3>
@@ -296,11 +278,52 @@ function PartnerCard({ partner }: { partner: Partner }) {
 
 function TextCard({ member }: { member: TeamMember }) {
   return (
-    <div className="rounded-3xl border border-white/40 bg-white/20 px-6 py-5 shadow-[0_8px_32px_rgba(0,0,0,0.06)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-white/60 hover:bg-white/30 hover:shadow-[0_8px_32px_rgba(0,0,0,0.12)]">
+    <div className="rounded-[1.5rem] border border-neutral-200/80 bg-white px-6 py-5 transition-colors duration-200 hover:border-neutral-300">
       <h3 className="text-sm font-semibold text-neutral-900">
         {member.name}
       </h3>
       <p className="mt-1 text-xs text-neutral-500">{member.role}</p>
+    </div>
+  );
+}
+
+function ExpandableSection({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="border-t border-neutral-200/60">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex w-full items-center justify-between py-6 text-left cursor-pointer"
+      >
+        <h2 className="text-2xl font-bold tracking-tight text-neutral-900 sm:text-3xl">
+          {title}
+        </h2>
+        <ChevronDown
+          className={`h-6 w-6 text-neutral-400 transition-transform duration-300 ${
+            isOpen ? "rotate-180" : ""
+          }`}
+        />
+      </button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="overflow-hidden"
+          >
+            <div className="pb-8">{children}</div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
@@ -310,13 +333,23 @@ function TextCard({ member }: { member: TeamMember }) {
 /* ------------------------------------------------------------------ */
 
 export default function TeamPage() {
+  const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
+
   return (
     <main className="min-h-screen pb-24 pt-32">
+      {/* Modal */}
+      <AnimatePresence>
+        {selectedMember && (
+          <MemberModal
+            member={selectedMember}
+            onClose={() => setSelectedMember(null)}
+          />
+        )}
+      </AnimatePresence>
 
-      {/* Hero with team photo */}
+      {/* Hero */}
       <section className="mx-auto max-w-5xl px-6">
-        <div className="relative overflow-hidden rounded-3xl">
-          {/* Team photo background */}
+        <div className="relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem]">
           <div className="relative h-[280px] sm:h-[340px]">
             <Image
               src="/Team-Photos/Team photos/team.webp"
@@ -326,15 +359,10 @@ export default function TeamPage() {
               sizes="(max-width: 1280px) 100vw, 1280px"
               priority
             />
-            {/* Dark overlay for text readability */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20" />
           </div>
-          {/* Glass overlay with text */}
           <div className="absolute inset-0 flex flex-col items-center justify-end pb-10 text-center">
-            <div className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-white/70">
-              Who We Are
-            </div>
-            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
               Our Team
             </h1>
             <p className="mx-auto mt-4 max-w-2xl px-4 text-base leading-relaxed text-white/80">
@@ -345,77 +373,99 @@ export default function TeamPage() {
         </div>
       </section>
 
-      {/* Leadership */}
+      {/* Founders */}
       <section className="mx-auto mt-20 max-w-5xl px-6">
-        <SectionHeading label="Leadership" title="Founded by the Best" />
-        <div className="grid gap-6 md:grid-cols-2">
-          {leadership.map((member) => (
-            <FeaturedCard key={member.name} member={member} />
+        <h2 className="mb-10 text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl lg:text-5xl">
+          Founders
+        </h2>
+        <div className="flex flex-col gap-6 sm:flex-row">
+          {founders.map((member) => (
+            <div key={member.name} className="flex-1">
+              <PhotoCard
+                member={member}
+                onOpen={() => setSelectedMember(member)}
+                size="large"
+              />
+            </div>
           ))}
         </div>
       </section>
 
-      {/* Core Team */}
+      {/* Building the Future */}
       <section className="mx-auto mt-24 max-w-5xl px-6">
-        <SectionHeading label="Core Team" title="Building the Future" />
-        <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
-          {coreTeam.map((member) => (
-            <MemberCard key={member.name} member={member} />
+        <h2 className="mb-10 text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl lg:text-5xl">
+          Building the Future
+        </h2>
+        <div className="flex flex-wrap gap-5">
+          {buildingTheFuture.map((member) => (
+            <div
+              key={member.name}
+              className="w-[calc(50%-10px)] sm:w-[calc(33.333%-14px)]"
+            >
+              <PhotoCard
+                member={member}
+                onOpen={() => setSelectedMember(member)}
+                size="medium"
+              />
+            </div>
           ))}
         </div>
       </section>
 
-      {/* Partners */}
+      {/* Strategic Partners */}
       <section className="mx-auto mt-24 max-w-5xl px-6">
-        <SectionHeading label="Partners" title="Strategic Partners" />
-        <div className="mx-auto grid max-w-2xl gap-5 sm:grid-cols-2">
+        <h2 className="mb-10 text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl lg:text-5xl">
+          Strategic Partners
+        </h2>
+        <div className="mx-auto flex max-w-2xl flex-col gap-5 sm:flex-row">
           {partners.map((partner) => (
-            <PartnerCard key={partner.name} partner={partner} />
+            <div key={partner.name} className="flex-1">
+              <PartnerCard partner={partner} />
+            </div>
           ))}
         </div>
       </section>
 
-      {/* Advisors */}
+      {/* Expandable sections */}
       <section className="mx-auto mt-24 max-w-5xl px-6">
-        <SectionHeading label="Advisors" title="Guided by Experts" />
-        <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
-          {advisors.map((member) => (
-            <TextCard key={member.name} member={member} />
-          ))}
-        </div>
-      </section>
+        <ExpandableSection title="Advisors & Consultants">
+          <div className="flex flex-wrap gap-4">
+            {advisors.map((member) => (
+              <div
+                key={member.name}
+                className="w-[calc(50%-8px)] sm:w-[calc(33.333%-11px)] lg:w-[calc(25%-12px)]"
+              >
+                <TextCard member={member} />
+              </div>
+            ))}
+          </div>
+        </ExpandableSection>
 
-      {/* Consultants */}
-      <section className="mx-auto mt-24 max-w-5xl px-6">
-        <SectionHeading label="Consultants" title="Specialized Expertise" />
-        <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
-          {consultants.map((member) => (
-            <TextCard key={member.name} member={member} />
-          ))}
-        </div>
-      </section>
+        <ExpandableSection title="Investors">
+          <div className="flex flex-wrap gap-4">
+            {investors.map((member) => (
+              <div
+                key={member.name}
+                className="w-[calc(50%-8px)] sm:w-[calc(33.333%-11px)] lg:w-[calc(25%-12px)]"
+              >
+                <TextCard member={member} />
+              </div>
+            ))}
+          </div>
+        </ExpandableSection>
 
-      {/* Investors */}
-      <section className="mx-auto mt-24 max-w-5xl px-6">
-        <SectionHeading label="Investors" title="Backed by Believers" />
-        <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
-          {investors.map((member) => (
-            <TextCard key={member.name} member={member} />
-          ))}
-        </div>
-      </section>
-
-      {/* First Olympic Project */}
-      <section className="mx-auto mt-24 max-w-5xl px-6">
-        <SectionHeading
-          label="Where It Started"
-          title="First Olympic Project"
-        />
-        <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
-          {firstOlympicProject.map((member) => (
-            <TextCard key={member.name} member={member} />
-          ))}
-        </div>
+        <ExpandableSection title="Olympic Project">
+          <div className="flex flex-wrap gap-4">
+            {firstOlympicProject.map((member) => (
+              <div
+                key={member.name}
+                className="w-[calc(50%-8px)] sm:w-[calc(33.333%-11px)] lg:w-[calc(25%-12px)]"
+              >
+                <TextCard member={member} />
+              </div>
+            ))}
+          </div>
+        </ExpandableSection>
       </section>
     </main>
   );
