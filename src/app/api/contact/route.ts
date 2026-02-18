@@ -19,7 +19,7 @@ export async function POST(req: Request) {
     }
 
     const { error } = await resend.emails.send({
-      from: "Gold Health <onboarding@resend.dev>",
+      from: "Gold Health <support@goldhealth.ai>",
       to: [RECIPIENT_EMAIL],
       replyTo: email,
       subject: `[Gold Health] ${topic}`,
