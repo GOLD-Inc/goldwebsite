@@ -20,6 +20,7 @@ interface TeamMember {
 interface Partner {
   name: string;
   description: string;
+  url?: string;
 }
 
 const founders: TeamMember[] = [
@@ -89,8 +90,8 @@ const buildingTheFuture: TeamMember[] = [
 ];
 
 const partners: Partner[] = [
-  { name: "EvoNexus", description: "Incubator \u2014 2026 Selection" },
-  { name: "Cooley LLP", description: "Outside Counsel" },
+  { name: "EvoNexus", description: "Incubator \u2014 2026 Selection", url: "https://evonexus.org" },
+  { name: "Cooley LLP", description: "Outside Counsel", url: "https://www.cooley.com" },
 ];
 
 const advisors: TeamMember[] = [
@@ -266,12 +267,31 @@ function PhotoCard({
 }
 
 function PartnerCard({ partner }: { partner: Partner }) {
-  return (
-    <div className="rounded-[1.5rem] border border-neutral-200/80 bg-white px-6 py-5 transition-colors duration-200 hover:border-neutral-300">
+  const content = (
+    <>
       <h3 className="text-sm font-semibold text-neutral-900">
         {partner.name}
       </h3>
       <p className="mt-1 text-xs text-neutral-500">{partner.description}</p>
+    </>
+  );
+
+  if (partner.url) {
+    return (
+      <a
+        href={partner.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group block rounded-[1.5rem] border border-neutral-200/80 bg-white px-6 py-5 transition-colors duration-200 hover:border-[#065b64]/40 hover:bg-[#065b64]/[0.02] cursor-pointer"
+      >
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <div className="rounded-[1.5rem] border border-neutral-200/80 bg-white px-6 py-5 transition-colors duration-200 hover:border-neutral-300">
+      {content}
     </div>
   );
 }
