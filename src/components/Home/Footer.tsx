@@ -66,7 +66,7 @@ export default function Footer() {
                   className="h-10 w-auto"
                 />
               </Link>
-              <p className="text-[15px] italic leading-relaxed text-neutral-900">
+              <p className="text-[15px] leading-relaxed text-neutral-900">
                 Medal-winning secrets for life.
               </p>
 
