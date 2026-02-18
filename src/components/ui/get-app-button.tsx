@@ -27,7 +27,7 @@ interface GetAppButtonProps {
 }
 
 export function GetAppButton({
-  href = "#",
+  href = "https://apps.apple.com/us/app/gold-ai/id1334427427",
   size = "md",
   label = "Get App",
   className,
@@ -48,6 +48,8 @@ export function GetAppButton({
   return (
     <motion.a
       href={href}
+      target="_blank"
+      rel="noopener noreferrer"
       onClick={onClick}
       className={cn(
         "group relative inline-flex items-center overflow-hidden rounded-full bg-gradient-to-r from-cyan-500 to-orange-500 font-semibold text-white shadow-lg transition-all duration-300 hover:from-cyan-400 hover:to-orange-400 hover:shadow-xl cursor-pointer",
