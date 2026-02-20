@@ -381,7 +381,7 @@ export default function TeamPage() {
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
 
   return (
-    <main className="min-h-screen pb-24 pt-32">
+    <main className="min-h-screen pb-24">
       {/* Modal */}
       <AnimatePresence>
         {selectedMember && (
@@ -393,26 +393,24 @@ export default function TeamPage() {
       </AnimatePresence>
 
       {/* Hero */}
-      <section className="mx-auto max-w-5xl px-6">
+      <section className="mx-auto max-w-5xl px-6 pt-32">
         <div className="relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem]">
-          <div className="relative h-[280px] sm:h-[340px]">
-            <Image
-              src="/Team-Photos/Team photos/team.webp"
-              alt="Gold Health Team"
-              fill
-              className="object-cover"
-              sizes="(max-width: 1280px) 100vw, 1280px"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20" />
-          </div>
-          <div className="absolute inset-0 flex flex-col items-center justify-end pb-10 text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Our Team
+          <Image
+            src="/Team-Photos/Team photos/GOLD-Team.jpeg"
+            alt="Gold Health Team"
+            width={2400}
+            height={1600}
+            className="w-full h-auto block"
+            sizes="(max-width: 1280px) 100vw, 1280px"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 flex flex-col items-center text-center px-6 pb-8 sm:pb-12 lg:pb-16">
+            <h1 className="text-3xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+              10 Patents. 1 Mission.
             </h1>
-            <p className="mx-auto mt-4 max-w-2xl px-4 text-base leading-relaxed text-white/80">
-              Olympic athletes, AI pioneers, NASA astronauts, and healthcare
-              innovators — united to reimagine personal health.
+            <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-white/85 sm:text-base lg:text-lg">
+              Translating medal-winning innovation to consumer health &amp; fitness.
             </p>
           </div>
         </div>
