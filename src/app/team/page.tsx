@@ -27,7 +27,7 @@ const founders: TeamMember[] = [
   {
     name: "Sky Christopherson",
     role: "Founder",
-    photo: "/Team-Photos/Headshots/sky-christopherson.jpg.webp",
+    photo: "/Team-Photos/Headshots/sky-christopherson.jpg",
     linkedin: "https://www.linkedin.com/in/skychristopherson/",
     bio: [
       "Sky Christopherson is an Olympic cyclist, world record holder, and multiple patent-holding innovator at the intersection of sport, technology, and public health. Featured in Fortune, Sports Illustrated, Outside Magazine, and the Financial Times, he is the inventor of 10 issued core AI coaching patents that define the next frontier of AI-powered health and wellness.",
@@ -37,7 +37,7 @@ const founders: TeamMember[] = [
   {
     name: "Tom Gruber",
     role: "Founding Advisor",
-    photo: "/Team-Photos/Headshots/Tom-Gruber.jpg.webp",
+    photo: "/Team-Photos/Headshots/Tom-Gruber.jpg",
     linkedin: "https://www.linkedin.com/in/tomgruberprofile/",
     bio: [
       "Tom Gruber is the co-founder of Apple\u2019s Siri, the first widely deployed intelligent assistant. As Siri\u2019s CTO and head of design, he guided the product through its acquisition by Apple, a core feature used over a billion times daily.",
@@ -87,21 +87,47 @@ const buildingTheFuture: TeamMember[] = [
       "Bao is an investor in GOLD and serving as our in-house IP attorney, securing 7 patents issued for core AI coaching technologies, and 3 favorably disposed (upcoming issuance).",
     ],
   },
+  {
+    name: "Nataliia Karpenko",
+    role: "Product Advisor",
+    photo: "/Team-Photos/Headshots/Nataliia-Karpenko.jpg.webp", // add when headshot is ready
+    linkedin: "https://www.linkedin.com/in/nataliiakarpenko/",
+    bio: [
+      "Nataliia is former Meta and Advisor for Product at GOLD Health, connecting the company to Silicon Valley's digital health ecosystems. With experience in healthcare strategy, startup development, user research, and product marketing at Meta, she brings expertise in positioning emerging technologies for broad adoption.",
+      "At GOLD, she supports product strategy, partnerships, and community engagement, designing workshops that unite Olympic talent, AI leaders, and early users to drive momentum and ensure the platform resonates with both consumers and strategic stakeholders.",
+    ],
+  },
+  {
+    name: "Quincy Burgers",
+    role: "Fitness Coaching Advisor",
+    photo: "/Team-Photos/Headshots/Quincy-Burgers.jpg.webp", // add when headshot is ready
+    linkedin: "https://www.linkedin.com/in/quincy-burgers-443ab914/",
+    bio: [
+      "Quincy Burgers is a Level 1 trainer at Equinox and GOLD Health's Workout Coaching Advisor, shaping the company's training methodology and exercise programming. A respected performance coach, he specializes in evidence-based strength training, mobility, and sustainable body recomposition.",
+      "At GOLD, Quincy helps design workout protocols, coaching frameworks, and tests programs in real-world settings to ensure they are effective, accessible, and adaptable for users at all fitness levels, aligning science with practical results.",
+    ],
+  },
 ];
 
 const partners: Partner[] = [
-  { name: "EvoNexus", description: "Incubator \u2014 2026 Selection", url: "https://evonexus.org" },
-  { name: "Cooley LLP", description: "Outside Counsel", url: "https://www.cooley.com" },
+  {
+    name: "EvoNexus",
+    description: "Incubator \u2014 2026 Selection",
+    url: "https://evonexus.org",
+  },
+  {
+    name: "Cooley LLP",
+    description: "Outside Counsel",
+    url: "https://www.cooley.com",
+  },
 ];
 
 const advisors: TeamMember[] = [
   { name: "Vince Voron", role: "Former Apple. Design Advisor" },
-  { name: "Nataliia Karpenko", role: "Former Meta, Product Advisor" },
   { name: "Ben Dubin", role: "Digital Health & VC Advisor" },
   { name: "Dr. Sarah Townley", role: "Health Coaching Consultant" },
   { name: "Michael Ostrolenk", role: "Marketing Consultant" },
   { name: "Elizabeth Frances", role: "Health Coaching Consultant" },
-  { name: "Quincy Burgers", role: "Equinox Level 1 Trainer, Fitness Coaching Advisor" },
 ];
 
 const investors: TeamMember[] = [
@@ -237,8 +263,7 @@ function PhotoCard({
       ? "text-xl font-bold sm:text-2xl"
       : "text-base font-bold sm:text-lg";
   const roleSize = size === "large" ? "text-sm" : "text-xs";
-  const rounding =
-    size === "large" ? "rounded-[2rem]" : "rounded-[1.75rem]";
+  const rounding = size === "large" ? "rounded-[2rem]" : "rounded-[1.75rem]";
   const padding = size === "large" ? "p-6" : "p-4 sm:p-5";
 
   return (
@@ -252,7 +277,11 @@ function PhotoCard({
           alt={member.name}
           fill
           className="object-cover"
-          sizes={size === "large" ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 768px) 50vw, 33vw"}
+          sizes={
+            size === "large"
+              ? "(max-width: 768px) 100vw, 50vw"
+              : "(max-width: 768px) 50vw, 33vw"
+          }
         />
       )}
       <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
@@ -269,9 +298,7 @@ function PhotoCard({
 function PartnerCard({ partner }: { partner: Partner }) {
   const content = (
     <>
-      <h3 className="text-sm font-semibold text-neutral-900">
-        {partner.name}
-      </h3>
+      <h3 className="text-sm font-semibold text-neutral-900">{partner.name}</h3>
       <p className="mt-1 text-xs text-neutral-500">{partner.description}</p>
     </>
   );
@@ -299,9 +326,7 @@ function PartnerCard({ partner }: { partner: Partner }) {
 function TextCard({ member }: { member: TeamMember }) {
   return (
     <div className="rounded-[1.5rem] border border-neutral-200/80 bg-white px-6 py-5 transition-colors duration-200 hover:border-neutral-300">
-      <h3 className="text-sm font-semibold text-neutral-900">
-        {member.name}
-      </h3>
+      <h3 className="text-sm font-semibold text-neutral-900">{member.name}</h3>
       <p className="mt-1 text-xs text-neutral-500">{member.role}</p>
     </div>
   );
