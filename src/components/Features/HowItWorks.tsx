@@ -41,9 +41,6 @@ export default function HowItWorks() {
       <div className="mx-auto max-w-5xl px-6">
         {/* Header */}
         <div className="mb-16 text-center">
-          <div className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-neutral-400">
-            How It Works
-          </div>
           <h2 className="text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl lg:text-5xl">
             Three steps to better health.
           </h2>

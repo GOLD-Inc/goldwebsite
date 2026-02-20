@@ -12,9 +12,6 @@ export default function FeaturesHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-neutral-400">
-            Features
-          </div>
           <h1 className="text-4xl font-bold tracking-tight text-neutral-900 sm:text-5xl lg:text-6xl">
             Everything you need.
             <br />
