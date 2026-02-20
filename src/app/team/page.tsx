@@ -27,7 +27,7 @@ const founders: TeamMember[] = [
   {
     name: "Sky Christopherson",
     role: "Founder",
-    photo: "/Team-Photos/Headshots/sky-christopherson.jpg",
+    photo: "/Team-Photos/Headshots/Sky-Christopherson.jpg",
     linkedin: "https://www.linkedin.com/in/skychristopherson/",
     bio: [
       "Sky Christopherson is an Olympic cyclist, world record holder, and multiple patent-holding innovator at the intersection of sport, technology, and public health. Featured in Fortune, Sports Illustrated, Outside Magazine, and the Financial Times, he is the inventor of 10 issued core AI coaching patents that define the next frontier of AI-powered health and wellness.",
@@ -410,7 +410,8 @@ export default function TeamPage() {
               10 Patents. 1 Mission.
             </h1>
             <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-white/85 sm:text-base lg:text-lg">
-              Translating medal-winning innovation to consumer health &amp; fitness.
+              Translating medal-winning innovation to consumer health &amp;
+              fitness.
             </p>
           </div>
         </div>
