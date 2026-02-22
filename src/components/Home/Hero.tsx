@@ -6,6 +6,7 @@ import { Confetti, ConfettiRef } from "../ui/confetti";
 import { HeroBadge } from "../ui/hero-badge";
 import { GetAppButton } from "../ui/get-app-button";
 import { AnimatedTooltip } from "../ui/animated-tooltip";
+import { IPhoneFrame } from "../ui/iphone-frame";
 import Image from "next/image";
 
 const fadeUp = {
@@ -178,8 +179,7 @@ export default function Hero() {
         <div className="relative w-[280px] sm:w-[320px] md:w-[360px]">
           {/* Phone shadow */}
           <div className="absolute -inset-4 rounded-[3rem] bg-black/10 blur-2xl" />
-          {/* Phone frame */}
-          <div className="relative overflow-hidden rounded-[2.5rem] border-[8px] border-black/90 bg-black shadow-2xl">
+          <IPhoneFrame>
             <Image
               src="/AppScreenshots/welcome.png"
               alt="Gold Health App"
@@ -188,7 +188,7 @@ export default function Hero() {
               height={693}
               priority
             />
-          </div>
+          </IPhoneFrame>
         </div>
       </motion.div>
 

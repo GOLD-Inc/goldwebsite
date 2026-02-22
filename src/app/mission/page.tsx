@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import { IPhoneFrame } from "@/components/ui/iphone-frame";
 import { GetAppButton } from "@/components/ui/get-app-button";
 
 /* ------------------------------------------------------------------ */
@@ -166,10 +167,10 @@ export default function MissionPage() {
         <motion.div
           variants={fadeUp}
           transition={{ duration: 0.6 }}
-          className="flex flex-col gap-10 rounded-3xl border border-white/50 bg-white/30 p-8 shadow-[0_8px_32px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.6)] backdrop-blur-2xl sm:p-10 lg:flex-row lg:items-center lg:gap-14"
+          className="flex flex-col gap-10 rounded-[2rem] sm:rounded-[50px] border border-white/50 bg-white/30 p-8 shadow-[0_8px_32px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.6)] backdrop-blur-2xl sm:p-10 lg:flex-row lg:items-center lg:gap-14"
         >
           {/* Image */}
-          <div className="relative overflow-hidden rounded-[1.5rem] lg:w-1/2">
+          <div className="relative overflow-hidden rounded-[1.5rem] sm:rounded-[40px] lg:w-1/2">
             <Image
               src="/Team-Photos/Team photos/GOLD-AI-Paris.jpg.webp"
               alt="GOLD AI at Paris Olympics"
@@ -256,7 +257,7 @@ export default function MissionPage() {
         <motion.div
           variants={fadeUp}
           transition={{ duration: 0.6 }}
-          className="flex flex-col gap-10 rounded-3xl border border-white/50 bg-white/30 p-8 shadow-[0_8px_32px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.6)] backdrop-blur-2xl sm:p-10 lg:flex-row lg:items-center lg:gap-14"
+          className="flex flex-col gap-10 rounded-[2rem] sm:rounded-[50px] border border-white/50 bg-white/30 p-8 shadow-[0_8px_32px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.6)] backdrop-blur-2xl sm:p-10 lg:flex-row lg:items-center lg:gap-14"
         >
           {/* Text */}
           <div className="lg:w-1/2">
@@ -295,8 +296,8 @@ export default function MissionPage() {
 
           {/* App screenshots — phone frame style matching features page */}
           <div className="flex justify-center gap-4 lg:w-1/2 lg:justify-end">
-            <div className="relative overflow-hidden rounded-[2rem] border-[6px] border-neutral-900 bg-black shadow-xl">
-              <div className="relative h-[320px] w-[150px] sm:h-[400px] sm:w-[190px]">
+            <IPhoneFrame className="w-[150px] sm:w-[190px]">
+              <div className="relative aspect-[320/693]">
                 <Image
                   src="/AppScreenshots/select-coach.png"
                   alt="Select your AI coach"
@@ -305,9 +306,9 @@ export default function MissionPage() {
                   sizes="190px"
                 />
               </div>
-            </div>
-            <div className="relative overflow-hidden rounded-[2rem] border-[6px] border-neutral-900 bg-black shadow-xl">
-              <div className="relative h-[320px] w-[150px] sm:h-[400px] sm:w-[190px]">
+            </IPhoneFrame>
+            <IPhoneFrame className="w-[150px] sm:w-[190px]">
+              <div className="relative aspect-[320/693]">
                 <Image
                   src="/AppScreenshots/welcome.png"
                   alt="Welcome screen"
@@ -316,7 +317,7 @@ export default function MissionPage() {
                   sizes="190px"
                 />
               </div>
-            </div>
+            </IPhoneFrame>
           </div>
         </motion.div>
       </motion.section>
@@ -352,7 +353,7 @@ export default function MissionPage() {
               key={item.title}
               variants={fadeUp}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="rounded-3xl border border-white/50 bg-white/30 p-8 shadow-[0_8px_32px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.6)] backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.8)]"
+              className="rounded-[2rem] sm:rounded-[50px] border border-white/50 bg-white/30 p-8 shadow-[0_8px_32px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.6)] backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.8)]"
             >
               <p className="text-5xl font-extrabold tracking-tight">
                 <span className="bg-gradient-to-r from-[#065b64] to-[#0891b2] bg-clip-text text-transparent">
@@ -412,7 +413,7 @@ export default function MissionPage() {
         <motion.div
           variants={fadeUp}
           transition={{ duration: 0.6 }}
-          className="relative overflow-hidden rounded-[2.5rem] sm:rounded-[3rem] border border-white/30 bg-white/40 px-8 py-16 text-center shadow-[0_8px_60px_rgba(0,0,0,0.06)] backdrop-blur-2xl sm:px-16 sm:py-20"
+          className="relative overflow-hidden rounded-[2rem] sm:rounded-[50px] border border-white/30 bg-white/40 px-8 py-16 text-center shadow-[0_8px_60px_rgba(0,0,0,0.06)] backdrop-blur-2xl sm:px-16 sm:py-20"
         >
           {/* Decorative gradient orbs */}
           <div className="pointer-events-none absolute -top-20 -left-20 h-60 w-60 rounded-full bg-[#EC7013]/20 blur-[80px]" />

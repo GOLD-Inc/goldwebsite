@@ -10,7 +10,7 @@ export default function LegalPage({
   children: React.ReactNode;
 }) {
   return (
-    <main className="min-h-screen bg-[#fafafa] pt-40 sm:pt-48 pb-24 px-6">
+    <main className="min-h-screen bg-white pt-40 sm:pt-48 pb-24 px-6">
       <div className="mx-auto max-w-3xl">
         {/* Header */}
         <header className="mb-12">

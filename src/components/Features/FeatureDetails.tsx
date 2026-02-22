@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import Image from "next/image";
+import { IPhoneFrame } from "@/components/ui/iphone-frame";
 import {
   Brain,
   Utensils,
@@ -124,7 +125,7 @@ export default function FeatureDetails() {
                   ease: [0.16, 1, 0.3, 1],
                 }}
                 viewport={{ once: true }}
-                className={`group flex flex-col items-center gap-8 rounded-3xl border border-white/50 bg-white/30 p-8 shadow-[0_8px_32px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.6)] backdrop-blur-2xl transition-all duration-300 hover:shadow-[0_16px_48px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.8)] sm:p-10 lg:flex-row lg:gap-14 ${
+                className={`group flex flex-col items-center gap-8 rounded-[2rem] sm:rounded-[50px] border border-white/50 bg-white/30 p-8 shadow-[0_8px_32px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.6)] backdrop-blur-2xl transition-all duration-300 hover:shadow-[0_16px_48px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.8)] sm:p-10 lg:flex-row lg:gap-14 ${
                   isReversed ? "lg:flex-row-reverse" : ""
                 }`}
               >
@@ -154,8 +155,8 @@ export default function FeatureDetails() {
 
                 {/* Phone screenshot */}
                 <div className="relative flex shrink-0 justify-center">
-                  <div className="relative overflow-hidden rounded-[2rem] border-[6px] border-neutral-900 bg-black shadow-xl">
-                    <div className="relative h-[380px] w-[180px] sm:h-[440px] sm:w-[210px]">
+                  <IPhoneFrame className="w-[180px] sm:w-[210px]">
+                    <div className="relative aspect-[320/693]">
                       <Image
                         src={feature.image}
                         alt={feature.title}
@@ -164,7 +165,7 @@ export default function FeatureDetails() {
                         sizes="210px"
                       />
                     </div>
-                  </div>
+                  </IPhoneFrame>
                 </div>
               </motion.div>
             );

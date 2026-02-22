@@ -2,6 +2,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { Plus, ChevronUp, ChevronDown } from "lucide-react";
 import Image from "next/image";
+import { IPhoneFrame } from "@/components/ui/iphone-frame";
 
 interface Feature {
   id: string;
@@ -117,7 +118,7 @@ export default function FeatureShowcase() {
         {/* Card */}
         {/* Glass card */}
         <div
-          className="relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] border border-white/60 p-6 sm:p-10 lg:p-14"
+          className="relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] sm:rounded-[50px] border border-white/60 p-6 sm:p-10 lg:p-14"
           style={{
             background:
               "linear-gradient(135deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.3) 100%)",
@@ -128,7 +129,7 @@ export default function FeatureShowcase() {
           }}
         >
           {/* Glass shine */}
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-[40%] bg-gradient-to-b from-white/50 to-transparent rounded-t-[2.5rem]" />
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-[40%] bg-gradient-to-b from-white/50 to-transparent rounded-t-[2rem] sm:rounded-t-[50px]" />
 
         
                   {/* Content grid */}
@@ -237,33 +238,30 @@ export default function FeatureShowcase() {
 
             {/* Right — Phone mockup */}
             <div className="relative flex flex-1 items-center justify-center">
-              <div className="relative w-[240px] sm:w-[270px] md:w-[300px]">
-                {/* Phone frame */}
-                <div className="relative overflow-hidden rounded-[2.5rem] border-[8px] border-neutral-900 bg-black shadow-[0_20px_40px_-12px_rgba(0,0,0,0.2)]">
-                  {/* Image — simple crossfade */}
-                  <div className="relative aspect-[320/693]">
-                    {features.map((feature, index) => (
-                      <div
-                        key={feature.id}
-                        className="absolute inset-0 transition-opacity duration-300"
-                        style={{
-                          opacity: activeIndex === index ? 1 : 0,
-                          zIndex: activeIndex === index ? 1 : 0,
-                        }}
-                      >
-                        <Image
-                          src={feature.image}
-                          alt={feature.title}
-                          width={320}
-                          height={693}
-                          className="h-full w-full object-cover"
-                          loading={index === 0 ? "eager" : "lazy"}
-                        />
-                      </div>
-                    ))}
-                  </div>
+              <IPhoneFrame className="w-[240px] sm:w-[270px] md:w-[300px]">
+                {/* Image — simple crossfade */}
+                <div className="relative aspect-[320/693]">
+                  {features.map((feature, index) => (
+                    <div
+                      key={feature.id}
+                      className="absolute inset-0 transition-opacity duration-300"
+                      style={{
+                        opacity: activeIndex === index ? 1 : 0,
+                        zIndex: activeIndex === index ? 1 : 0,
+                      }}
+                    >
+                      <Image
+                        src={feature.image}
+                        alt={feature.title}
+                        width={320}
+                        height={693}
+                        className="h-full w-full object-cover"
+                        loading={index === 0 ? "eager" : "lazy"}
+                      />
+                    </div>
+                  ))}
                 </div>
-              </div>
+              </IPhoneFrame>
             </div>
           </div>
         </div>

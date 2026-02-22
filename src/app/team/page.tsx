@@ -12,7 +12,9 @@ import { motion, AnimatePresence } from "framer-motion";
 interface TeamMember {
   name: string;
   role: string;
+  subtitle?: string;
   photo?: string;
+  landscapePhoto?: string;
   bio?: string[];
   linkedin?: string;
 }
@@ -27,7 +29,9 @@ const founders: TeamMember[] = [
   {
     name: "Sky Christopherson",
     role: "Founder",
+    subtitle: "Olympic Athlete",
     photo: "/Team-Photos/Headshots/Sky-Christopherson.jpg",
+    landscapePhoto: "/Team-Photos/landscape-imges/Sky.png",
     linkedin: "https://www.linkedin.com/in/skychristopherson/",
     bio: [
       "Sky Christopherson is an Olympic cyclist, world record holder, and multiple patent-holding innovator at the intersection of sport, technology, and public health. Featured in Fortune, Sports Illustrated, Outside Magazine, and the Financial Times, he is the inventor of 10 issued core AI coaching patents that define the next frontier of AI-powered health and wellness.",
@@ -37,7 +41,9 @@ const founders: TeamMember[] = [
   {
     name: "Tom Gruber",
     role: "Founding Advisor",
+    subtitle: "Apple Siri",
     photo: "/Team-Photos/Headshots/Tom-Gruber.jpg",
+    landscapePhoto: "/Team-Photos/landscape-imges/Tom.jpg",
     linkedin: "https://www.linkedin.com/in/tomgruberprofile/",
     bio: [
       "Tom Gruber is the co-founder of Apple\u2019s Siri, the first widely deployed intelligent assistant. As Siri\u2019s CTO and head of design, he guided the product through its acquisition by Apple, a core feature used over a billion times daily.",
@@ -51,6 +57,7 @@ const buildingTheFuture: TeamMember[] = [
     name: "Stefan Groschupf",
     role: "Founding Advisor",
     photo: "/Team-Photos/Headshots/Stefan-Groschupf.jpg.webp",
+    landscapePhoto: "/Team-Photos/landscape-imges/Stefan.jpg",
     linkedin: "https://www.linkedin.com/in/stefangroschupf/",
     bio: [
       "Stefan Groschupf is a multi-time Silicon Valley AI founder. He founded Datameer, the company that provided data analytics to GOLD\u2019s Olympic project. He also founded Automation Hero, and Centrum-AI, with over two decades building distributed systems and AI infrastructure.",
@@ -61,6 +68,7 @@ const buildingTheFuture: TeamMember[] = [
     name: "Bekzod Rakhmatov",
     role: "Lead AI Engineer",
     photo: "/Team-Photos/Headshots/Bekzod.jpg.webp",
+    landscapePhoto: "/Team-Photos/landscape-imges/Bekzod.jpg",
     linkedin: "https://www.linkedin.com/in/bekzodrakhmatov/",
     bio: [
       "Bekzod Rakhmatov is a Lead Software and Engineer at GOLD, where he leads mobile and AI architecture for next-generation coaching experiences. He specializes in building high-performance iOS systems paired with intelligent backend services, turning complex AI capabilities into fast, reliable product features.",
@@ -71,6 +79,7 @@ const buildingTheFuture: TeamMember[] = [
     name: "Dr. Yvonne Cagle",
     role: "Scientific Advisor",
     photo: "/Team-Photos/Headshots/Yvonne-Cagle.jpg.webp",
+    landscapePhoto: "/Team-Photos/landscape-imges/Yvonne.png",
     linkedin: "https://www.linkedin.com/in/yvonnedcagle/",
     bio: [
       "Dr. Yvonne Cagle is a physician whose pioneering research examines human health and resilience in extreme environments, including space. Her work on muscle loss, bone decline, and cognitive strain offers critical insights into the effects of modern sedentary lifestyles.",
@@ -81,6 +90,7 @@ const buildingTheFuture: TeamMember[] = [
     name: "Bao Tran",
     role: "Patent Attorney",
     photo: "/Team-Photos/Headshots/Bao-Tran.jpg.webp",
+    landscapePhoto: "/Team-Photos/landscape-imges/Bao.png",
     linkedin: "https://www.linkedin.com/in/baotran/",
     bio: [
       "Bao Tran is a Silicon Valley-based investor focusing on early-stage technology ventures. He is also the founder of PowerPatent, a SaaS company streamlining IP workflows with AI, and a partner at PatentPC, where he advises startups on patent strategy and IP monetization.",
@@ -90,7 +100,8 @@ const buildingTheFuture: TeamMember[] = [
   {
     name: "Nataliia Karpenko",
     role: "Product Advisor",
-    photo: "/Team-Photos/Headshots/Nataliia-Karpenko.jpg.webp", // add when headshot is ready
+    photo: "/Team-Photos/Headshots/Nataliia-Karpenko.jpg.webp",
+    landscapePhoto: "/Team-Photos/landscape-imges/Nataliia.png", // add when headshot is ready
     linkedin: "https://www.linkedin.com/in/nataliiakarpenko/",
     bio: [
       "Nataliia is former Meta and Advisor for Product at GOLD Health, connecting the company to Silicon Valley's digital health ecosystems. With experience in healthcare strategy, startup development, user research, and product marketing at Meta, she brings expertise in positioning emerging technologies for broad adoption.",
@@ -100,7 +111,8 @@ const buildingTheFuture: TeamMember[] = [
   {
     name: "Quincy Burgers",
     role: "Fitness Coaching Advisor",
-    photo: "/Team-Photos/Headshots/Quincy-Burgers.jpg.webp", // add when headshot is ready
+    photo: "/Team-Photos/Headshots/Quincy-Burgers.jpg.webp",
+    landscapePhoto: "/Team-Photos/landscape-imges/Quincy.png", // add when headshot is ready
     linkedin: "https://www.linkedin.com/in/quincy-burgers-443ab914/",
     bio: [
       "Quincy Burgers is a Level 1 trainer at Equinox and GOLD Health's Workout Coaching Advisor, shaping the company's training methodology and exercise programming. A respected performance coach, he specializes in evidence-based strength training, mobility, and sustainable body recomposition.",
@@ -183,7 +195,7 @@ function MemberModal({
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 10 }}
         transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
-        className="relative z-10 flex max-h-[85vh] w-full max-w-2xl flex-col overflow-hidden rounded-[2rem] border border-neutral-200 bg-white"
+        className="relative z-10 flex max-h-[85vh] w-full max-w-2xl flex-col overflow-hidden rounded-[2rem] sm:rounded-[50px] border border-neutral-200 bg-white"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close button */}
@@ -194,15 +206,15 @@ function MemberModal({
           <X className="h-4 w-4" />
         </button>
 
-        {/* Image */}
-        {member.photo && (
+        {/* Image — prefer landscape photo in modal */}
+        {(member.landscapePhoto || member.photo) && (
           <div className="relative w-full shrink-0 bg-neutral-100">
             <Image
-              src={member.photo}
+              src={member.landscapePhoto || member.photo!}
               alt={member.name}
               width={672}
               height={500}
-              className="w-full h-auto max-h-[40vh] object-contain"
+              className="w-full h-auto max-h-[40vh] object-cover"
               sizes="(max-width: 768px) 100vw, 672px"
             />
           </div>
@@ -215,6 +227,7 @@ function MemberModal({
           </h3>
           <p className="mt-1 text-base font-medium text-neutral-500">
             {member.role}
+            {member.subtitle && <span className="text-neutral-400"> · {member.subtitle}</span>}
           </p>
 
           <div className="mt-6 space-y-4">
@@ -263,7 +276,7 @@ function PhotoCard({
       ? "text-xl font-bold sm:text-2xl"
       : "text-base font-bold sm:text-lg";
   const roleSize = size === "large" ? "text-sm" : "text-xs";
-  const rounding = size === "large" ? "rounded-[2rem]" : "rounded-[1.75rem]";
+  const rounding = size === "large" ? "rounded-[2rem] sm:rounded-[50px]" : "rounded-[1.75rem] sm:rounded-[50px]";
   const padding = size === "large" ? "p-6" : "p-4 sm:p-5";
 
   return (
@@ -289,6 +302,7 @@ function PhotoCard({
         <h3 className={`${nameSize} text-white`}>{member.name}</h3>
         <p className={`mt-0.5 ${roleSize} font-medium text-white/75`}>
           {member.role}
+          {member.subtitle && <span className="text-white/50"> · {member.subtitle}</span>}
         </p>
       </div>
     </button>
@@ -309,7 +323,7 @@ function PartnerCard({ partner }: { partner: Partner }) {
         href={partner.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="group block rounded-[1.5rem] border border-neutral-200/80 bg-white px-6 py-5 transition-colors duration-200 hover:border-[#065b64]/40 hover:bg-[#065b64]/[0.02] cursor-pointer"
+        className="group block rounded-[1.5rem] sm:rounded-[50px] border border-neutral-200/80 bg-white px-6 py-5 transition-colors duration-200 hover:border-[#065b64]/40 hover:bg-[#065b64]/[0.02] cursor-pointer"
       >
         {content}
       </a>
@@ -317,7 +331,7 @@ function PartnerCard({ partner }: { partner: Partner }) {
   }
 
   return (
-    <div className="rounded-[1.5rem] border border-neutral-200/80 bg-white px-6 py-5 transition-colors duration-200 hover:border-neutral-300">
+    <div className="rounded-[1.5rem] sm:rounded-[50px] border border-neutral-200/80 bg-white px-6 py-5 transition-colors duration-200 hover:border-neutral-300">
       {content}
     </div>
   );
@@ -325,7 +339,7 @@ function PartnerCard({ partner }: { partner: Partner }) {
 
 function TextCard({ member }: { member: TeamMember }) {
   return (
-    <div className="rounded-[1.5rem] border border-neutral-200/80 bg-white px-6 py-5 transition-colors duration-200 hover:border-neutral-300">
+    <div className="rounded-[1.5rem] sm:rounded-[50px] border border-neutral-200/80 bg-white px-6 py-5 transition-colors duration-200 hover:border-neutral-300">
       <h3 className="text-sm font-semibold text-neutral-900">{member.name}</h3>
       <p className="mt-1 text-xs text-neutral-500">{member.role}</p>
     </div>
@@ -394,7 +408,7 @@ export default function TeamPage() {
 
       {/* Hero */}
       <section className="mx-auto max-w-5xl px-6 pt-32">
-        <div className="relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem]">
+        <div className="relative overflow-hidden rounded-[2rem] sm:rounded-[50px]">
           <Image
             src="/Team-Photos/Team photos/GOLD-Team.jpeg"
             alt="Gold Health Team"

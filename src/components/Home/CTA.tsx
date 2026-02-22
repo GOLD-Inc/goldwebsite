@@ -13,7 +13,7 @@ export default function CTA() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
-          className="relative overflow-hidden rounded-[2.5rem] sm:rounded-[3rem] border border-white/30 bg-white/40 px-8 py-16 text-center shadow-[0_8px_60px_rgba(0,0,0,0.06)] backdrop-blur-2xl sm:px-16 sm:py-20"
+          className="relative overflow-hidden rounded-[2rem] sm:rounded-[50px] border border-white/30 bg-white/40 px-8 py-16 text-center shadow-[0_8px_60px_rgba(0,0,0,0.06)] backdrop-blur-2xl sm:px-16 sm:py-20"
         >
           {/* Decorative gradient orbs */}
           <div className="pointer-events-none absolute -top-20 -left-20 h-60 w-60 rounded-full bg-[#EC7013]/20 blur-[80px]" />
