@@ -4,6 +4,7 @@ import FeaturedIn from "@/components/Home/FeaturedIn";
 import Testimonials from "@/components/Home/Testimonials";
 import FAQ from "@/components/Home/FAQ";
 import CTA from "@/components/Home/CTA";
+import TeamBanner from "@/components/Home/TeamBanner";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Testimonials />
       <FAQ />
       <CTA />
+      <TeamBanner />
     </div>
   );
 }
