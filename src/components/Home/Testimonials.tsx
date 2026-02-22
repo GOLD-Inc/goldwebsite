@@ -96,7 +96,7 @@ export default function Testimonials() {
               Loved by athletes &amp; coaches worldwide
             </h2>
             <p className="text-center mt-5 text-white/60 max-w-md leading-relaxed">
-              From Olympians to everyday athletes — hear how Gold Health is
+              From Olympians to everyday people — hear how Gold Health is
               transforming the way people train, recover, and perform.
             </p>
           </motion.div>

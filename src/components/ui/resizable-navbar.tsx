@@ -68,7 +68,7 @@ export const Navbar = ({ children, className }: NavbarProps) => {
   return (
     <motion.div
       ref={ref}
-      className={cn("fixed inset-x-0 top-6 z-40 w-full px-4 sm:px-6 lg:px-8", className)}
+      className={cn("fixed inset-x-0 top-4 z-40 w-full px-4 sm:px-6 lg:px-8", className)}
     >
       {React.Children.map(children, (child) =>
         React.isValidElement(child)
@@ -93,7 +93,6 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
           ? "0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 0 rgba(255, 255, 255, 0.95) inset, 0 -1px 0 rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(255, 255, 255, 0.7) inset"
           : "0 4px 24px rgba(0, 0, 0, 0.04), 0 1px 0 rgba(255, 255, 255, 0.8) inset, 0 0 0 1px rgba(255, 255, 255, 0.5) inset",
         width: visible ? "55%" : "100%",
-        y: visible ? 14 : 0,
         borderColor: visible
           ? "rgba(255, 255, 255, 0.8)"
           : "rgba(255, 255, 255, 0.6)",
@@ -174,7 +173,6 @@ export const MobileNav = ({
           ? "rgba(255, 255, 255, 0.8)"
           : "rgba(255, 255, 255, 0.6)",
         width: visible ? "92%" : "100%",
-        y: visible ? 14 : 0,
       }}
       transition={{
         type: "spring",
