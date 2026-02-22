@@ -2,6 +2,7 @@ import Hero from "@/components/Home/Hero";
 import FeatureShowcase from "@/components/Home/FeatureShowcase";
 import FeaturedIn from "@/components/Home/FeaturedIn";
 import Testimonials from "@/components/Home/Testimonials";
+import FAQ from "@/components/Home/FAQ";
 import CTA from "@/components/Home/CTA";
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
       <FeatureShowcase />
       <FeaturedIn />
       <Testimonials />
+      <FAQ />
       <CTA />
     </div>
   );

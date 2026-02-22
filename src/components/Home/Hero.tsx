@@ -26,7 +26,7 @@ const teamMembers = [
     id: 1,
     name: "Sky Christopherson",
     designation: "Olympic Gold Medalist",
-    image: "/Team-Photos/Headshots/sky-christopherson.jpg.webp",
+    image: "/Team-Photos/Headshots/Sky-Christopherson.jpg",
   },
   {
     id: 2,
@@ -95,7 +95,11 @@ export default function Hero() {
 
       {/* Hero text content — centered near top */}
       <motion.div
-        style={{ opacity: textOpacity, y: textY, willChange: "transform, opacity" }}
+        style={{
+          opacity: textOpacity,
+          y: textY,
+          willChange: "transform, opacity",
+        }}
         className="relative z-10 mx-auto flex max-w-4xl flex-col items-center px-6 pt-32 sm:pt-36 text-center"
       >
         {/* Badge */}
