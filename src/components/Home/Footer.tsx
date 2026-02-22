@@ -1,10 +1,15 @@
 import Link from "next/link";
-import { Twitter, Linkedin, Instagram, Youtube } from "lucide-react";
+import { Twitter, Linkedin, Instagram, Youtube, MapPin } from "lucide-react";
 
 const footerSections = [
   {
     title: "Download",
-    links: [{ name: "iOS App", href: "#" }],
+    links: [
+      {
+        name: "iOS App",
+        href: "https://apps.apple.com/us/app/gold-ai/id1334427427",
+      },
+    ],
   },
   {
     title: "Product",
@@ -20,14 +25,6 @@ const footerSections = [
       { name: "Request feature", href: "/support#feature" },
       { name: "Report bug", href: "/support#bug" },
       { name: "Contact", href: "/support#contact" },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { name: "About us", href: "/about" },
-      { name: "Mission", href: "/mission" },
-      { name: "Partners", href: "/partners" },
     ],
   },
 ];
@@ -47,9 +44,9 @@ const legalLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative mt-20">
-      {/* Top separator */}
-      <div className="mx-6 h-px bg-gradient-to-r from-transparent via-neutral-300/60 to-transparent" />
+    <footer className="relative mt-20 bg-white">
+      {/* Top separator — subtle shade change */}
+      <div className="h-px bg-neutral-100" />
 
       <div className="relative overflow-hidden">
         <div className="relative z-10 mx-auto max-w-7xl px-6 pt-16 pb-8">
@@ -69,6 +66,10 @@ export default function Footer() {
               <p className="text-[15px] leading-relaxed text-neutral-900">
                 Medal-winning secrets for life.
               </p>
+              <div className="flex items-center gap-1.5 text-sm text-neutral-500">
+                <MapPin className="h-3.5 w-3.5" />
+                <span>San Francisco, CA</span>
+              </div>
 
               {/* Social icons */}
               <div className="flex items-center gap-2.5 pt-2">
@@ -110,7 +111,7 @@ export default function Footer() {
             </div>
 
             {/* Link columns */}
-            <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 sm:gap-10 lg:gap-14">
+            <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-10 lg:gap-14">
               {footerSections.map((section) => (
                 <div key={section.title}>
                   <h4 className="mb-4 text-sm font-semibold text-neutral-400">
@@ -135,7 +136,7 @@ export default function Footer() {
 
           {/* Bottom bar */}
           <div className="mt-16">
-            <div className="h-px bg-gradient-to-r from-transparent via-neutral-300/60 to-transparent" />
+            <div className="h-px bg-neutral-100" />
 
             <div className="flex flex-col items-center justify-between gap-5 pt-7 sm:flex-row">
               <p className="text-sm text-neutral-400">

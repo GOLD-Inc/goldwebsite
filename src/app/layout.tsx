@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased suppressHydrationWarning bg-[#fafaf8]`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased suppressHydrationWarning bg-white`}
       >
         <ThemeProvider defaultTheme="light">
             <NavbarComponent />
