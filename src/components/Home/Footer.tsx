@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Twitter, Linkedin, Instagram, Youtube, MapPin } from "lucide-react";
+import Image from "next/image";
 
 const footerSections = [
   {
@@ -63,7 +64,7 @@ export default function Footer() {
             {/* Brand column */}
             <div className="max-w-sm space-y-6">
               <Link href="/" className="inline-block">
-                <img
+                <Image
                   src="GOLD-logo--black-vector.svg"
                   alt="Gold Health"
                   width={130}
@@ -100,7 +101,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-3 rounded-full border border-slate-200 bg-slate-50 px-4 py-2 transition-all duration-300 hover:border-slate-300 hover:bg-slate-100"
               >
-                <img
+                <Image
                   src="/Evo-Logo.png"
                   alt="EvoNexus"
                   width={28}

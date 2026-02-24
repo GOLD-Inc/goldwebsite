@@ -10,6 +10,7 @@ import {
 } from "framer-motion";
 
 import React, { useRef, useState } from "react";
+import Image from "next/image";
 
 interface NavbarProps {
   children: React.ReactNode;
@@ -68,15 +69,18 @@ export const Navbar = ({ children, className }: NavbarProps) => {
   return (
     <motion.div
       ref={ref}
-      className={cn("fixed inset-x-0 top-4 z-40 w-full px-4 sm:px-6 lg:px-8", className)}
+      className={cn(
+        "fixed inset-x-0 top-4 z-40 w-full px-4 sm:px-6 lg:px-8",
+        className,
+      )}
     >
       {React.Children.map(children, (child) =>
         React.isValidElement(child)
           ? React.cloneElement(
               child as React.ReactElement<{ visible?: boolean }>,
-              { visible }
+              { visible },
             )
-          : child
+          : child,
       )}
     </motion.div>
   );
@@ -109,7 +113,7 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
       }}
       className={cn(
         "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start px-6 py-2.5 lg:flex overflow-hidden border rounded-full",
-        className
+        className,
       )}
     >
       {/* Glossy shine highlight */}
@@ -131,7 +135,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
       onMouseLeave={() => setHovered(null)}
       className={cn(
         "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-1 text-sm font-medium lg:flex",
-        className
+        className,
       )}
     >
       {items.map((item, idx) => (
@@ -155,11 +159,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
   );
 };
 
-export const MobileNav = ({
-  children,
-  className,
-  visible,
-}: MobileNavProps) => {
+export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
   return (
     <motion.div
       animate={{
@@ -185,7 +185,7 @@ export const MobileNav = ({
       }}
       className={cn(
         "relative z-[50] mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between rounded-full px-5 py-2.5 lg:hidden border",
-        className
+        className,
       )}
     >
       {/* Decorative clip wrapper */}
@@ -210,7 +210,7 @@ export const MobileNavHeader = ({
     <div
       className={cn(
         "flex w-full flex-row items-center justify-between",
-        className
+        className,
       )}
     >
       {children}
@@ -238,12 +238,11 @@ export const MobileNavMenu = ({
             "fixed inset-x-4 top-24 z-[70] flex flex-col items-start justify-start gap-2 rounded-2xl px-8 py-10 overflow-hidden",
             "bg-white/50 border border-white/80",
             "shadow-[0_8px_40px_rgba(0,0,0,0.07),0_2px_0_rgba(255,255,255,0.9)_inset,0_-1px_0_rgba(0,0,0,0.04),0_0_0_0.5px_rgba(255,255,255,0.6)]",
-            className
+            className,
           )}
           style={{
             backdropFilter: "blur(50px) saturate(200%) brightness(1.1)",
-            WebkitBackdropFilter:
-              "blur(50px) saturate(200%) brightness(1.1)",
+            WebkitBackdropFilter: "blur(50px) saturate(200%) brightness(1.1)",
             perspective: "800px",
             transformOrigin: "top center",
           }}
@@ -298,7 +297,7 @@ export const NavbarLogo = () => {
       href="/"
       className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1"
     >
-      <img
+      <Image
         src="GOLD-logo--black-vector.svg"
         alt="Gold Health"
         width={100}
@@ -352,14 +351,22 @@ export const NavbarButton = ({
           "hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(0,0,0,0.2),0_1px_0_rgba(255,255,255,0.2)_inset,0_-1px_0_rgba(0,0,0,0.3)_inset]",
           "active:translate-y-0 active:shadow-[0_2px_12px_rgba(0,0,0,0.15),0_1px_0_rgba(255,255,255,0.1)_inset]",
           "transition-all duration-300",
-          className
+          className,
         )}
         {...props}
       >
         {/* Noise grain texture */}
-        <svg className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.08] mix-blend-overlay" aria-hidden="true">
+        <svg
+          className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.08] mix-blend-overlay"
+          aria-hidden="true"
+        >
           <filter id="noiseBtn">
-            <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch" />
+            <feTurbulence
+              type="fractalNoise"
+              baseFrequency="0.9"
+              numOctaves="4"
+              stitchTiles="stitch"
+            />
             <feColorMatrix type="saturate" values="0" />
           </filter>
           <rect width="100%" height="100%" filter="url(#noiseBtn)" />
@@ -368,7 +375,9 @@ export const NavbarButton = ({
         <div className="pointer-events-none absolute inset-x-0 top-0 h-[50%] bg-gradient-to-b from-white/25 to-transparent rounded-t-full" />
         {/* Animated shine sweep on hover */}
         <div className="pointer-events-none absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out bg-gradient-to-r from-transparent via-white/15 to-transparent skew-x-[-20deg]" />
-        <span className="relative z-10 drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)]">{children}</span>
+        <span className="relative z-10 drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)]">
+          {children}
+        </span>
       </Tag>
     );
   }
