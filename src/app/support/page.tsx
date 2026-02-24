@@ -33,6 +33,21 @@ const topics = [
     label: "Contact",
     prompt: "What can we help you with?",
   },
+  {
+    id: "about-us",
+    label: "About Us",
+    prompt: "What would you like to know about us?",
+  },
+  {
+    id: "mission",
+    label: "Mission",
+    prompt: "What would you like to know about our mission?",
+  },
+  {
+    id: "partners",
+    label: "Partners",
+    prompt: "What partnership opportunity are you interested in?",
+  },
 ] as const;
 
 type TopicId = (typeof topics)[number]["id"];
