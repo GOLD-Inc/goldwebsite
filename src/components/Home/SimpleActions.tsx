@@ -14,8 +14,8 @@ const tags = [
 ];
 
 export default function SimpleActions() {
-  // Duplicate tags for seamless infinite scroll
-  const scrollTags = [...tags, ...tags];
+  // Quadruple tags for seamless infinite scroll
+  const scrollTags = [...tags, ...tags, ...tags, ...tags];
 
   return (
     <section className="relative overflow-hidden py-24 sm:py-32">
@@ -82,10 +82,10 @@ export default function SimpleActions() {
       {/* Scrolling tags */}
       <div className="relative mt-12 overflow-hidden">
         {/* Fade edges */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-white to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-white to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-white to-transparent sm:w-40" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-white to-transparent sm:w-40" />
 
-        <div className="flex animate-scroll-left gap-4">
+        <div className="flex w-max animate-scroll-left gap-4">
           {scrollTags.map((tag, i) => (
             <div
               key={`${tag.label}-${i}`}
@@ -96,6 +96,9 @@ export default function SimpleActions() {
           ))}
         </div>
       </div>
+
+      {/* Divider */}
+      <div className="mx-auto mt-14 h-px max-w-xs bg-gradient-to-r from-transparent via-slate-200 to-transparent sm:mt-16" />
     </section>
   );
 }
