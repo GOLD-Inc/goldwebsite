@@ -31,7 +31,7 @@ export function HeroBadge({ text, className, dark = false }: HeroBadgeProps) {
           WebkitClipPath: "padding-box",
         }}
       />
-      🎉 <hr className="mx-2 h-4 w-px shrink-0 bg-neutral-500" />
+      🎉 <hr className="mx-2 h-4 w-px shrink-0 bg-slate-500" />
       <AnimatedGradientText
         className={cn("text-sm font-medium", dark && "!text-white")}
         colorFrom={dark ? "#f4d03f" : "#ffaa40"}
@@ -42,7 +42,7 @@ export function HeroBadge({ text, className, dark = false }: HeroBadgeProps) {
       <ChevronRight
         className={cn(
           "ml-1 size-4 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5",
-          dark ? "stroke-white/60" : "stroke-neutral-500"
+          dark ? "stroke-white/60" : "stroke-slate-500"
         )}
       />
     </div>

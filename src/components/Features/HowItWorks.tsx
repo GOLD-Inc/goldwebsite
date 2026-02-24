@@ -41,10 +41,10 @@ export default function HowItWorks() {
       <div className="mx-auto max-w-5xl px-6">
         {/* Header */}
         <div className="mb-16 text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl lg:text-5xl">
+          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
             Three steps to better health.
           </h2>
-          <p className="mx-auto mt-4 max-w-md leading-relaxed text-neutral-500">
+          <p className="mx-auto mt-4 max-w-md leading-relaxed text-slate-600">
             Getting started takes less than two minutes. No complicated setup,
             no learning curve.
           </p>
@@ -67,7 +67,7 @@ export default function HowItWorks() {
             >
               {/* Step number */}
               <div className="mb-6 flex items-center gap-4">
-                <span className="text-4xl font-bold text-neutral-200">
+                <span className="text-4xl font-bold text-slate-200">
                   {step.number}
                 </span>
                 <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-[#EC7013] to-[#f4d03f] text-white shadow-lg shadow-[#EC7013]/20">
@@ -75,16 +75,16 @@ export default function HowItWorks() {
                 </div>
               </div>
 
-              <h3 className="text-lg font-bold text-neutral-900">
+              <h3 className="text-lg font-bold text-slate-900">
                 {step.title}
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-neutral-500">
+              <p className="mt-3 text-sm leading-relaxed text-slate-600">
                 {step.description}
               </p>
 
               {/* Connector line (hidden on last card and mobile) */}
               {i < steps.length - 1 && (
-                <div className="pointer-events-none absolute right-0 top-1/2 hidden h-px w-6 -translate-y-1/2 translate-x-full bg-gradient-to-r from-neutral-200 to-transparent md:block" />
+                <div className="pointer-events-none absolute right-0 top-1/2 hidden h-px w-6 -translate-y-1/2 translate-x-full bg-gradient-to-r from-slate-200 to-transparent md:block" />
               )}
             </motion.div>
           ))}

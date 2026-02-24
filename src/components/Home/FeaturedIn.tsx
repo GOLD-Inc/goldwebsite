@@ -18,7 +18,7 @@ export default function FeaturedIn() {
       <div className="mx-auto max-w-5xl px-6">
         {/* Tagline */}
         <div className="mb-10 text-center sm:mb-12">
-          <p className="mx-auto max-w-lg text-lg font-medium leading-relaxed text-neutral-600 sm:text-xl">
+          <p className="mx-auto max-w-lg text-lg font-medium leading-relaxed text-slate-600 sm:text-xl">
             From the Olympics to the big screen — our technology is everywhere.
           </p>
         </div>
@@ -51,7 +51,7 @@ export default function FeaturedIn() {
       </div>
 
       {/* Divider */}
-      <div className="mx-auto mt-14 h-px max-w-xs bg-gradient-to-r from-transparent via-neutral-200 to-transparent sm:mt-16" />
+      <div className="mx-auto mt-14 h-px max-w-xs bg-gradient-to-r from-transparent via-slate-200 to-transparent sm:mt-16" />
     </section>
   );
 }

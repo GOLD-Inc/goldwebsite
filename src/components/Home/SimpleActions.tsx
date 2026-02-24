@@ -27,7 +27,7 @@ export default function SimpleActions() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <h2 className="text-4xl font-bold pb-10 tracking-tight text-neutral-900 sm:text-5xl lg:text-6xl">
+          <h2 className="text-4xl font-bold pb-10 tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
             All ages. All levels.
           </h2>
           <div className="mt-5">
@@ -65,14 +65,14 @@ export default function SimpleActions() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <h3 className="text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl lg:text-5xl">
+          <h3 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
             Simple actions,
             <br />
             <span className="bg-gradient-to-r from-[#EC7013] to-[#f4d03f] bg-clip-text text-transparent">
               huge benefits.
             </span>
           </h3>
-          <p className="mx-auto mt-5 max-w-md text-base leading-relaxed text-neutral-500 sm:text-lg">
+          <p className="mx-auto mt-5 max-w-md text-base leading-relaxed text-slate-600 sm:text-lg">
             Built by Olympic athletes to give anybody breakthroughs in their
             health and fitness with easy to follow daily actions.
           </p>

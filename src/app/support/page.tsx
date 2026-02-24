@@ -118,10 +118,10 @@ export default function SupportPage() {
           <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-emerald-50">
             <CheckCircle className="h-10 w-10 text-emerald-500" />
           </div>
-          <h1 className="text-4xl font-bold tracking-tight text-neutral-900 sm:text-5xl">
+          <h1 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
             Message sent
           </h1>
-          <p className="mt-5 text-lg leading-relaxed text-neutral-500">
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
             Thanks for reaching out. We&apos;ll get back to you as soon as
             possible.
           </p>
@@ -133,7 +133,7 @@ export default function SupportPage() {
               setContextAnswer("");
               setMessage("");
             }}
-            className="mt-10 rounded-full border border-neutral-200 px-8 py-3.5 text-base font-medium text-neutral-700 transition-colors hover:border-neutral-300 hover:bg-neutral-50 cursor-pointer"
+            className="mt-10 rounded-full border border-slate-200 px-8 py-3.5 text-base font-medium text-slate-700 transition-colors hover:border-slate-300 hover:bg-slate-50 cursor-pointer"
           >
             Send another message
           </button>
@@ -146,29 +146,29 @@ export default function SupportPage() {
     <main className="flex min-h-screen items-start justify-center px-6 pb-24 pt-36 sm:pt-44">
       <div className="w-full max-w-2xl">
         {/* Big title */}
-        <h1 className="text-center text-5xl font-bold tracking-tight text-neutral-900 sm:text-6xl lg:text-7xl">
+        <h1 className="text-center text-5xl font-bold tracking-tight text-slate-900 sm:text-6xl lg:text-7xl">
           Support
         </h1>
 
         {/* Card */}
-        <div className="mt-10 rounded-[2rem] sm:rounded-[50px] border border-neutral-200/80 bg-neutral-50/50 p-8 sm:p-12">
+        <div className="mt-10 rounded-[2rem] sm:rounded-[50px] border border-slate-200/80 bg-slate-50/50 p-8 sm:p-12">
           <form onSubmit={handleSubmit} className="space-y-8">
             {/* Topic dropdown */}
             <div>
-              <label className="mb-3 block text-base font-semibold text-neutral-800">
+              <label className="mb-3 block text-base font-semibold text-slate-800">
                 I need help with
               </label>
               <div className="relative">
                 <button
                   type="button"
                   onClick={() => setDropdownOpen(!dropdownOpen)}
-                  className="flex w-full items-center justify-between rounded-2xl border border-neutral-200 bg-white px-5 py-4 text-left text-base transition-colors hover:border-neutral-300 cursor-pointer"
+                  className="flex w-full items-center justify-between rounded-2xl border border-slate-200 bg-white px-5 py-4 text-left text-base transition-colors hover:border-slate-300 cursor-pointer"
                 >
-                  <span className="font-medium text-neutral-900">
+                  <span className="font-medium text-slate-900">
                     {currentTopic.label}
                   </span>
                   <ChevronDown
-                    className={`h-5 w-5 text-neutral-400 transition-transform duration-200 ${
+                    className={`h-5 w-5 text-slate-500 transition-transform duration-200 ${
                       dropdownOpen ? "rotate-180" : ""
                     }`}
                   />
@@ -180,7 +180,7 @@ export default function SupportPage() {
                       className="fixed inset-0 z-10"
                       onClick={() => setDropdownOpen(false)}
                     />
-                    <div className="absolute left-0 right-0 top-full z-20 mt-2 overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-lg shadow-black/5">
+                    <div className="absolute left-0 right-0 top-full z-20 mt-2 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg shadow-black/5">
                       {topics.map((topic) => (
                         <button
                           key={topic.id}
@@ -195,10 +195,10 @@ export default function SupportPage() {
                               `/support#${topic.id}`
                             );
                           }}
-                          className={`flex w-full items-center px-5 py-4 text-left text-base transition-colors hover:bg-neutral-50 cursor-pointer ${
+                          className={`flex w-full items-center px-5 py-4 text-left text-base transition-colors hover:bg-slate-50 cursor-pointer ${
                             selectedTopic === topic.id
-                              ? "font-medium text-neutral-900 bg-neutral-50"
-                              : "text-neutral-600"
+                              ? "font-medium text-slate-900 bg-slate-50"
+                              : "text-slate-600"
                           }`}
                         >
                           {topic.label}
@@ -214,7 +214,7 @@ export default function SupportPage() {
             <div>
               <label
                 htmlFor="context"
-                className="mb-3 block text-base font-semibold text-neutral-800"
+                className="mb-3 block text-base font-semibold text-slate-800"
               >
                 {currentTopic.prompt}
               </label>
@@ -224,7 +224,7 @@ export default function SupportPage() {
                 value={contextAnswer}
                 onChange={(e) => setContextAnswer(e.target.value)}
                 placeholder="Your answer..."
-                className="w-full rounded-2xl border border-neutral-200 bg-white px-5 py-4 text-base text-neutral-900 placeholder:text-neutral-400 outline-none transition-colors focus:border-neutral-400"
+                className="w-full rounded-2xl border border-slate-200 bg-white px-5 py-4 text-base text-slate-900 placeholder:text-slate-500 outline-none transition-colors focus:border-slate-400"
               />
             </div>
 
@@ -232,10 +232,10 @@ export default function SupportPage() {
             <div>
               <label
                 htmlFor="name"
-                className="mb-3 block text-base font-semibold text-neutral-800"
+                className="mb-3 block text-base font-semibold text-slate-800"
               >
                 Name
-                <span className="ml-1.5 font-normal text-neutral-400">
+                <span className="ml-1.5 font-normal text-slate-500">
                   (optional)
                 </span>
               </label>
@@ -245,7 +245,7 @@ export default function SupportPage() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Your name"
-                className="w-full rounded-2xl border border-neutral-200 bg-white px-5 py-4 text-base text-neutral-900 placeholder:text-neutral-400 outline-none transition-colors focus:border-neutral-400"
+                className="w-full rounded-2xl border border-slate-200 bg-white px-5 py-4 text-base text-slate-900 placeholder:text-slate-500 outline-none transition-colors focus:border-slate-400"
               />
             </div>
 
@@ -253,7 +253,7 @@ export default function SupportPage() {
             <div>
               <label
                 htmlFor="email"
-                className="mb-3 block text-base font-semibold text-neutral-800"
+                className="mb-3 block text-base font-semibold text-slate-800"
               >
                 Email
                 <span className="ml-1 text-red-400">*</span>
@@ -265,7 +265,7 @@ export default function SupportPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@example.com"
-                className="w-full rounded-2xl border border-neutral-200 bg-white px-5 py-4 text-base text-neutral-900 placeholder:text-neutral-400 outline-none transition-colors focus:border-neutral-400"
+                className="w-full rounded-2xl border border-slate-200 bg-white px-5 py-4 text-base text-slate-900 placeholder:text-slate-500 outline-none transition-colors focus:border-slate-400"
               />
             </div>
 
@@ -273,7 +273,7 @@ export default function SupportPage() {
             <div>
               <label
                 htmlFor="message"
-                className="mb-3 block text-base font-semibold text-neutral-800"
+                className="mb-3 block text-base font-semibold text-slate-800"
               >
                 Message
                 <span className="ml-1 text-red-400">*</span>
@@ -285,7 +285,7 @@ export default function SupportPage() {
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder="Tell us more..."
-                className="w-full resize-none rounded-2xl border border-neutral-200 bg-white px-5 py-4 text-base text-neutral-900 placeholder:text-neutral-400 outline-none transition-colors focus:border-neutral-400"
+                className="w-full resize-none rounded-2xl border border-slate-200 bg-white px-5 py-4 text-base text-slate-900 placeholder:text-slate-500 outline-none transition-colors focus:border-slate-400"
               />
             </div>
 
@@ -300,12 +300,12 @@ export default function SupportPage() {
             <button
               type="submit"
               disabled={sending}
-              className="w-full rounded-full bg-neutral-900 px-8 py-4.5 text-base font-semibold text-white transition-colors hover:bg-neutral-800 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full rounded-full bg-slate-900 px-8 py-4.5 text-base font-semibold text-white transition-colors hover:bg-slate-800 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {sending ? "Sending..." : "Send message"}
             </button>
 
-            <p className="text-center text-sm text-neutral-400">
+            <p className="text-center text-sm text-slate-500">
               We typically respond within 24 hours.
             </p>
           </form>

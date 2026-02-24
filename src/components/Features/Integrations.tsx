@@ -45,10 +45,10 @@ export default function Integrations() {
       <div className="relative mx-auto max-w-5xl px-6">
         {/* Header */}
         <div className="mb-16 text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl lg:text-5xl">
+          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
             The foundation behind every insight.
           </h2>
-          <p className="mx-auto mt-4 max-w-md leading-relaxed text-neutral-500">
+          <p className="mx-auto mt-4 max-w-md leading-relaxed text-slate-600">
             Olympic-tested science meets cutting-edge technology — built to keep
             your data safe and your health on track.
           </p>
@@ -73,8 +73,8 @@ export default function Integrations() {
                 <item.icon className="h-6 w-6" />
               </div>
               <div>
-                <h3 className="font-bold text-neutral-900">{item.name}</h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-neutral-500">
+                <h3 className="font-bold text-slate-900">{item.name}</h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-slate-600">
                   {item.description}
                 </p>
               </div>

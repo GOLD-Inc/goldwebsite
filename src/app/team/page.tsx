@@ -137,9 +137,9 @@ const partners: Partner[] = [
 const advisors: TeamMember[] = [
   { name: "Vince Voron", role: "Former Apple. Design Advisor" },
   { name: "Ben Dubin", role: "Digital Health & VC Advisor" },
-  { name: "Dr. Sarah Townley", role: "Health Coaching Consultant" },
-  { name: "Michael Ostrolenk", role: "Marketing Consultant" },
-  { name: "Elizabeth Frances", role: "Health Coaching Consultant" },
+  { name: "Dr. Sarah Townley", role: "Health Coaching" },
+  { name: "Michael Ostrolenk", role: "Health Coaching" },
+  { name: "Elizabeth Frances", role: "Health Coaching" },
 ];
 
 const investors: TeamMember[] = [
@@ -195,7 +195,7 @@ function MemberModal({
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 10 }}
         transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
-        className="relative z-10 flex max-h-[85vh] w-full max-w-2xl flex-col overflow-hidden rounded-[2rem] sm:rounded-[50px] border border-neutral-200 bg-white"
+        className="relative z-10 flex max-h-[85vh] w-full max-w-2xl flex-col overflow-hidden rounded-[2rem] sm:rounded-[50px] border border-slate-200 bg-white"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close button */}
@@ -208,7 +208,7 @@ function MemberModal({
 
         {/* Image — prefer landscape photo in modal */}
         {(member.landscapePhoto || member.photo) && (
-          <div className="relative w-full shrink-0 bg-neutral-100">
+          <div className="relative w-full shrink-0 bg-slate-100">
             <Image
               src={member.landscapePhoto || member.photo!}
               alt={member.name}
@@ -222,20 +222,19 @@ function MemberModal({
 
         {/* Bio content */}
         <div className="flex-1 overflow-y-auto p-6 sm:p-8">
-          <h3 className="text-2xl font-bold text-neutral-900 sm:text-3xl">
+          <h3 className="text-2xl font-bold text-slate-900 sm:text-3xl">
             {member.name}
           </h3>
-          <p className="mt-1 text-base font-medium text-neutral-500">
+          <p className="mt-1 text-base font-medium text-slate-600">
             {member.role}
-            {member.subtitle && <span className="text-neutral-400"> · {member.subtitle}</span>}
+            {member.subtitle && (
+              <span className="text-slate-500"> · {member.subtitle}</span>
+            )}
           </p>
 
           <div className="mt-6 space-y-4">
             {member.bio?.map((paragraph, i) => (
-              <p
-                key={i}
-                className="text-[15px] leading-relaxed text-neutral-600"
-              >
+              <p key={i} className="text-[15px] leading-relaxed text-slate-600">
                 {paragraph}
               </p>
             ))}
@@ -276,13 +275,16 @@ function PhotoCard({
       ? "text-xl font-bold sm:text-2xl"
       : "text-base font-bold sm:text-lg";
   const roleSize = size === "large" ? "text-sm" : "text-xs";
-  const rounding = size === "large" ? "rounded-[2rem] sm:rounded-[50px]" : "rounded-[1.75rem] sm:rounded-[50px]";
+  const rounding =
+    size === "large"
+      ? "rounded-[2rem] sm:rounded-[50px]"
+      : "rounded-[1.75rem] sm:rounded-[50px]";
   const padding = size === "large" ? "p-6" : "p-4 sm:p-5";
 
   return (
     <button
       onClick={onOpen}
-      className={`group relative ${aspect} w-full overflow-hidden ${rounding} border border-neutral-200/80 bg-neutral-100 text-left transition-colors duration-200 hover:border-neutral-300 cursor-pointer`}
+      className={`group relative ${aspect} w-full overflow-hidden ${rounding} border border-slate-200/80 bg-slate-100 text-left transition-colors duration-200 hover:border-slate-300 cursor-pointer`}
     >
       {member.photo && (
         <Image
@@ -302,8 +304,12 @@ function PhotoCard({
         <h3 className={`${nameSize} text-white`}>{member.name}</h3>
         <p className={`mt-0.5 ${roleSize} font-medium text-white/75`}>
           {member.role}
-          {member.subtitle && <span className="text-white/50"> · {member.subtitle}</span>}
         </p>
+        {member.subtitle && (
+          <p className={`mt-0.5 ${roleSize} font-semibold text-white`}>
+            {member.subtitle}
+          </p>
+        )}
       </div>
     </button>
   );
@@ -312,8 +318,8 @@ function PhotoCard({
 function PartnerCard({ partner }: { partner: Partner }) {
   const content = (
     <>
-      <h3 className="text-sm font-semibold text-neutral-900">{partner.name}</h3>
-      <p className="mt-1 text-xs text-neutral-500">{partner.description}</p>
+      <h3 className="text-sm font-semibold text-slate-900">{partner.name}</h3>
+      <p className="mt-1 text-xs text-slate-600">{partner.description}</p>
     </>
   );
 
@@ -323,7 +329,7 @@ function PartnerCard({ partner }: { partner: Partner }) {
         href={partner.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="group block rounded-[1.5rem] sm:rounded-[50px] border border-neutral-200/80 bg-white px-6 py-5 transition-colors duration-200 hover:border-[#065b64]/40 hover:bg-[#065b64]/[0.02] cursor-pointer"
+        className="group block rounded-[1.5rem] sm:rounded-[50px] border border-slate-200/80 bg-white px-6 py-5 transition-colors duration-200 hover:border-[#065b64]/40 hover:bg-[#065b64]/[0.02] cursor-pointer"
       >
         {content}
       </a>
@@ -331,7 +337,7 @@ function PartnerCard({ partner }: { partner: Partner }) {
   }
 
   return (
-    <div className="rounded-[1.5rem] sm:rounded-[50px] border border-neutral-200/80 bg-white px-6 py-5 transition-colors duration-200 hover:border-neutral-300">
+    <div className="rounded-[1.5rem] sm:rounded-[50px] border border-slate-200/80 bg-white px-6 py-5 transition-colors duration-200 hover:border-slate-300">
       {content}
     </div>
   );
@@ -339,9 +345,9 @@ function PartnerCard({ partner }: { partner: Partner }) {
 
 function TextCard({ member }: { member: TeamMember }) {
   return (
-    <div className="rounded-[1.5rem] sm:rounded-[50px] border border-neutral-200/80 bg-white px-6 py-5 transition-colors duration-200 hover:border-neutral-300">
-      <h3 className="text-sm font-semibold text-neutral-900">{member.name}</h3>
-      <p className="mt-1 text-xs text-neutral-500">{member.role}</p>
+    <div className="rounded-[1.5rem] sm:rounded-[50px] border border-slate-200/80 bg-white px-6 py-5 transition-colors duration-200 hover:border-slate-300">
+      <h3 className="text-sm font-semibold text-slate-900">{member.name}</h3>
+      <p className="mt-1 text-xs text-slate-600">{member.role}</p>
     </div>
   );
 }
@@ -356,16 +362,16 @@ function ExpandableSection({
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="border-t border-neutral-200/60">
+    <div className="border-t border-slate-200/60">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex w-full items-center justify-between py-6 text-left cursor-pointer"
       >
-        <h2 className="text-2xl font-bold tracking-tight text-neutral-900 sm:text-3xl">
+        <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
           {title}
         </h2>
         <ChevronDown
-          className={`h-6 w-6 text-neutral-400 transition-transform duration-300 ${
+          className={`h-6 w-6 text-slate-500 transition-transform duration-300 ${
             isOpen ? "rotate-180" : ""
           }`}
         />
@@ -433,7 +439,7 @@ export default function TeamPage() {
 
       {/* Founders */}
       <section className="mx-auto mt-20 max-w-5xl px-6">
-        <h2 className="mb-10 text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl lg:text-5xl">
+        <h2 className="mb-10 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
           Founders
         </h2>
         <div className="flex flex-col gap-6 sm:flex-row">
@@ -451,7 +457,7 @@ export default function TeamPage() {
 
       {/* Building the Future */}
       <section className="mx-auto mt-24 max-w-5xl px-6">
-        <h2 className="mb-10 text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl lg:text-5xl">
+        <h2 className="mb-10 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
           Building the Future
         </h2>
         <div className="flex flex-wrap gap-5">
@@ -472,7 +478,7 @@ export default function TeamPage() {
 
       {/* Strategic Partners */}
       <section className="mx-auto mt-24 max-w-5xl px-6">
-        <h2 className="mb-10 text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl lg:text-5xl">
+        <h2 className="mb-10 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
           Strategic Partners
         </h2>
         <div className="mx-auto flex max-w-2xl flex-col gap-5 sm:flex-row">

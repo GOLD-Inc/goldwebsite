@@ -138,7 +138,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
         <a
           onMouseEnter={() => setHovered(idx)}
           onClick={onItemClick}
-          className="relative px-4 py-2  transition-colors duration-200 text-neutral-800"
+          className="relative px-4 py-2  transition-colors duration-200 text-slate-800"
           key={`link-${idx}`}
           href={item.link}
         >
@@ -281,12 +281,12 @@ export const MobileNavToggle = ({
 }) => {
   return isOpen ? (
     <XIcon
-      className="h-5 w-5 text-neutral-700 cursor-pointer"
+      className="h-5 w-5 text-slate-700 cursor-pointer"
       onClick={onClick}
     />
   ) : (
     <MenuIcon
-      className="h-5 w-5 text-neutral-700 cursor-pointer"
+      className="h-5 w-5 text-slate-700 cursor-pointer"
       onClick={onClick}
     />
   );
@@ -331,10 +331,10 @@ export const NavbarButton = ({
 
   const variantStyles = {
     primary:
-      "bg-neutral-900 text-white hover:bg-neutral-800 shadow-md shadow-neutral-900/10",
+      "bg-slate-900 text-white hover:bg-slate-800 shadow-md shadow-slate-900/10",
     secondary:
-      "bg-transparent text-neutral-500 hover:text-neutral-900 hover:bg-black/[0.04]",
-    dark: "bg-neutral-100 text-neutral-700 border border-neutral-200 hover:bg-neutral-200/80",
+      "bg-transparent text-slate-600 hover:text-slate-900 hover:bg-black/[0.04]",
+    dark: "bg-slate-100 text-slate-700 border border-slate-200 hover:bg-slate-200/80",
     gradient:
       "bg-gradient-to-r from-amber-400 to-amber-600 text-white shadow-md shadow-amber-500/20 hover:shadow-amber-500/30",
     glass: "",
@@ -346,7 +346,7 @@ export const NavbarButton = ({
         href={href || undefined}
         className={cn(
           "group relative px-6 py-2.5 rounded-full text-sm font-semibold cursor-pointer inline-block text-center overflow-hidden",
-          "bg-gradient-to-b from-neutral-800 via-neutral-900 to-black text-white",
+          "bg-gradient-to-b from-slate-800 via-slate-900 to-black text-white",
           "border border-white/[0.15]",
           "shadow-[0_4px_24px_rgba(0,0,0,0.15),0_1px_0_rgba(255,255,255,0.15)_inset,0_-1px_0_rgba(0,0,0,0.3)_inset]",
           "hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(0,0,0,0.2),0_1px_0_rgba(255,255,255,0.2)_inset,0_-1px_0_rgba(0,0,0,0.3)_inset]",

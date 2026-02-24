@@ -102,10 +102,10 @@ export default function FeatureDetails() {
       <div className="mx-auto max-w-4xl px-6">
         {/* Header */}
         <div className="mb-16 text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl lg:text-5xl">
+          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
             Built for people who care.
           </h2>
-          <p className="mx-auto mt-4 max-w-md leading-relaxed text-neutral-500">
+          <p className="mx-auto mt-4 max-w-md leading-relaxed text-slate-600">
             Every feature is designed with clinical precision and crafted for
             everyday simplicity.
           </p>
@@ -134,17 +134,17 @@ export default function FeatureDetails() {
                   <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#EC7013] to-[#f4d03f] text-white shadow-lg shadow-[#EC7013]/20">
                     <feature.icon className="h-6 w-6" />
                   </div>
-                  <h3 className="text-xl font-bold text-neutral-900 sm:text-2xl">
+                  <h3 className="text-xl font-bold text-slate-900 sm:text-2xl">
                     {feature.title}
                   </h3>
-                  <p className="mt-3 leading-relaxed text-neutral-500">
+                  <p className="mt-3 leading-relaxed text-slate-600">
                     {feature.description}
                   </p>
                   <ul className="mt-5 flex flex-col gap-2.5">
                     {feature.highlights.map((highlight) => (
                       <li
                         key={highlight}
-                        className="flex items-center gap-2.5 text-sm text-neutral-600"
+                        className="flex items-center gap-2.5 text-sm text-slate-600"
                       >
                         <div className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#EC7013]" />
                         {highlight}

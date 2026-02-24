@@ -106,10 +106,10 @@ export default function FeatureShowcase() {
       <div className="mx-auto max-w-7xl px-6">
         {/* Section header */}
         <div className="mb-12 text-center sm:mb-16">
-          <h2 className="text-4xl font-bold tracking-tight text-neutral-900 sm:text-5xl md:text-6xl">
+          <h2 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl md:text-6xl">
             Take a closer look.
           </h2>
-          <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-neutral-500 sm:text-lg">
+          <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-slate-600 sm:text-lg">
             Everything you need for clinical-grade health monitoring, designed
             to feel effortless.
           </p>
@@ -140,14 +140,14 @@ export default function FeatureShowcase() {
               <div className="hidden flex-col items-center gap-1 pt-1 sm:flex">
                 <button
                   onClick={() => handleArrow(goPrev)}
-                  className="flex h-8 w-8 items-center justify-center rounded-full text-neutral-400 transition-colors duration-150 hover:bg-neutral-200/60 hover:text-neutral-700"
+                  className="flex h-8 w-8 items-center justify-center rounded-full text-slate-500 transition-colors duration-150 hover:bg-slate-200/60 hover:text-slate-700"
                   aria-label="Previous feature"
                 >
                   <ChevronUp className="h-5 w-5" />
                 </button>
                 <button
                   onClick={() => handleArrow(goNext)}
-                  className="flex h-8 w-8 items-center justify-center rounded-full text-neutral-400 transition-colors duration-150 hover:bg-neutral-200/60 hover:text-neutral-700"
+                  className="flex h-8 w-8 items-center justify-center rounded-full text-slate-500 transition-colors duration-150 hover:bg-slate-200/60 hover:text-slate-700"
                   aria-label="Next feature"
                 >
                   <ChevronDown className="h-5 w-5" />
@@ -173,23 +173,23 @@ export default function FeatureShowcase() {
                         <div
                           className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full border transition-all duration-200 ${
                             isActive
-                              ? "border-neutral-400 bg-neutral-800 rotate-45"
-                              : "border-neutral-300 bg-white group-hover:border-neutral-400"
+                              ? "border-slate-400 bg-slate-800 rotate-45"
+                              : "border-slate-300 bg-white group-hover:border-slate-400"
                           }`}
                         >
                           <Plus
                             className={`h-3.5 w-3.5 transition-colors duration-200 ${
                               isActive
                                 ? "text-white"
-                                : "text-neutral-400 group-hover:text-neutral-600"
+                                : "text-slate-500 group-hover:text-slate-600"
                             }`}
                           />
                         </div>
                         <span
                           className={`text-[15px] font-semibold transition-colors duration-200 ${
                             isActive
-                              ? "text-neutral-900"
-                              : "text-neutral-500 group-hover:text-neutral-700"
+                              ? "text-slate-900"
+                              : "text-slate-600 group-hover:text-slate-700"
                           }`}
                         >
                           {feature.title}
@@ -197,9 +197,9 @@ export default function FeatureShowcase() {
 
                         {/* Progress bar */}
                         {isActive && (
-                          <div className="ml-auto h-1 w-10 overflow-hidden rounded-full bg-neutral-200">
+                          <div className="ml-auto h-1 w-10 overflow-hidden rounded-full bg-slate-200">
                             <div
-                              className="h-full rounded-full bg-neutral-500"
+                              className="h-full rounded-full bg-slate-500"
                               key={`progress-${activeIndex}-${paused}`}
                               style={{
                                 width: paused ? "100%" : "0%",
@@ -221,8 +221,8 @@ export default function FeatureShowcase() {
                       >
                         <div className="overflow-hidden">
                           <div className="px-4 pb-3 pt-1.5">
-                            <p className="text-[14px] leading-relaxed text-neutral-500">
-                              <span className="font-semibold text-neutral-800">
+                            <p className="text-[14px] leading-relaxed text-slate-600">
+                              <span className="font-semibold text-slate-800">
                                 {feature.title}.
                               </span>{" "}
                               {feature.description}
@@ -274,8 +274,8 @@ export default function FeatureShowcase() {
               onClick={() => handleSelect(index)}
               className={`h-1.5 rounded-full transition-all duration-300 ${
                 activeIndex === index
-                  ? "w-6 bg-neutral-800"
-                  : "w-1.5 bg-neutral-300 hover:bg-neutral-400"
+                  ? "w-6 bg-slate-800"
+                  : "w-1.5 bg-slate-300 hover:bg-slate-400"
               }`}
               aria-label={`Go to feature ${index + 1}`}
             />

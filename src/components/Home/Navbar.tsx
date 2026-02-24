@@ -56,7 +56,7 @@ export function NavbarComponent() {
             key={`mobile-link-${idx}`}
             href={item.link}
             onClick={() => setIsMobileMenuOpen(false)}
-            className="group relative w-full rounded-xl px-4 py-4 text-2xl sm:text-3xl font-semibold text-neutral-900 transition-all duration-150 active:bg-black/[0.06] active:scale-[0.97] hover:bg-black/[0.04]"
+            className="group relative w-full rounded-xl px-4 py-4 text-2xl sm:text-3xl font-semibold text-slate-900 transition-all duration-150 active:bg-black/[0.06] active:scale-[0.97] hover:bg-black/[0.04]"
           >
             <span className="relative z-10">
               {item.name}

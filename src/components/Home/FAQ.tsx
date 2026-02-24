@@ -36,11 +36,11 @@ function FAQItem({ faq }: { faq: { question: string; answer: string } }) {
         onClick={() => setIsOpen(!isOpen)}
         className="flex w-full items-center justify-between py-6 text-left cursor-pointer"
       >
-        <h3 className="pr-4 text-lg font-semibold text-neutral-900 sm:text-xl">
+        <h3 className="pr-4 text-lg font-semibold text-slate-900 sm:text-xl">
           {faq.question}
         </h3>
         <ChevronDown
-          className={`h-5 w-5 shrink-0 text-neutral-400 transition-transform duration-300 ${
+          className={`h-5 w-5 shrink-0 text-slate-500 transition-transform duration-300 ${
             isOpen ? "rotate-180" : ""
           }`}
         />
@@ -54,7 +54,7 @@ function FAQItem({ faq }: { faq: { question: string; answer: string } }) {
             transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="overflow-hidden"
           >
-            <p className="pb-6 text-base leading-relaxed text-neutral-500">
+            <p className="pb-6 text-base leading-relaxed text-slate-600">
               {faq.answer}
             </p>
           </motion.div>
@@ -73,7 +73,7 @@ export default function FAQ() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
-          className="mb-12 text-center text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl lg:text-5xl"
+          className="mb-12 text-center text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl"
         >
           Questions
         </motion.h2>
@@ -83,7 +83,7 @@ export default function FAQ() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
-          className="divide-y divide-neutral-200/60"
+          className="divide-y divide-slate-200/60"
         >
           {faqs.map((faq) => (
             <FAQItem key={faq.question} faq={faq} />

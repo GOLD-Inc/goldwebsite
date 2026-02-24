@@ -46,7 +46,7 @@ export default function Footer() {
   return (
     <footer className="relative mt-20 bg-white">
       {/* Top separator — subtle shade change */}
-      <div className="h-px bg-neutral-100" />
+      <div className="h-px bg-slate-100" />
 
       <div className="relative overflow-hidden">
         <div className="relative z-10 mx-auto max-w-7xl px-6 pt-16 pb-8">
@@ -63,10 +63,10 @@ export default function Footer() {
                   className="h-10 w-auto"
                 />
               </Link>
-              <p className="text-[15px] leading-relaxed text-neutral-900">
+              <p className="text-[15px] leading-relaxed text-slate-900">
                 Medal-winning secrets for life.
               </p>
-              <div className="flex items-center gap-1.5 text-sm text-neutral-500">
+              <div className="flex items-center gap-1.5 text-sm text-slate-600">
                 <MapPin className="h-3.5 w-3.5" />
                 <span>San Francisco, CA</span>
               </div>
@@ -78,7 +78,7 @@ export default function Footer() {
                     href={social.href}
                     key={social.label}
                     aria-label={social.label}
-                    className="flex h-10 w-10 items-center justify-center rounded-xl bg-neutral-100 border border-neutral-200/80 text-neutral-500 transition-all duration-200 hover:-translate-y-0.5 hover:bg-gradient-to-br hover:from-cyan-500 hover:to-orange-500 hover:text-white hover:border-transparent hover:shadow-lg hover:shadow-cyan-500/20 active:scale-95"
+                    className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-100 border border-slate-200/80 text-slate-600 transition-all duration-200 hover:-translate-y-0.5 hover:bg-gradient-to-br hover:from-cyan-500 hover:to-orange-500 hover:text-white hover:border-transparent hover:shadow-lg hover:shadow-cyan-500/20 active:scale-95"
                   >
                     <social.icon className="h-[16px] w-[16px]" />
                   </Link>
@@ -90,7 +90,7 @@ export default function Footer() {
                 href="https://evonexus.org"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-3 rounded-full border border-amber-500/20 bg-amber-50/60 px-4 py-2 transition-all duration-300 hover:border-amber-500/40 hover:bg-amber-50"
+                className="group inline-flex items-center gap-3 rounded-full border border-slate-200 bg-slate-50 px-4 py-2 transition-all duration-300 hover:border-slate-300 hover:bg-slate-100"
               >
                 <img
                   src="/Evo-Logo.png"
@@ -100,10 +100,10 @@ export default function Footer() {
                   className="h-7 w-7 rounded-md object-contain"
                 />
                 <div className="flex flex-col leading-none">
-                  <span className="text-[11px] font-medium uppercase tracking-wider text-amber-600/70">
+                  <span className="text-[11px] font-medium uppercase tracking-wider text-slate-500">
                     Backed by
                   </span>
-                  <span className="text-sm font-semibold text-neutral-800 group-hover:text-neutral-950 transition-colors">
+                  <span className="text-sm font-semibold text-slate-800 group-hover:text-slate-950 transition-colors">
                     EvoNexus
                   </span>
                 </div>
@@ -114,7 +114,7 @@ export default function Footer() {
             <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-10 lg:gap-14">
               {footerSections.map((section) => (
                 <div key={section.title}>
-                  <h4 className="mb-4 text-sm font-semibold text-neutral-400">
+                  <h4 className="mb-4 text-sm font-semibold text-slate-500">
                     {section.title}
                   </h4>
                   <ul className="space-y-3">
@@ -122,7 +122,7 @@ export default function Footer() {
                       <li key={link.name}>
                         <Link
                           href={link.href}
-                          className="text-sm font-medium text-neutral-800 transition-colors duration-200 hover:text-neutral-950"
+                          className="text-sm font-medium text-slate-800 transition-colors duration-200 hover:text-slate-950"
                         >
                           {link.name}
                         </Link>
@@ -136,10 +136,10 @@ export default function Footer() {
 
           {/* Bottom bar */}
           <div className="mt-16">
-            <div className="h-px bg-neutral-100" />
+            <div className="h-px bg-slate-100" />
 
             <div className="flex flex-col items-center justify-between gap-5 pt-7 sm:flex-row">
-              <p className="text-sm text-neutral-400">
+              <p className="text-sm text-slate-500">
                 &copy; {new Date().getFullYear()} Gold Health Inc. All rights
                 reserved.
               </p>
@@ -149,12 +149,12 @@ export default function Footer() {
                   <span key={link.name} className="flex items-center">
                     <Link
                       href={link.href}
-                      className="rounded-full px-3 py-1.5 text-sm text-neutral-500 transition-all duration-200 hover:bg-black/[0.04] hover:text-neutral-800"
+                      className="rounded-full px-3 py-1.5 text-sm text-slate-600 transition-all duration-200 hover:bg-black/[0.04] hover:text-slate-800"
                     >
                       {link.name}
                     </Link>
                     {idx < legalLinks.length - 1 && (
-                      <span className="text-neutral-300">&middot;</span>
+                      <span className="text-slate-300">&middot;</span>
                     )}
                   </span>
                 ))}

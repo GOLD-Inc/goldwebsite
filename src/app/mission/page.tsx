@@ -85,11 +85,11 @@ function FAQItem({ faq }: { faq: { question: string; answer: string } }) {
         onClick={() => setIsOpen(!isOpen)}
         className="flex w-full items-center justify-between py-6 text-left cursor-pointer"
       >
-        <h3 className="pr-4 text-lg font-semibold text-neutral-900 sm:text-xl">
+        <h3 className="pr-4 text-lg font-semibold text-slate-900 sm:text-xl">
           {faq.question}
         </h3>
         <ChevronDown
-          className={`h-5 w-5 shrink-0 text-neutral-400 transition-transform duration-300 ${
+          className={`h-5 w-5 shrink-0 text-slate-500 transition-transform duration-300 ${
             isOpen ? "rotate-180" : ""
           }`}
         />
@@ -103,7 +103,7 @@ function FAQItem({ faq }: { faq: { question: string; answer: string } }) {
             transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="overflow-hidden"
           >
-            <p className="pb-6 text-base leading-relaxed text-neutral-500">
+            <p className="pb-6 text-base leading-relaxed text-slate-600">
               {faq.answer}
             </p>
           </motion.div>
@@ -126,14 +126,14 @@ export default function MissionPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h1 className="text-4xl font-bold tracking-tight text-neutral-900 sm:text-5xl lg:text-6xl">
+            <h1 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
               The health system is broken.
               <br />
               <span className="bg-gradient-to-r from-[#EC7013] to-[#f4d03f] bg-clip-text text-transparent">
                 We&apos;re fixing it.
               </span>
             </h1>
-            <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-neutral-500 sm:text-lg">
+            <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg">
               93% of Americans have at least one marker of metabolic
               dysfunction. GOLD was built to change that — with Olympic-tested
               science, AI coaching, and a mission to make health accessible to
@@ -159,7 +159,7 @@ export default function MissionPage() {
         <motion.h2
           variants={fadeUp}
           transition={{ duration: 0.6 }}
-          className="mb-12 text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl lg:text-5xl"
+          className="mb-12 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl"
         >
           The Breakthrough
         </motion.h2>
@@ -183,20 +183,20 @@ export default function MissionPage() {
 
           {/* Text */}
           <div className="lg:w-1/2">
-            <p className="text-lg leading-relaxed text-neutral-600">
+            <p className="text-lg leading-relaxed text-slate-600">
               It started with an Olympic cyclist and a simple question:{" "}
               <span className="font-semibold text-[#EC7013]">
                 what if data — not drugs — could unlock peak performance?
               </span>
             </p>
-            <p className="mt-4 text-base leading-relaxed text-neutral-500">
+            <p className="mt-4 text-base leading-relaxed text-slate-600">
               Sky Christopherson used continuous glucose monitoring, sleep
               tracking, and data analytics to set a world record and help the
               U.S. Olympic team win medals. With guidance from Dr. Eric Topol —
               one of the most cited physicians in the world — the model was
               validated: personalized, data-driven coaching works.
             </p>
-            <p className="mt-4 text-base leading-relaxed text-neutral-500">
+            <p className="mt-4 text-base leading-relaxed text-slate-600">
               At the 2024 Paris Olympics, Sky announced GOLD — the consumer
               platform built to bring this medal-winning approach to everyone.
             </p>
@@ -209,7 +209,7 @@ export default function MissionPage() {
           transition={{ duration: 0.6 }}
           className="mt-16"
         >
-          <p className="mb-6 text-center text-sm font-medium text-neutral-400">
+          <p className="mb-6 text-center text-sm font-medium text-slate-500">
             As seen in
           </p>
           <div className="flex flex-wrap items-center justify-center gap-10 sm:gap-14">
@@ -241,14 +241,14 @@ export default function MissionPage() {
         <motion.h2
           variants={fadeUp}
           transition={{ duration: 0.6 }}
-          className="mb-4 text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl lg:text-5xl"
+          className="mb-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl"
         >
           HERA AI Coaching
         </motion.h2>
         <motion.p
           variants={fadeUp}
           transition={{ duration: 0.6 }}
-          className="mb-12 max-w-2xl text-base leading-relaxed text-neutral-500 sm:text-lg"
+          className="mb-12 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg"
         >
           Health Enhancing Relational Avatar — the world&apos;s first
           patent-protected AI coaching system built on real Olympic science.
@@ -268,25 +268,25 @@ export default function MissionPage() {
                     10 Patents
                   </span>
                 </p>
-                <p className="mt-2 text-base text-neutral-500">
+                <p className="mt-2 text-base text-slate-600">
                   Core AI coaching technologies — from relational avatar systems
                   to adaptive health protocols — protected by 10 issued patents.
                 </p>
               </div>
               <div>
-                <h3 className="text-lg font-bold text-neutral-900">
+                <h3 className="text-lg font-bold text-slate-900">
                   Photo-Realistic AI Avatars
                 </h3>
-                <p className="mt-1 text-base text-neutral-500">
+                <p className="mt-1 text-base text-slate-600">
                   Emotionally intelligent coaches that adapt to your goals,
                   personality, and real-time biometric data.
                 </p>
               </div>
               <div>
-                <h3 className="text-lg font-bold text-neutral-900">
+                <h3 className="text-lg font-bold text-slate-900">
                   Scalable &amp; Personal
                 </h3>
-                <p className="mt-1 text-base text-neutral-500">
+                <p className="mt-1 text-base text-slate-600">
                   Premium health coaching quality at a fraction of the cost —
                   available to anyone with a smartphone.
                 </p>
@@ -335,14 +335,14 @@ export default function MissionPage() {
         <motion.h2
           variants={fadeUp}
           transition={{ duration: 0.6 }}
-          className="mb-4 text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl lg:text-5xl"
+          className="mb-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl"
         >
           Science &amp; Evidence
         </motion.h2>
         <motion.p
           variants={fadeUp}
           transition={{ duration: 0.6 }}
-          className="mb-12 max-w-2xl text-base leading-relaxed text-neutral-500 sm:text-lg"
+          className="mb-12 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg"
         >
           Olympic innovation + tier-1 science + your data = measurable outcomes.
         </motion.p>
@@ -360,10 +360,10 @@ export default function MissionPage() {
                   {item.stat}
                 </span>
               </p>
-              <h3 className="mt-3 text-lg font-bold text-neutral-900">
+              <h3 className="mt-3 text-lg font-bold text-slate-900">
                 {item.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-neutral-500">
+              <p className="mt-2 text-sm leading-relaxed text-slate-600">
                 {item.description}
               </p>
             </motion.div>
@@ -384,7 +384,7 @@ export default function MissionPage() {
         <motion.h2
           variants={fadeUp}
           transition={{ duration: 0.6 }}
-          className="mb-12 text-center text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl lg:text-5xl"
+          className="mb-12 text-center text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl"
         >
           Questions
         </motion.h2>
@@ -392,7 +392,7 @@ export default function MissionPage() {
         <motion.div
           variants={fadeUp}
           transition={{ duration: 0.6 }}
-          className="divide-y divide-neutral-200/60"
+          className="divide-y divide-slate-200/60"
         >
           {faqs.map((faq) => (
             <FAQItem key={faq.question} faq={faq} />
@@ -421,14 +421,14 @@ export default function MissionPage() {
           <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-40 w-80 rounded-full bg-[#f4d03f]/10 blur-[60px]" />
 
           <div className="relative z-10">
-            <h2 className="mx-auto max-w-lg text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl lg:text-5xl">
+            <h2 className="mx-auto max-w-lg text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
               Health for
               <span className="bg-gradient-to-r from-[#EC7013] to-[#f4d03f] bg-clip-text text-transparent">
                 {" "}
                 every body.
               </span>
             </h2>
-            <p className="mx-auto mt-5 max-w-md leading-relaxed text-neutral-500">
+            <p className="mx-auto mt-5 max-w-md leading-relaxed text-slate-600">
               GOLD&apos;s AI model wasn&apos;t designed for elite athletes — it
               was designed for everyone. Whether you&apos;re managing a chronic
               condition, optimizing your sleep, or just starting your health
@@ -436,7 +436,7 @@ export default function MissionPage() {
             </p>
             <div className="mt-10 flex flex-col items-center gap-3">
               <GetAppButton size="lg" label="Start Your Journey" />
-              <span className="text-xs text-neutral-400">
+              <span className="text-xs text-slate-500">
                 Free on iOS &middot; No credit card required
               </span>
             </div>

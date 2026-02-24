@@ -22,7 +22,7 @@ export default function CTA() {
 
           {/* Content */}
           <div className="relative z-10">
-            <h2 className="mx-auto max-w-lg text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl lg:text-5xl">
+            <h2 className="mx-auto max-w-lg text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
               Your health deserves
               <span className="bg-gradient-to-r from-[#EC7013] to-[#f4d03f] bg-clip-text text-transparent">
                 {" "}gold standard{" "}
@@ -30,20 +30,20 @@ export default function CTA() {
               care.
             </h2>
 
-            <p className="mx-auto mt-5 max-w-md leading-relaxed text-neutral-500">
+            <p className="mx-auto mt-5 max-w-md leading-relaxed text-slate-600">
               Join thousands of athletes and wellness seekers who chose
               clinical-grade insights over guesswork.
             </p>
 
             {/* Pillars */}
             <div className="mx-auto mt-10 flex max-w-lg flex-wrap justify-center gap-3">
-              <div className="rounded-full border border-neutral-200 bg-white/60 px-5 py-2 text-sm text-neutral-600">
+              <div className="rounded-full border border-slate-200 bg-white/60 px-5 py-2 text-sm text-slate-600">
                 Olympic-Tested Science
               </div>
-              <div className="rounded-full border border-neutral-200 bg-white/60 px-5 py-2 text-sm text-neutral-600">
+              <div className="rounded-full border border-slate-200 bg-white/60 px-5 py-2 text-sm text-slate-600">
                 AI-Powered Coaching
               </div>
-              <div className="rounded-full border border-neutral-200 bg-white/60 px-5 py-2 text-sm text-neutral-600">
+              <div className="rounded-full border border-slate-200 bg-white/60 px-5 py-2 text-sm text-slate-600">
                 Clinical-Grade Monitoring
               </div>
             </div>
@@ -51,7 +51,7 @@ export default function CTA() {
             {/* CTA buttons */}
             <div className="mt-10 flex flex-col items-center gap-3">
               <GetAppButton size="lg" label="Download Free" />
-              <span className="text-xs text-neutral-400">
+              <span className="text-xs text-slate-500">
                 Free on iOS &middot; No credit card required
               </span>
             </div>

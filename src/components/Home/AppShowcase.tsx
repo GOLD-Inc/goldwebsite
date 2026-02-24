@@ -93,7 +93,7 @@ export default function AppShowcase() {
           className="mb-8 text-center sm:mb-12"
         >
           <AnimatedRing className="mx-auto mb-6 h-16 w-16 sm:h-20 sm:w-20" />
-          <h2 className="text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl lg:text-5xl">
+          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
             Medal winning secrets for life.
           </h2>
           <div className="mt-6 flex items-center justify-center gap-4">
@@ -221,7 +221,7 @@ function ScreenHeading({
 
   return (
     <motion.h3
-      className={`absolute inset-0 whitespace-pre-line text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl lg:text-5xl ${
+      className={`absolute inset-0 whitespace-pre-line text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl ${
         center ? "text-center" : "text-left"
       }`}
       style={{ opacity, y }}
