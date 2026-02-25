@@ -102,7 +102,10 @@ export default function Testimonials() {
             className="flex flex-col items-center justify-center max-w-[540px] mx-auto"
           >
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white text-center">
-              Loved by athletes &amp; coaches worldwide
+              For your Personal{" "}
+              <span className="bg-gradient-to-r from-[#EC7013] to-[#f4d03f] bg-clip-text text-transparent">
+                Gold.
+              </span>
             </h2>
             <p className="text-center mt-5 text-white/60 max-w-md leading-relaxed">
               From Olympians to everyday people — hear how Gold Health is
