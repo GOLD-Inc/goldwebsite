@@ -7,55 +7,64 @@ import Image from "next/image";
 const testimonials = [
   {
     text: "Gold Health completely changed how I track my recovery. The AI coach feels like having a personal trainer who actually understands my body.",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
+    image:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
     name: "Sarah Mitchell",
     role: "Marathon Runner",
   },
   {
     text: "As an Olympic athlete, I need precision data I can trust. Gold Health delivers clinical-grade insights that actually move the needle on performance.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+    image:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
     name: "James Rivera",
     role: "Olympic Swimmer",
   },
   {
     text: "The sleep insights alone were worth it. I went from 6 hours of restless sleep to consistent deep recovery nights within weeks.",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
+    image:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
     name: "Emily Chen",
-    role: "Yoga Instructor",
+    role: "Working Mom",
   },
   {
     text: "I recommend Gold Health to all my patients. It bridges the gap between clinical monitoring and everyday wellness beautifully.",
-    image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=100&h=100&fit=crop&crop=face",
+    image:
+      "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=100&h=100&fit=crop&crop=face",
     name: "Dr. Robert Hayes",
     role: "Sports Medicine Physician",
   },
   {
     text: "The meal planning feature understands my training cycles. It adjusts my nutrition based on how hard I pushed that day. Incredible.",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face",
+    image:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face",
     name: "Marcus Johnson",
     role: "CrossFit Athlete",
   },
   {
     text: "After trying dozens of health apps, Gold Health is the first one that feels like it was built by people who actually train. The difference is night and day.",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=face",
+    image:
+      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=face",
     name: "Priya Sharma",
     role: "Triathlete",
   },
   {
     text: "The Apple Health integration is seamless. All my wearable data flows in and Gold Health turns it into actionable insights I can actually use.",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+    image:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
     name: "David Park",
     role: "Tech Executive",
   },
   {
     text: "My whole team uses Gold Health now. The group insights helped us optimize our training schedule and reduce injuries by 40% this season.",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&crop=face",
+    image:
+      "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&crop=face",
     name: "Coach Lisa Torres",
     role: "NCAA Swim Coach",
   },
   {
     text: "As someone managing a chronic condition, Gold Health gives me peace of mind. The real-time monitoring and AI alerts have been life-changing.",
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop&crop=face",
+    image:
+      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop&crop=face",
     name: "Nathan Brooks",
     role: "Wellness Advocate",
   },
@@ -78,8 +87,8 @@ export default function Testimonials() {
           sizes="100vw"
         />
         {/* Dark overlay for readability */}
-        <div className="absolute inset-0 bg-black/70" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
+        <div className="absolute inset-0 bg-black/85" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/70" />
       </div>
 
       {/* Content */}
