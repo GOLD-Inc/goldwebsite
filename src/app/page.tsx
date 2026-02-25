@@ -16,8 +16,8 @@ export default function Home() {
       <SimpleActions />
       <Testimonials />
       <FAQ />
-      <CTA />
       <TeamBanner />
+      <CTA />
     </div>
   );
 }
