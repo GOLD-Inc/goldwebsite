@@ -58,9 +58,9 @@ export default function Footer() {
       <div className="h-px bg-slate-100" />
 
       <div className="relative overflow-hidden">
-        <div className="relative z-10 mx-auto max-w-7xl px-6 pt-16 pb-8">
+        <div className="relative z-10 mx-auto max-w-7xl px-8 sm:px-12 lg:px-16 pt-16 pb-8">
           {/* Main grid */}
-          <div className="flex flex-col gap-12 lg:flex-row lg:justify-between">
+          <div className="flex flex-col gap-12 md:flex-row md:justify-between">
             {/* Brand column */}
             <div className="max-w-sm space-y-6">
               <Link href="/" className="inline-block">
@@ -120,7 +120,7 @@ export default function Footer() {
             </div>
 
             {/* Link columns */}
-            <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 sm:gap-10 lg:gap-14">
+            <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 sm:gap-8 lg:gap-12">
               {footerSections.map((section) => (
                 <div key={section.title}>
                   <h4 className="mb-4 text-sm font-semibold text-slate-500">
