@@ -46,7 +46,7 @@ export default function SimpleActions() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
-          className="mx-auto mt-10 max-w-lg"
+          className="mx-auto mt-10 max-w-3xl"
         >
           <Image
             src="/diving.webp"
@@ -65,7 +65,7 @@ export default function SimpleActions() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <h3 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+          <h3 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
             Simple actions,
             <br />
             <span className="bg-gradient-to-r from-[#EC7013] to-[#f4d03f] bg-clip-text text-transparent">
