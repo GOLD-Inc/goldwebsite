@@ -23,7 +23,7 @@ const features: Feature[] = [
     id: "meal-planning",
     title: "Smart Meal Planning",
     description:
-      "Receive tailored meal recommendations based on your nutritional needs, dietary preferences, and fitness goals — powered by clinical-grade AI.",
+      "Receive tailored meal recommendations based on your nutritional needs, dietary preferences, and fitness goals",
     image: "/AppScreenshots/meal-recommendation.png",
   },
   {
@@ -58,7 +58,7 @@ const features: Feature[] = [
     id: "results",
     title: "Health Results",
     description:
-      "See your progress with clear, clinical-grade health metrics and trend analysis that help you understand your body better.",
+      "See your progress with clear, health metrics and trend analysis that help you understand your body better.",
     image: "/AppScreenshots/results.png",
   },
 ];
@@ -104,17 +104,6 @@ export default function FeatureShowcase() {
   return (
     <section className="relative py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-6">
-        {/* Section header */}
-        <div className="mb-12 text-center sm:mb-16">
-          <h2 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl md:text-6xl">
-            Take a closer look.
-          </h2>
-          <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-slate-600 sm:text-lg">
-            Everything you need for clinical-grade health monitoring, designed
-            to feel effortless.
-          </p>
-        </div>
-
         {/* Card */}
         {/* Glass card */}
         <div
@@ -131,8 +120,7 @@ export default function FeatureShowcase() {
           {/* Glass shine */}
           <div className="pointer-events-none absolute inset-x-0 top-0 h-[40%] bg-gradient-to-b from-white/50 to-transparent rounded-t-[2rem] sm:rounded-t-[50px]" />
 
-        
-                  {/* Content grid */}
+          {/* Content grid */}
           <div className="flex flex-col items-center gap-8 lg:flex-row lg:items-start lg:gap-14">
             {/* Left — Feature list */}
             <div className="flex w-full items-start gap-3 lg:w-[400px] lg:shrink-0">
@@ -165,9 +153,7 @@ export default function FeatureShowcase() {
                       <button
                         onClick={() => handleSelect(index)}
                         className={`group flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-left transition-colors duration-200 ${
-                          isActive
-                            ? "bg-white shadow-sm"
-                            : "hover:bg-white/60"
+                          isActive ? "bg-white shadow-sm" : "hover:bg-white/60"
                         }`}
                       >
                         <div
@@ -282,7 +268,6 @@ export default function FeatureShowcase() {
           ))}
         </div>
       </div>
-
     </section>
   );
 }

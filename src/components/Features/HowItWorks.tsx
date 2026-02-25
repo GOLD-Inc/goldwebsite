@@ -31,7 +31,7 @@ const steps: Step[] = [
     icon: TrendingUp,
     title: "Get Insights & Improve",
     description:
-      "Receive AI-powered coaching, personalized meal plans, and clinical-grade insights that adapt as you progress. Watch your health transform.",
+      "Receive AI-powered coaching, personalized meal plans, and insights that adapt as you progress. Watch your health transform.",
   },
 ];
 
@@ -75,9 +75,7 @@ export default function HowItWorks() {
                 </div>
               </div>
 
-              <h3 className="text-lg font-bold text-slate-900">
-                {step.title}
-              </h3>
+              <h3 className="text-lg font-bold text-slate-900">{step.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-slate-600">
                 {step.description}
               </p>

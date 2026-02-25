@@ -13,7 +13,7 @@ const testimonials = [
     role: "Marathon Runner",
   },
   {
-    text: "As an Olympic athlete, I need precision data I can trust. Gold Health delivers clinical-grade insights that actually move the needle on performance.",
+    text: "As an Olympic athlete, I need precision data I can trust. Gold Health delivers insights that actually move the needle on performance.",
     image:
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
     name: "James Rivera",
@@ -27,7 +27,7 @@ const testimonials = [
     role: "Working Mom",
   },
   {
-    text: "I recommend Gold Health to all my patients. It bridges the gap between clinical monitoring and everyday wellness beautifully.",
+    text: "I recommend Gold Health to all my patients. It bridges the gap between monitoring and everyday wellness beautifully.",
     image:
       "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=100&h=100&fit=crop&crop=face",
     name: "Dr. Robert Hayes",

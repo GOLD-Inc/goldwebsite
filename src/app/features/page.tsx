@@ -10,7 +10,7 @@ import Integrations from "@/components/Features/Integrations";
 export const metadata: Metadata = {
   title: "Features — Gold Health",
   description:
-    "Discover how Gold Health combines Olympic-tested science, AI coaching, and clinical-grade monitoring to transform your health.",
+    "Discover how Gold Health combines Olympic-tested science, AI coaching, and monitoring to transform your health.",
 };
 
 export default function FeaturesPage() {

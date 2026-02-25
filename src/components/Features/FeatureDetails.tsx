@@ -3,14 +3,7 @@
 import { motion } from "motion/react";
 import Image from "next/image";
 import { IPhoneFrame } from "@/components/ui/iphone-frame";
-import {
-  Brain,
-  Utensils,
-  Moon,
-  Dumbbell,
-  Heart,
-  Target,
-} from "lucide-react";
+import { Brain, Utensils, Moon, Dumbbell, Heart, Target } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 interface DetailedFeature {
@@ -38,7 +31,7 @@ const detailedFeatures: DetailedFeature[] = [
     icon: Utensils,
     title: "Smart Meal Planning",
     description:
-      "Get nutrition plans that match your training intensity, dietary preferences, and health goals. Every meal recommendation is backed by clinical nutrition science.",
+      "Get nutrition plans that match your training intensity, dietary preferences, and health goals",
     highlights: [
       "Macro & micro nutrient tracking",
       "Adjusts to training load",
@@ -106,8 +99,8 @@ export default function FeatureDetails() {
             Built for people who care.
           </h2>
           <p className="mx-auto mt-4 max-w-md leading-relaxed text-slate-600">
-            Every feature is designed with clinical precision and crafted for
-            everyday simplicity.
+            Every feature is designed with precision and crafted for everyday
+            simplicity.
           </p>
         </div>
 

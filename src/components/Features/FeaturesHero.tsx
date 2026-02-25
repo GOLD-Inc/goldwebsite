@@ -12,20 +12,13 @@ export default function FeaturesHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h1 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
-            Everything you need.
+          <h1 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-7xl">
+            Simple actions,
             <br />
             <span className="bg-gradient-to-r from-[#EC7013] to-[#f4d03f] bg-clip-text text-transparent">
-              Nothing you don&apos;t.
+              huge benefits.
             </span>
           </h1>
-          <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg">
-            Built with Olympic athletes. Powered by AI. Designed for everyone
-            who takes their health seriously.
-          </p>
-          <div className="mt-8">
-            <GetAppButton size="lg" label="Get Started Free" />
-          </div>
         </motion.div>
       </div>
     </section>

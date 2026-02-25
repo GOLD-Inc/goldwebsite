@@ -139,7 +139,7 @@ export default function Hero() {
           animate="visible"
           className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-black/70 sm:text-lg"
         >
-          Clinical-grade health monitoring meets beautiful design.
+          Health monitoring meets beautiful design.
           <br className="hidden sm:block" />
           Track vitals, get AI-powered insights, and take control of your
           wellness.

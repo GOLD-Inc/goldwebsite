@@ -20,7 +20,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "GOLD | Medal-winning Secrets for Life",
   description:
-    "Clinical-grade health monitoring meets beautiful design. Track vitals, get AI insights, and integrate seamlessly with Apple Health.",
+    "Health monitoring meets beautiful design. Track vitals, get AI insights, and integrate seamlessly with Apple Health.",
 };
 
 export default function RootLayout({
