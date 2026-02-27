@@ -18,7 +18,26 @@ export default function SimpleActions() {
   const scrollTags = [...tags, ...tags, ...tags, ...tags];
 
   return (
-    <section className="relative overflow-hidden py-24 sm:py-32">
+    <section className="relative overflow-hidden pb-10 sm:pb-14">
+      {/* Full-width apple user image */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        viewport={{ once: true }}
+        className="relative mb-16 w-full"
+      >
+        <Image
+          src="/apple-user.jpg"
+          alt="Apple user with Gold Health"
+          width={1920}
+          height={900}
+          className="w-full h-auto object-cover"
+          sizes="100vw"
+          priority
+        />
+      </motion.div>
+
       <div className="mx-auto max-w-3xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -65,7 +84,7 @@ export default function SimpleActions() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <h3 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
+          <h3 className="text-4xl font-bold tracking-wide text-slate-900 sm:text-5xl lg:text-6xl">
             Simple actions,
             <br />
             <span className="bg-gradient-to-r from-[#EC7013] to-[#f4d03f] bg-clip-text text-transparent">
