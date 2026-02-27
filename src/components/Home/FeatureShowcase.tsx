@@ -102,7 +102,7 @@ export default function FeatureShowcase() {
   const activeFeature = features[activeIndex];
 
   return (
-    <section className="relative py-20 sm:py-28">
+    <section className="relative py-20">
       <div className="mx-auto max-w-7xl px-6">
         {/* Card */}
         {/* Glass card */}

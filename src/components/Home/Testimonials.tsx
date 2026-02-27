@@ -103,17 +103,16 @@ export default function Testimonials() {
           >
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white text-center">
               For your Personal{" "}
-              <span className="bg-gradient-to-r from-[#EC7013] to-[#f4d03f] bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-[#EC7013] to-[#f4d03f] bg-clip-text text-transparent">
                 Gold.
               </span>
             </h2>
-            <p className="text-center mt-5 text-white/60 max-w-md leading-relaxed">
-              From Olympians to everyday people — hear how Gold Health is
-              transforming the way people train, recover, and perform.
+            <p className="text-center mt-5 text-white max-w-md leading-relaxed">
+              See how simple daily changes can be life changing.
             </p>
           </motion.div>
 
-          <div className="flex justify-center gap-6 mt-12 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[740px] overflow-hidden">
+          <div className="flex justify-center gap-6 mt-12 mask-[linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[740px] overflow-hidden">
             <TestimonialsColumn testimonials={firstColumn} duration={15} />
             <TestimonialsColumn
               testimonials={secondColumn}

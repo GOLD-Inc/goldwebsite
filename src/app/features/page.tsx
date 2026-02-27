@@ -5,6 +5,7 @@ import FeaturesHero from "@/components/Features/FeaturesHero";
 import HowItWorks from "@/components/Features/HowItWorks";
 import FeatureDetails from "@/components/Features/FeatureDetails";
 import Integrations from "@/components/Features/Integrations";
+import FeaturesBanner from "@/components/Features/FeaturesBanner";
 // import FeaturesBanner from "@/components/Features/FeaturesBanner";
 
 export const metadata: Metadata = {
@@ -19,9 +20,9 @@ export default function FeaturesPage() {
       <FeaturesHero />
       <FeatureShowcase />
       <HowItWorks />
-      <FeatureDetails />
-      <Integrations />
-      {/* <FeaturesBanner /> */}
+      {/* <FeatureDetails /> */}
+      {/* <Integrations /> */}
+      <FeaturesBanner />
       <CTA />
     </div>
   );

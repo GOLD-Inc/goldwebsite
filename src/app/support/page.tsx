@@ -29,9 +29,19 @@ const topics = [
     prompt: "What media company do you work for?",
   },
   {
+    id: "jobs",
+    label: "Jobs",
+    prompt: "What role are you interested in?",
+  },
+  {
     id: "partners",
     label: "Partners",
     prompt: "What partnership opportunity are you interested in?",
+  },
+  {
+    id: "investors",
+    label: "Investors",
+    prompt: "What investment opportunity are you interested in?",
   },
   {
     id: "contact",
@@ -151,8 +161,8 @@ export default function SupportPage() {
     <main className="flex min-h-screen items-start justify-center px-6 pb-24 pt-36 sm:pt-44">
       <div className="w-full max-w-2xl">
         {/* Big title */}
-        <h1 className="text-center text-5xl font-bold tracking-tight text-slate-900 sm:text-6xl lg:text-7xl">
-          Support
+        <h1 className="text-center text-5xl font-bold tracking-tight text-slate-900 sm:text-6xl pb-10">
+          How can we help?
         </h1>
 
         {/* Card */}
@@ -197,7 +207,7 @@ export default function SupportPage() {
                             window.history.replaceState(
                               null,
                               "",
-                              `/support#${topic.id}`
+                              `/support#${topic.id}`,
                             );
                           }}
                           className={`flex w-full items-center px-5 py-4 text-left text-base transition-colors hover:bg-slate-50 cursor-pointer ${

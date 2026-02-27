@@ -31,7 +31,7 @@ const founders: TeamMember[] = [
     role: "Founder",
     subtitle: "Olympic Athlete",
     photo: "/Team-Photos/Headshots/Sky-Christopherson.jpg",
-    landscapePhoto: "/Team-Photos/landscape-imges/Sky.png",
+    landscapePhoto: "/Team-Photos/landscape-imges/Sky.jpg",
     linkedin: "https://www.linkedin.com/in/skychristopherson/",
     bio: [
       "Sky Christopherson is an Olympic cyclist, world record holder, and multiple patent-holding innovator at the intersection of sport, technology, and public health. Featured in Fortune, Sports Illustrated, Outside Magazine, and the Financial Times, he is the inventor of 10 issued core AI coaching patents that define the next frontier of AI-powered health and wellness.",
@@ -279,12 +279,13 @@ function PhotoCard({
     size === "large"
       ? "rounded-[2rem] sm:rounded-[50px]"
       : "rounded-[1.75rem] sm:rounded-[50px]";
-  const padding = size === "large" ? "p-6" : "p-4 sm:p-5";
+  const padding =
+    size === "large" ? "p-6 pl-8 sm:pl-10" : "p-4 sm:p-5 pl-6 sm:pl-8";
 
   return (
     <button
       onClick={onOpen}
-      className={`group relative ${aspect} w-full overflow-hidden ${rounding} border border-slate-200/80 bg-slate-100 text-left transition-colors duration-200 hover:border-slate-300 cursor-pointer`}
+      className={`group relative ${aspect} w-full overflow-hidden ${rounding} border border-slate-200/80 bg-slate-100 text-left transition-transform duration-300 ease-out hover:scale-[1.03] cursor-pointer`}
     >
       {member.photo && (
         <Image
@@ -302,14 +303,14 @@ function PhotoCard({
       <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
       <div className={`absolute inset-x-0 bottom-0 ${padding}`}>
         <h3 className={`${nameSize} text-white`}>{member.name}</h3>
-        <p className={`mt-0.5 ${roleSize} font-medium text-white/75`}>
-          {member.role}
-        </p>
         {member.subtitle && (
           <p className={`mt-0.5 ${roleSize} font-semibold text-white`}>
             {member.subtitle}
           </p>
         )}
+        <p className={`mt-0.5 ${roleSize} font-medium text-white/75`}>
+          {member.role}
+        </p>
       </div>
     </button>
   );
@@ -473,6 +474,23 @@ export default function TeamPage() {
               />
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Work with Us CTA */}
+      <section className="mx-auto mt-24 max-w-5xl px-6">
+        <div className="flex flex-col items-center text-center py-8">
+          <p className="max-w-xl text-lg sm:text-xl md:text-2xl text-black leading-relaxed">
+            Join us and help improve the health of millions as a
+            <br className="hidden sm:block" />
+            partner, investor, or teammate.
+          </p>
+          <a
+            href="/career"
+            className="mt-8 rounded-full bg-[#FF8D25] px-6 py-2.5 text-base font-semibold text-white transition-colors hover:bg-[#e67d1e]"
+          >
+            Work with Us
+          </a>
         </div>
       </section>
 

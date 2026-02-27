@@ -12,7 +12,7 @@ export default function Home() {
     <div className="relative">
       <Hero />
       <FeatureShowcase />
-      <FeaturedIn />
+      {/* <FeaturedIn /> */}
       <SimpleActions />
       <Testimonials />
       <FAQ />

@@ -16,7 +16,7 @@ const footerSections = [
     title: "Product",
     links: [
       { name: "Features", href: "/features" },
-      { name: "App Docs", href: "/docs" },
+      { name: "Team", href: "/team" },
       { name: "Support", href: "/support" },
     ],
   },
@@ -33,7 +33,15 @@ const footerSections = [
     links: [
       { name: "About Us", href: "/support#contact" },
       { name: "Mission", href: "/support#contact" },
+      { name: "Careers", href: "/career" },
+    ],
+  },
+  {
+    title: "Work with Us",
+    links: [
+      { name: "Jobs", href: "/support#jobs" },
       { name: "Partners", href: "/support#partners" },
+      { name: "Investors", href: "/support#investors" },
     ],
   },
 ];
@@ -120,7 +128,7 @@ export default function Footer() {
             </div>
 
             {/* Link columns */}
-            <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 sm:gap-8 lg:gap-12">
+            <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-5 sm:gap-8 lg:gap-12">
               {footerSections.map((section) => (
                 <div key={section.title}>
                   <h4 className="mb-4 text-sm font-semibold text-slate-500">

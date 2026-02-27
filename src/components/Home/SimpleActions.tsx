@@ -1,8 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { motion } from "motion/react";
 
 const tags = [
   { label: "Better sleep", color: "bg-[#EC7013]" },
@@ -14,93 +12,44 @@ const tags = [
 ];
 
 export default function SimpleActions() {
-  // Quadruple tags for seamless infinite scroll
   const scrollTags = [...tags, ...tags, ...tags, ...tags];
 
   return (
     <section className="relative overflow-hidden pb-10 sm:pb-14">
-      {/* Full-width apple user image */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        viewport={{ once: true }}
-        className="relative mb-16 w-full"
-      >
+      {/* Image with text overlay */}
+      <div className="relative w-full">
         <Image
           src="/apple-user.jpg"
-          alt="Apple user with Gold Health"
+          alt="Woman using Gold Health app"
           width={1920}
           height={900}
-          className="w-full h-auto object-cover"
+          className="w-full h-auto block"
           sizes="100vw"
           priority
         />
-      </motion.div>
 
-      <div className="mx-auto max-w-3xl px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
-          <h2 className="text-4xl font-bold pb-10 tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
-            All ages. All levels.
-          </h2>
-          <div className="mt-5">
-            <Link
-              href="/features"
-              className="inline-flex items-center rounded-full bg-[#EC7013] px-6 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:bg-[#d4640f] hover:shadow-lg active:scale-95"
-            >
-              Features
-            </Link>
-          </div>
-        </motion.div>
+        {/* Bottom fade to white — lower 30% only */}
+        <div className="absolute inset-x-0 bottom-0 h-[30%] bg-linear-to-t from-white to-transparent" />
 
-        {/* Swimmer image */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          viewport={{ once: true }}
-          className="mx-auto mt-10 max-w-3xl"
-        >
-          <Image
-            src="/diving.webp"
-            alt="Olympic swimmer diving"
-            width={800}
-            height={700}
-            className="w-full h-auto block"
-            sizes="(max-width: 768px) 100vw, 512px"
-          />
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
-          <h3 className="text-4xl font-bold tracking-wide text-slate-900 sm:text-5xl lg:text-6xl">
+        {/* Text overlaid on bottom of image */}
+        <div className="absolute inset-x-0 bottom-[-100px] lg:bottom-[-50px] px-6 text-center">
+          <h3 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl xl:text-7xl">
             Simple actions,
             <br />
             <span className="bg-gradient-to-r from-[#EC7013] to-[#f4d03f] bg-clip-text text-transparent">
               huge benefits.
             </span>
           </h3>
-          <p className="mx-auto mt-5 max-w-md text-base leading-relaxed text-slate-600 sm:text-lg">
-            Built by Olympic athletes to give anybody breakthroughs in their
-            health and fitness with easy to follow daily actions.
+          <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-black/80 sm:text-lg font-semibold">
+            Designed by Olympic athletes to transform
+            <br className="hidden sm:block" />
+            small daily changes into powerful results.
           </p>
-        </motion.div>
+        </div>
       </div>
 
       {/* Scrolling tags */}
-      <div className="relative mt-12 overflow-hidden">
-        {/* Fade edges */}
+      <div className="relative mt-30 overflow-hidden">
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-white to-transparent sm:w-40" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-white to-transparent sm:w-40" />
 

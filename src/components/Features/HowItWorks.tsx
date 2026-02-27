@@ -17,14 +17,14 @@ const steps: Step[] = [
     icon: Download,
     title: "Download & Set Up",
     description:
-      "Download Gold Health, create your profile, and tell us about your goals — fitness, recovery, nutrition, or all of the above.",
+      "Download Gold, create your profile, and tell us about your goals — fitness, recovery, nutrition, or all of the above.",
   },
   {
     number: "02",
     icon: Activity,
     title: "Connect & Track",
     description:
-      "Connect with Apple Health and let Gold Health start learning your patterns from day one — sleep, activity, vitals, and more.",
+      "Connect with Apple Health and let Gold start learning your patterns from day one — sleep, activity, vitals, and more.",
   },
   {
     number: "03",
@@ -41,8 +41,9 @@ export default function HowItWorks() {
       <div className="mx-auto max-w-5xl px-6">
         {/* Header */}
         <div className="mb-16 text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
-            Three steps to better health.
+          <h2 className="text-3xl font-bold  text-slate-900 sm:text-4xl lg:text-5xl">
+            3 Simple Steps to
+            <br /> better health.
           </h2>
           <p className="mx-auto mt-4 max-w-md leading-relaxed text-slate-600">
             Getting started takes less than two minutes. No complicated setup,
