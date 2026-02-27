@@ -23,12 +23,10 @@ export default function CTA() {
           {/* Content */}
           <div className="relative z-10">
             <h2 className="mx-auto max-w-lg text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
-              Your health deserves
+              Your health deserves <br />
               <span className="bg-gradient-to-r from-[#EC7013] to-[#f4d03f] bg-clip-text text-transparent">
-                {" "}
-                gold standard{" "}
+                gold standard
               </span>
-              care.
             </h2>
 
             <p className="mx-auto mt-5 max-w-md leading-relaxed text-slate-600">

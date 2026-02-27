@@ -21,7 +21,7 @@ export default function FeaturesBanner() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
-          className="absolute inset-x-0 bottom-[-100px] md:bottom-0  flex flex-col items-center px-6 pb-10 text-center sm:pb-14 lg:pb-0"
+          className="absolute inset-x-0 bottom-[-80px] flex flex-col items-center px-6 pb-10 text-center sm:pb-14 lg:pb-0"
         >
           <h2 className="text-3xl font-semibold text-black sm:text-5xl lg:text-6xl">
             Medal-winning

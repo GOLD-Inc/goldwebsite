@@ -27,50 +27,48 @@ export default function Hero() {
         {/* Strong bottom fade — lower 40% */}
         <div className="absolute inset-x-0 bottom-0 h-[45%] bg-gradient-to-t from-white via-white/80 to-transparent" />
 
-        {/* Badge centered over image */}
-        <div className="absolute inset-x-0 bottom-[15%] sm:bottom-[18%] flex justify-center">
+        {/* Badge, heading, and buttons — centered over image, slightly above middle */}
+        <div className="absolute inset-x-0 top-[52%] sm:top-[55%] flex flex-col items-center justify-center px-4 text-center">
+          {/* Badge */}
           <Image
             src="/Top-Badge.png"
             alt="Top-Rated App - Life Changing - Forbes, Fortune"
             width={220}
             height={193}
-            className="w-[120px] sm:w-[160px] md:w-[200px] h-auto"
+            className="w-[100px] sm:w-[140px] md:w-[180px] h-auto"
           />
+          {/* Heading */}
+          <h1 className="mt-5 sm:mt-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.05] tracking-tight text-black drop-shadow-sm">
+            Medal winning
+            <br />
+            secrets for life.
+          </h1>
+          {/* Subtitle */}
+          <p className="mx-auto mt-4 sm:mt-5 max-w-xl text-sm sm:text-base text-black/80 drop-shadow-sm">
+            AI Coaching by Olympic athletes for everyone.
+          </p>
+          {/* CTA Buttons */}
+          <div className="mt-6 sm:mt-8 flex flex-wrap items-center justify-center gap-3">
+            <a
+              href="/features"
+              className="rounded-full bg-[#FF8D25] px-5 sm:px-7 py-2 sm:py-2.5 text-sm sm:text-base font-semibold text-white transition-colors hover:bg-[#e67d1e]"
+            >
+              Learn more
+            </a>
+            <a
+              href="https://apps.apple.com/us/app/gold-ai/id1334427427"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full bg-[#FFF3E9] px-5 sm:px-7 py-2 sm:py-2.5 text-sm sm:text-base font-semibold text-[#FF8D25] transition-colors hover:bg-[#ffe8d4]"
+            >
+              Get App
+            </a>
+          </div>
         </div>
       </div>
 
-      {/* Text content below image — overlaps slightly */}
-      <div className="relative -mt-4 sm:-mt-8 mx-auto max-w-3xl px-4 sm:px-6 pb-8 sm:pb-12 text-center">
-        {/* Heading */}
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight text-black">
-          Medal winning
-          <br />
-          secrets for life.
-        </h1>
-
-        {/* Subtitle */}
-        <p className="mx-auto mt-4 max-w-xl text-sm sm:text-base md:text-lg text-black/70">
-          AI Coaching by Olympic athletes for everyone.
-        </p>
-
-        {/* CTA Buttons */}
-        <div className="mt-6 sm:mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-          <a
-            href="#learn-more"
-            className="rounded-full bg-[#FF8D25] px-5 sm:px-7 py-2 sm:py-2.5 text-sm sm:text-base font-semibold text-white transition-colors hover:bg-[#e67d1e]"
-          >
-            Learn more
-          </a>
-          <a
-            href="https://apps.apple.com/us/app/gold-ai/id1334427427"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-full bg-[#FFF3E9] px-5 sm:px-7 py-2 sm:py-2.5 text-sm sm:text-base font-semibold text-[#FF8D25] transition-colors hover:bg-[#ffe8d4]"
-          >
-            Get App
-          </a>
-        </div>
-      </div>
+      {/* Spacer for layout — content is now over image */}
+      <div className="h-8 sm:h-12 pb-8 sm:pb-12" />
     </section>
   );
 }

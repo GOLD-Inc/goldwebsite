@@ -32,7 +32,7 @@ export default function SimpleActions() {
         <div className="absolute inset-x-0 bottom-0 h-[30%] bg-linear-to-t from-white to-transparent" />
 
         {/* Text overlaid on bottom of image */}
-        <div className="absolute inset-x-0 bottom-[-100px] lg:bottom-[-50px] px-6 text-center">
+        <div className="absolute inset-x-0 bottom-[-100px] px-6 text-center">
           <h3 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl xl:text-7xl">
             Simple actions,
             <br />
@@ -49,7 +49,7 @@ export default function SimpleActions() {
       </div>
 
       {/* Scrolling tags */}
-      <div className="relative mt-30 overflow-hidden">
+      <div className="relative mt-40 mb-20 overflow-hidden">
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-white to-transparent sm:w-40" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-white to-transparent sm:w-40" />
 
@@ -64,9 +64,6 @@ export default function SimpleActions() {
           ))}
         </div>
       </div>
-
-      {/* Divider */}
-      <div className="mx-auto mt-14 h-px max-w-xs bg-gradient-to-r from-transparent via-slate-200 to-transparent sm:mt-16" />
     </section>
   );
 }

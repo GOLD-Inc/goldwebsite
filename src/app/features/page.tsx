@@ -3,10 +3,7 @@ import FeatureShowcase from "@/components/Home/FeatureShowcase";
 import CTA from "@/components/Home/CTA";
 import FeaturesHero from "@/components/Features/FeaturesHero";
 import HowItWorks from "@/components/Features/HowItWorks";
-import FeatureDetails from "@/components/Features/FeatureDetails";
-import Integrations from "@/components/Features/Integrations";
 import FeaturesBanner from "@/components/Features/FeaturesBanner";
-// import FeaturesBanner from "@/components/Features/FeaturesBanner";
 
 export const metadata: Metadata = {
   title: "Features — Gold Health",

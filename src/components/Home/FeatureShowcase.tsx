@@ -13,6 +13,13 @@ interface Feature {
 
 const features: Feature[] = [
   {
+    id: "goals",
+    title: "Personalized Goals",
+    description:
+      "Set and track health goals tailored to you — from weight management to sleep optimization — with milestone celebrations along the way.",
+    image: "/AppScreenshots/goal.png",
+  },
+  {
     id: "ai-coach",
     title: "AI Health Coach",
     description:
@@ -46,13 +53,6 @@ const features: Feature[] = [
     description:
       "Seamlessly integrates with Apple Health to combine all your vitals, activity, and health records in one unified view.",
     image: "/AppScreenshots/apple-health.png",
-  },
-  {
-    id: "goals",
-    title: "Personalized Goals",
-    description:
-      "Set and track health goals tailored to you — from weight management to sleep optimization — with milestone celebrations along the way.",
-    image: "/AppScreenshots/goal.png",
   },
   {
     id: "results",
@@ -122,8 +122,36 @@ export default function FeatureShowcase() {
 
           {/* Content grid */}
           <div className="flex flex-col items-center gap-8 lg:flex-row lg:items-start lg:gap-14">
-            {/* Left — Feature list */}
-            <div className="flex w-full items-start gap-3 lg:w-[400px] lg:shrink-0">
+            {/* Left — Phone mockup */}
+            <div className="relative flex flex-1 items-center justify-center order-2 lg:order-none">
+              <IPhoneFrame className="w-[240px] sm:w-[270px] md:w-[300px]">
+                {/* Image — simple crossfade */}
+                <div className="relative aspect-[320/693]">
+                  {features.map((feature, index) => (
+                    <div
+                      key={feature.id}
+                      className="absolute inset-0 transition-opacity duration-300"
+                      style={{
+                        opacity: activeIndex === index ? 1 : 0,
+                        zIndex: activeIndex === index ? 1 : 0,
+                      }}
+                    >
+                      <Image
+                        src={feature.image}
+                        alt={feature.title}
+                        width={320}
+                        height={693}
+                        className="h-full w-full object-cover"
+                        loading={index === 0 ? "eager" : "lazy"}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </IPhoneFrame>
+            </div>
+
+            {/* Right — Feature list */}
+            <div className="flex w-full items-start gap-3 lg:w-[400px] lg:shrink-0 order-1 lg:order-none">
               {/* Navigation arrows — hidden on mobile */}
               <div className="hidden flex-col items-center gap-1 pt-1 sm:flex">
                 <button
@@ -222,33 +250,6 @@ export default function FeatureShowcase() {
               </div>
             </div>
 
-            {/* Right — Phone mockup */}
-            <div className="relative flex flex-1 items-center justify-center">
-              <IPhoneFrame className="w-[240px] sm:w-[270px] md:w-[300px]">
-                {/* Image — simple crossfade */}
-                <div className="relative aspect-[320/693]">
-                  {features.map((feature, index) => (
-                    <div
-                      key={feature.id}
-                      className="absolute inset-0 transition-opacity duration-300"
-                      style={{
-                        opacity: activeIndex === index ? 1 : 0,
-                        zIndex: activeIndex === index ? 1 : 0,
-                      }}
-                    >
-                      <Image
-                        src={feature.image}
-                        alt={feature.title}
-                        width={320}
-                        height={693}
-                        className="h-full w-full object-cover"
-                        loading={index === 0 ? "eager" : "lazy"}
-                      />
-                    </div>
-                  ))}
-                </div>
-              </IPhoneFrame>
-            </div>
           </div>
         </div>
 

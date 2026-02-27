@@ -1,6 +1,5 @@
 import Hero from "@/components/Home/Hero";
 import FeatureShowcase from "@/components/Home/FeatureShowcase";
-import FeaturedIn from "@/components/Home/FeaturedIn";
 import SimpleActions from "@/components/Home/SimpleActions";
 import Testimonials from "@/components/Home/Testimonials";
 import FAQ from "@/components/Home/FAQ";
