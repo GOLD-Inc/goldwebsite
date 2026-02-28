@@ -20,6 +20,20 @@ const features: Feature[] = [
     image: "/AppScreenshots/goal.png",
   },
   {
+    id: "day-calendar",
+    title: "Day Calendar",
+    description:
+      "Your complete daytime schedule — meals, workouts, supplements, and habits — all mapped out and optimized to keep you performing at your best.",
+    image: "/AppScreenshots/day-calendar.png",
+  },
+  {
+    id: "night-calendar",
+    title: "Night Calendar",
+    description:
+      "Wind-down routines, sleep targets, and recovery protocols planned for your evening — so you wake up refreshed and ready to go.",
+    image: "/AppScreenshots/night-calendar.png",
+  },
+  {
     id: "ai-coach",
     title: "AI Health Coach",
     description:

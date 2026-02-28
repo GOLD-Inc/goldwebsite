@@ -3,61 +3,52 @@ import Link from "next/link";
 
 export default function CareerPage() {
   return (
-    <main className="h-3/4">
-      {/* Heading section — matches FeaturesHero style with gradient */}
-      <section className="relative overflow-hidden pb-6 pt-36 sm:pt-44">
-        <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-          <h1 className="text-4xl font-bold tracking-wide text-slate-900 sm:text-5xl lg:text-7xl">
-            Work with{" "}
-            <span className="bg-gradient-to-r from-[#EC7013] to-[#f4d03f] bg-clip-text text-transparent">
-              us.
-            </span>
-          </h1>
-          <p className="mx-auto mt-4 max-w-xl text-base sm:text-lg text-black/70 leading-relaxed">
-            Join our innovative team and help improve
-            <br className="hidden sm:block" />
-            the health of millions worldwide.
-          </p>
+    <main className="min-h-screen pb-24">
+      {/* Hero image — same as team page, no overlay */}
+      <section className="mx-auto max-w-5xl px-6 pt-32">
+        <div className="overflow-hidden rounded-[2rem] sm:rounded-[50px]">
+          <Image
+            src="/career.png"
+            alt="work with us"
+            width={2400}
+            height={1600}
+            className="w-full h-auto block"
+            sizes="(max-width: 1280px) 100vw, 1280px"
+            priority
+          />
         </div>
       </section>
 
-      {/* Image — full width, natural aspect, no cropping */}
-      <section className="relative w-full">
-        <Image
-          src="/work-withus.png"
-          alt="Gold Health team meeting"
-          width={1920}
-          height={1080}
-          priority
-          sizes="100vw"
-          className="w-full h-auto block"
-        />
+      {/* Heading and subheading — big and bold */}
+      <section className="mx-auto max-w-4xl px-6 pt-12 sm:pt-16 text-center">
+        <h1 className="text-4xl font-bold text-slate-900 sm:text-5xl lg:text-7xl">
+          Work with us.
+        </h1>
+        <p className="mx-auto mt-5 sm:mt-6 max-w-2xl text-lg sm:text-xl lg:text-2xl font-medium text-slate-700 leading-relaxed">
+          Join our innovative team and help improve the health of millions
+          worldwide.
+        </p>
 
-        {/* Gradient overlay for button readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-
-        {/* Buttons + text overlaid on bottom of image */}
-        <div className="absolute inset-x-0 bottom-0 flex flex-col items-center pb-8 sm:pb-12 md:pb-16 px-6 text-center">
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-            <Link
-              href="/support#jobs"
-              className="rounded-full bg-[#FF8D25] px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-white transition-colors hover:bg-[#e67d1e] min-w-[120px] sm:min-w-[140px] text-center"
-            >
-              Jobs
-            </Link>
-            <Link
-              href="/support#partners"
-              className="rounded-full bg-[#FF8D25] px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-white transition-colors hover:bg-[#e67d1e] min-w-[120px] sm:min-w-[140px] text-center"
-            >
-              Partners
-            </Link>
-            <Link
-              href="/support#investors"
-              className="rounded-full bg-[#FF8D25] px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-white transition-colors hover:bg-[#e67d1e] min-w-[120px] sm:min-w-[140px] text-center"
-            >
-              Investors
-            </Link>
-          </div>
+        {/* CTA Buttons */}
+        <div className="mt-10 sm:mt-12 flex flex-wrap items-center justify-center gap-4">
+          <Link
+            href="/support#jobs"
+            className="rounded-full bg-[#FF8D25] px-6 sm:px-8 py-3 sm:py-3.5 text-base sm:text-lg font-semibold text-white transition-colors hover:bg-[#e67d1e] min-w-[140px] sm:min-w-[160px] text-center"
+          >
+            Jobs
+          </Link>
+          <Link
+            href="/support#partners"
+            className="rounded-full bg-[#FF8D25] px-6 sm:px-8 py-3 sm:py-3.5 text-base sm:text-lg font-semibold text-white transition-colors hover:bg-[#e67d1e] min-w-[140px] sm:min-w-[160px] text-center"
+          >
+            Partners
+          </Link>
+          <Link
+            href="/support#investors"
+            className="rounded-full bg-[#FF8D25] px-6 sm:px-8 py-3 sm:py-3.5 text-base sm:text-lg font-semibold text-white transition-colors hover:bg-[#e67d1e] min-w-[140px] sm:min-w-[160px] text-center"
+          >
+            Investors
+          </Link>
         </div>
       </section>
     </main>

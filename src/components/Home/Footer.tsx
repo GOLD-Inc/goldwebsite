@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Twitter, Linkedin, Instagram, Youtube, MapPin } from "lucide-react";
+import { Linkedin, Instagram, MapPin } from "lucide-react";
 import Image from "next/image";
 
 const footerSections = [
@@ -21,36 +21,56 @@ const footerSections = [
     ],
   },
   {
-    title: "Actions",
+    title: "Request",
     links: [
-      { name: "Request feature", href: "/support#feature" },
-      { name: "Report bug", href: "/support#bug" },
+      { name: "New feature", href: "/support#feature" },
+      { name: "Bug Fix", href: "/support#bug" },
       { name: "Contact", href: "/support#contact" },
     ],
   },
   {
     title: "Company",
     links: [
-      { name: "About Us", href: "/support#contact" },
-      { name: "Mission", href: "/support#contact" },
+      { name: "About Us", href: "/career" },
+      { name: "Mission", href: "/career" },
       { name: "Careers", href: "/career" },
     ],
   },
   {
     title: "Work with Us",
     links: [
-      { name: "Jobs", href: "/support#jobs" },
-      { name: "Partners", href: "/support#partners" },
-      { name: "Investors", href: "/support#investors" },
+      { name: "Jobs", href: "/career" },
+      { name: "Partners", href: "/career" },
+      { name: "Investors", href: "/career" },
     ],
   },
 ];
 
+// Custom X (Twitter) icon since lucide-react doesn't have the rebranded logo
+const XIcon = ({ className }: { className?: string }) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    className={className}
+    aria-hidden="true"
+  >
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
+
 const socials = [
-  { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Instagram, href: "#", label: "Instagram" },
-  { icon: Youtube, href: "#", label: "YouTube" },
+  { icon: XIcon, href: "https://x.com/skylabs1?s=21", label: "X" },
+  {
+    icon: Linkedin,
+    href: "https://www.linkedin.com/company/goldhealthinc/",
+    label: "LinkedIn",
+  },
+  {
+    icon: Instagram,
+    href: "https://www.instagram.com/personal.gold",
+    label: "Instagram",
+  },
+  // { icon: Youtube, href: "#", label: "YouTube" },
 ];
 
 const legalLinks = [
@@ -157,7 +177,7 @@ export default function Footer() {
 
             <div className="flex flex-col items-center justify-between gap-5 pt-7 sm:flex-row">
               <p className="text-sm text-slate-500">
-                &copy; {new Date().getFullYear()} Gold Health Inc. All rights
+                &copy; {new Date().getFullYear()} GOLD, Inc. All rights
                 reserved.
               </p>
 
