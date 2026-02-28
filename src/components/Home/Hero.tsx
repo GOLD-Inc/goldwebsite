@@ -38,13 +38,13 @@ export default function Hero() {
             className="w-[100px] sm:w-[140px] md:w-[180px] h-auto"
           />
           {/* Heading */}
-          <h1 className="mt-5 sm:mt-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.05] tracking-tight text-black drop-shadow-sm">
+          <h1 className="mt-5 sm:mt-6 text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold leading-[1.05] text-black drop-shadow-sm">
             Medal winning
             <br />
             secrets for life.
           </h1>
           {/* Subtitle */}
-          <p className="mx-auto mt-4 sm:mt-5 max-w-xl text-sm sm:text-base text-black/80 drop-shadow-sm">
+          <p className="mx-auto mt-5 sm:mt-6 max-w-2xl text-lg sm:text-xl lg:text-2xl font-medium text-slate-700 leading-relaxed">
             AI Coaching by Olympic athletes for everyone.
           </p>
           {/* CTA Buttons */}
