@@ -38,6 +38,21 @@ const screens = [
 /* ------------------------------------------------------------------ */
 
 export default function AppShowcase() {
+  return (
+    <>
+      {/* ── Desktop: sticky scroll-driven ── */}
+      <DesktopShowcase />
+      {/* ── Mobile: simple stacked cards ── */}
+      <MobileShowcase />
+    </>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/*  Desktop — sticky scrollytelling (md+)                              */
+/* ------------------------------------------------------------------ */
+
+function DesktopShowcase() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -53,82 +68,45 @@ export default function AppShowcase() {
   return (
     <section
       ref={containerRef}
-      className="relative"
-      style={{ height: `${screens.length * 90}vh` }}
+      className="relative hidden md:block"
+      style={{ height: `${screens.length * 100}vh` }}
     >
-      {/* Sticky viewport — vertically centered with offset from top */}
-      <div className="sticky top-0 flex min-h-screen items-center justify-center overflow-hidden">
-        <div className="w-full px-6 sm:px-8">
-          {/* ── Desktop: side-by-side, centered as a group ── */}
-          <div className="mx-auto hidden md:flex md:max-w-4xl md:items-center md:justify-center md:gap-16 lg:gap-24">
-            {/* Phone */}
-            <div className="relative w-[300px] shrink-0 lg:w-[340px]">
-              <div className="relative aspect-[320/693] w-full overflow-hidden rounded-xl">
-                {screens.map((screen, i) => (
-                  <ScreenImage
-                    key={screen.image}
-                    src={screen.image}
-                    index={i}
-                    progress={activeIndex}
-                  />
-                ))}
-              </div>
-            </div>
-
-            {/* Text — fixed width so the pair stays centered */}
-            <div className="relative min-h-[380px] w-[380px] shrink-0 lg:w-[420px]">
+      <div className="sticky top-0 flex min-h-screen items-center justify-center overflow-hidden bg-white">
+        <div className="mx-auto flex w-full max-w-4xl items-center justify-center gap-16 px-8 lg:gap-24">
+          {/* Phone */}
+          <div className="relative w-[300px] shrink-0 lg:w-[340px]">
+            <div className="relative aspect-[320/693] w-full overflow-hidden rounded-xl">
               {screens.map((screen, i) => (
-                <ScreenContent
-                  key={screen.heading}
-                  heading={screen.heading}
-                  subtext={screen.subtext}
-                  cta={screen.cta}
+                <ScrollImage
+                  key={screen.image}
+                  src={screen.image}
                   index={i}
                   progress={activeIndex}
-                  mobile={false}
                 />
               ))}
             </div>
           </div>
 
-          {/* ── Mobile: stacked, everything centered ── */}
-          <div className="flex flex-col items-center md:hidden">
-            {/* Phone */}
-            <div className="relative w-[260px] shrink-0 sm:w-[300px]">
-              <div className="relative aspect-[320/693] w-full overflow-hidden rounded-xl">
-                {screens.map((screen, i) => (
-                  <ScreenImage
-                    key={screen.image}
-                    src={screen.image}
-                    index={i}
-                    progress={activeIndex}
-                  />
-                ))}
-              </div>
-            </div>
-
-            {/* Text — below phone, centered */}
-            <div className="relative mt-10 min-h-[260px] w-full max-w-sm">
-              {screens.map((screen, i) => (
-                <ScreenContent
-                  key={`m-${screen.heading}`}
-                  heading={screen.mobileHeading || screen.heading}
-                  subtext={screen.subtext}
-                  cta={screen.cta}
-                  index={i}
-                  progress={activeIndex}
-                  mobile={true}
-                />
-              ))}
-            </div>
-          </div>
-
-          {/* Progress dots */}
-          <div className="mt-8 flex items-center justify-center gap-2 md:mt-12">
-            {screens.map((_, i) => (
-              <ProgressDot key={i} index={i} progress={activeIndex} />
+          {/* Text */}
+          <div className="relative min-h-[380px] w-[380px] shrink-0 lg:w-[420px]">
+            {screens.map((screen, i) => (
+              <ScrollContent
+                key={screen.heading}
+                heading={screen.heading}
+                subtext={screen.subtext}
+                cta={screen.cta}
+                index={i}
+                progress={activeIndex}
+              />
             ))}
           </div>
+        </div>
+
+        {/* Progress dots */}
+        <div className="absolute bottom-12 left-0 right-0 flex items-center justify-center gap-2">
+          {screens.map((_, i) => (
+            <ProgressDot key={i} index={i} progress={activeIndex} />
+          ))}
         </div>
       </div>
     </section>
@@ -136,10 +114,75 @@ export default function AppShowcase() {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Sub-components                                                     */
+/*  Mobile — stacked cards with fade-in (< md)                        */
 /* ------------------------------------------------------------------ */
 
-function ScreenImage({
+function MobileShowcase() {
+  return (
+    <section className="md:hidden">
+      {screens.map((screen, i) => (
+        <motion.div
+          key={screen.heading}
+          className="flex flex-col items-center px-6 py-16"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          {/* Phone image */}
+          <div className="relative w-[240px] shrink-0 sm:w-[280px]">
+            <div className="relative aspect-[320/693] w-full overflow-hidden rounded-xl">
+              <Image
+                src={screen.image}
+                alt=""
+                width={320}
+                height={693}
+                className="h-full w-full object-cover"
+                loading={i === 0 ? "eager" : "lazy"}
+              />
+            </div>
+          </div>
+
+          {/* Text */}
+          <div className="mt-8 flex flex-col items-center text-center">
+            <PulsingBorderIcon
+              size={70}
+              className="mb-5"
+              text="Health for Every Body by Gold Health"
+            />
+
+            <h3 className="whitespace-pre-line text-[2rem] font-bold leading-[1.4] tracking-tight text-slate-900 sm:text-4xl">
+              {screen.mobileHeading || screen.heading}
+            </h3>
+
+            {screen.subtext && (
+              <p className="mt-4 text-base text-slate-500 sm:text-lg">
+                {screen.subtext}
+              </p>
+            )}
+
+            {screen.cta && (
+              <div className="mt-6">
+                <Link
+                  href={screen.cta.href}
+                  className="inline-flex rounded-full bg-[#FF8D25] px-7 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-[#e67d1e] hover:shadow-md active:scale-[0.97]"
+                >
+                  {screen.cta.label}
+                </Link>
+              </div>
+            )}
+          </div>
+        </motion.div>
+      ))}
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/*  Desktop sub-components (scroll-driven)                             */
+/* ------------------------------------------------------------------ */
+
+function ScrollImage({
   src,
   index,
   progress,
@@ -173,20 +216,18 @@ function ScreenImage({
   );
 }
 
-function ScreenContent({
+function ScrollContent({
   heading,
   subtext,
   cta,
   index,
   progress,
-  mobile,
 }: {
   heading: string;
   subtext: string | null;
   cta?: { label: string; href: string };
   index: number;
   progress: MotionValue<number>;
-  mobile: boolean;
 }) {
   const opacity = useTransform(progress, (v: number) =>
     Math.abs(v - index) < 0.5 ? 1 : 0,
@@ -199,43 +240,27 @@ function ScreenContent({
 
   return (
     <motion.div
-      className={`absolute inset-0 flex flex-col ${
-        mobile
-          ? "items-center justify-center text-center"
-          : "items-start justify-center text-left"
-      }`}
+      className="absolute inset-0 flex flex-col items-start justify-center text-left"
       style={{ opacity, y }}
     >
       <PulsingBorderIcon
-        size={mobile ? 70 : 90}
+        size={90}
         className="mb-6"
         text="Health for Every Body by Gold Health"
       />
 
-      <h3
-        className={`whitespace-pre-line font-bold tracking-tight text-slate-900 ${
-          mobile
-            ? "text-[2rem] leading-[1.4] sm:text-4xl"
-            : "text-4xl leading-[1.4] lg:text-[3.2rem] lg:leading-[1.35]"
-        }`}
-      >
+      <h3 className="whitespace-pre-line text-4xl font-bold leading-[1.4] tracking-tight text-slate-900 lg:text-[3.2rem] lg:leading-[1.35]">
         {heading}
       </h3>
 
       {subtext && (
-        <p
-          className={`text-slate-500 ${
-            mobile
-              ? "mt-5 text-base sm:text-lg"
-              : "mt-6 text-lg lg:mt-7 lg:text-xl"
-          }`}
-        >
+        <p className="mt-6 text-lg text-slate-500 lg:mt-7 lg:text-xl">
           {subtext}
         </p>
       )}
 
       {cta && (
-        <div className={mobile ? "mt-7" : "mt-8"}>
+        <div className="mt-8">
           <Link
             href={cta.href}
             className="inline-flex rounded-full bg-[#FF8D25] px-7 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-[#e67d1e] hover:shadow-md active:scale-[0.97]"
