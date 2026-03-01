@@ -1,5 +1,5 @@
 import Hero from "@/components/Home/Hero";
-import FeatureShowcase from "@/components/Home/FeatureShowcase";
+import AppShowcase from "@/components/Home/AppShowcase";
 import SimpleActions from "@/components/Home/SimpleActions";
 import Testimonials from "@/components/Home/Testimonials";
 import FAQ from "@/components/Home/FAQ";
@@ -10,8 +10,7 @@ export default function Home() {
   return (
     <div className="relative">
       <Hero />
-      <FeatureShowcase />
-      {/* <FeaturedIn /> */}
+      <AppShowcase />
       <SimpleActions />
       <Testimonials />
       <FAQ />

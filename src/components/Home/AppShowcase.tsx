@@ -3,72 +3,39 @@
 import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useScroll, useTransform, type MotionValue } from "motion/react";
-import { IPhoneFrame } from "@/components/ui/iphone-frame";
-import { GetAppButton } from "@/components/ui/get-app-button";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  type MotionValue,
+} from "motion/react";
+import { PulsingBorderIcon } from "@/components/ui/pulsing-border-icon";
 
 const screens = [
   {
-    image: "/AppScreenshots/main-screen.png",
-    heading: "Your new coach\nin your pocket.",
+    image: "/learn-more/1.png",
+    heading: "Introducing your\nnew coach.",
+    mobileHeading: "Introducing\nyour new coach.",
+    subtext: "Always with you. Always free.",
   },
   {
-    image: "/AppScreenshots/day-calendar.png",
-    heading: "Keeping you\noptimal.",
+    image: "/learn-more/2.png",
+    heading: "Keeps you\noptimal.",
+    mobileHeading: "Keeps you\noptimal.",
+    subtext: "Easy-to-follow daily actions.",
   },
   {
-    image: "/AppScreenshots/night-calendar.png",
+    image: "/learn-more/3.png",
     heading: "Day and\nnight.",
+    mobileHeading: "Day and\nnight.",
+    subtext: null,
+    cta: { label: "Features", href: "/features" },
   },
 ];
 
-function AnimatedRing({ className }: { className?: string }) {
-  return (
-    <div className={className}>
-      <svg
-        viewBox="0 0 120 120"
-        className="h-full w-full animate-spin"
-        style={{ animationDuration: "8s" }}
-      >
-        <defs>
-          <linearGradient id="ring-grad-1" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#f4d03f" />
-            <stop offset="50%" stopColor="#EC7013" />
-            <stop offset="100%" stopColor="#d4a0e8" />
-          </linearGradient>
-          <linearGradient id="ring-grad-2" x1="1" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.9" />
-            <stop offset="50%" stopColor="#a8e6cf" />
-            <stop offset="100%" stopColor="#87ceeb" />
-          </linearGradient>
-        </defs>
-        <circle
-          cx="60"
-          cy="60"
-          r="46"
-          fill="none"
-          stroke="url(#ring-grad-1)"
-          strokeWidth="10"
-          strokeLinecap="round"
-          strokeDasharray="200 90"
-          opacity="0.9"
-        />
-        <circle
-          cx="60"
-          cy="60"
-          r="46"
-          fill="none"
-          stroke="url(#ring-grad-2)"
-          strokeWidth="10"
-          strokeLinecap="round"
-          strokeDasharray="80 210"
-          strokeDashoffset="200"
-          opacity="0.85"
-        />
-      </svg>
-    </div>
-  );
-}
+/* ------------------------------------------------------------------ */
+/*  Main component                                                     */
+/* ------------------------------------------------------------------ */
 
 export default function AppShowcase() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -77,89 +44,91 @@ export default function AppShowcase() {
     offset: ["start start", "end end"],
   });
 
-  // Map scroll progress to active screen index (0, 1, 2)
-  const activeIndexRaw = useTransform(scrollYProgress, [0, 0.33, 0.66, 1], [0, 0, 1, 2]);
+  const activeIndex = useTransform(
+    scrollYProgress,
+    [0, 0.33, 0.66, 1],
+    [0, 0, 1, 2],
+  );
 
   return (
-    <section ref={containerRef} className="relative" style={{ height: `${screens.length * 100}vh` }}>
-      {/* Sticky container */}
-      <div className="sticky top-0 flex min-h-screen flex-col items-center justify-center overflow-hidden">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          viewport={{ once: true }}
-          className="mb-8 text-center sm:mb-12"
-        >
-          <AnimatedRing className="mx-auto mb-6 h-16 w-16 sm:h-20 sm:w-20" />
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
-            Medal winning secrets for life.
-          </h2>
-          <div className="mt-6 flex items-center justify-center gap-4">
-            <Link
-              href="/features"
-              className="inline-flex items-center rounded-full bg-[#EC7013] px-6 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:bg-[#d4640f] hover:shadow-lg active:scale-95"
-            >
-              Learn more
-            </Link>
-            <GetAppButton size="sm" label="Get App" />
-          </div>
-        </motion.div>
-
-        {/* Phone + text area */}
-        <div className="flex w-full max-w-5xl items-center justify-center gap-8 px-6 lg:gap-16">
-          {/* Phone — stays in place, images crossfade */}
-          <div className="flex justify-center lg:justify-start">
-            <IPhoneFrame className="w-[220px] sm:w-[260px] md:w-[280px]">
-              <div className="relative aspect-[320/693]">
-                {screens.map((screen, index) => (
+    <section
+      ref={containerRef}
+      className="relative"
+      style={{ height: `${screens.length * 90}vh` }}
+    >
+      {/* Sticky viewport — vertically centered with offset from top */}
+      <div className="sticky top-0 flex min-h-screen items-center justify-center overflow-hidden">
+        <div className="w-full px-6 sm:px-8">
+          {/* ── Desktop: side-by-side, centered as a group ── */}
+          <div className="mx-auto hidden md:flex md:max-w-4xl md:items-center md:justify-center md:gap-16 lg:gap-24">
+            {/* Phone */}
+            <div className="relative w-[300px] shrink-0 lg:w-[340px]">
+              <div className="relative aspect-[320/693] w-full overflow-hidden rounded-xl">
+                {screens.map((screen, i) => (
                   <ScreenImage
                     key={screen.image}
                     src={screen.image}
-                    index={index}
-                    scrollProgress={activeIndexRaw}
+                    index={i}
+                    progress={activeIndex}
                   />
                 ))}
               </div>
-            </IPhoneFrame>
-          </div>
+            </div>
 
-          {/* Text — crossfades */}
-          <div className="hidden lg:block lg:flex-1">
-            <div className="relative h-40">
-              {screens.map((screen, index) => (
-                <ScreenHeading
+            {/* Text — fixed width so the pair stays centered */}
+            <div className="relative min-h-[380px] w-[380px] shrink-0 lg:w-[420px]">
+              {screens.map((screen, i) => (
+                <ScreenContent
                   key={screen.heading}
                   heading={screen.heading}
-                  index={index}
-                  scrollProgress={activeIndexRaw}
+                  subtext={screen.subtext}
+                  cta={screen.cta}
+                  index={i}
+                  progress={activeIndex}
+                  mobile={false}
                 />
               ))}
             </div>
           </div>
-        </div>
 
-        {/* Mobile text — below phone */}
-        <div className="mt-8 lg:hidden">
-          <div className="relative h-24 w-full text-center">
-            {screens.map((screen, index) => (
-              <ScreenHeading
-                key={`mobile-${screen.heading}`}
-                heading={screen.heading}
-                index={index}
-                scrollProgress={activeIndexRaw}
-                center
-              />
+          {/* ── Mobile: stacked, everything centered ── */}
+          <div className="flex flex-col items-center md:hidden">
+            {/* Phone */}
+            <div className="relative w-[260px] shrink-0 sm:w-[300px]">
+              <div className="relative aspect-[320/693] w-full overflow-hidden rounded-xl">
+                {screens.map((screen, i) => (
+                  <ScreenImage
+                    key={screen.image}
+                    src={screen.image}
+                    index={i}
+                    progress={activeIndex}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Text — below phone, centered */}
+            <div className="relative mt-10 min-h-[260px] w-full max-w-sm">
+              {screens.map((screen, i) => (
+                <ScreenContent
+                  key={`m-${screen.heading}`}
+                  heading={screen.mobileHeading || screen.heading}
+                  subtext={screen.subtext}
+                  cta={screen.cta}
+                  index={i}
+                  progress={activeIndex}
+                  mobile={true}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Progress dots */}
+          <div className="mt-8 flex items-center justify-center gap-2 md:mt-12">
+            {screens.map((_, i) => (
+              <ProgressDot key={i} index={i} progress={activeIndex} />
             ))}
           </div>
-        </div>
-
-        {/* Progress dots */}
-        <div className="mt-6 flex items-center gap-2 sm:mt-8">
-          {screens.map((_, index) => (
-            <ProgressDot key={index} index={index} scrollProgress={activeIndexRaw} />
-          ))}
         </div>
       </div>
     </section>
@@ -167,25 +136,31 @@ export default function AppShowcase() {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Sub-components with scroll-driven opacity                          */
+/*  Sub-components                                                     */
 /* ------------------------------------------------------------------ */
 
 function ScreenImage({
   src,
   index,
-  scrollProgress,
+  progress,
 }: {
   src: string;
   index: number;
-  scrollProgress: MotionValue<number>;
+  progress: MotionValue<number>;
 }) {
-  const opacity = useTransform(scrollProgress, (v: number) => {
-    const distance = Math.abs(v - index);
-    return distance < 0.5 ? 1 : 0;
-  });
+  const opacity = useTransform(progress, (v: number) =>
+    Math.abs(v - index) < 0.5 ? 1 : 0,
+  );
+  const scale = useTransform(progress, (v: number) =>
+    Math.abs(v - index) < 0.5 ? 1 : 0.95,
+  );
 
   return (
-    <motion.div className="absolute inset-0" style={{ opacity }}>
+    <motion.div
+      className="absolute inset-0"
+      style={{ opacity, scale }}
+      transition={{ duration: 0.4 }}
+    >
       <Image
         src={src}
         alt=""
@@ -198,54 +173,94 @@ function ScreenImage({
   );
 }
 
-function ScreenHeading({
+function ScreenContent({
   heading,
+  subtext,
+  cta,
   index,
-  scrollProgress,
-  center,
+  progress,
+  mobile,
 }: {
   heading: string;
+  subtext: string | null;
+  cta?: { label: string; href: string };
   index: number;
-  scrollProgress: MotionValue<number>;
-  center?: boolean;
+  progress: MotionValue<number>;
+  mobile: boolean;
 }) {
-  const opacity = useTransform(scrollProgress, (v: number) => {
-    const distance = Math.abs(v - index);
-    return distance < 0.5 ? 1 : 0;
-  });
-  const y = useTransform(scrollProgress, (v: number) => {
-    const distance = v - index;
-    if (Math.abs(distance) >= 0.5) return distance > 0 ? -20 : 20;
+  const opacity = useTransform(progress, (v: number) =>
+    Math.abs(v - index) < 0.5 ? 1 : 0,
+  );
+  const y = useTransform(progress, (v: number) => {
+    const d = v - index;
+    if (Math.abs(d) >= 0.5) return d > 0 ? -24 : 24;
     return 0;
   });
 
   return (
-    <motion.h3
-      className={`absolute inset-0 whitespace-pre-line text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl ${
-        center ? "text-center" : "text-left"
+    <motion.div
+      className={`absolute inset-0 flex flex-col ${
+        mobile
+          ? "items-center justify-center text-center"
+          : "items-start justify-center text-left"
       }`}
       style={{ opacity, y }}
     >
-      {heading}
-    </motion.h3>
+      <PulsingBorderIcon
+        size={mobile ? 70 : 90}
+        className="mb-6"
+        text="Health for Every Body by Gold Health"
+      />
+
+      <h3
+        className={`whitespace-pre-line font-bold tracking-tight text-slate-900 ${
+          mobile
+            ? "text-[2rem] leading-[1.4] sm:text-4xl"
+            : "text-4xl leading-[1.4] lg:text-[3.2rem] lg:leading-[1.35]"
+        }`}
+      >
+        {heading}
+      </h3>
+
+      {subtext && (
+        <p
+          className={`text-slate-500 ${
+            mobile
+              ? "mt-5 text-base sm:text-lg"
+              : "mt-6 text-lg lg:mt-7 lg:text-xl"
+          }`}
+        >
+          {subtext}
+        </p>
+      )}
+
+      {cta && (
+        <div className={mobile ? "mt-7" : "mt-8"}>
+          <Link
+            href={cta.href}
+            className="inline-flex rounded-full bg-[#FF8D25] px-7 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-[#e67d1e] hover:shadow-md active:scale-[0.97]"
+          >
+            {cta.label}
+          </Link>
+        </div>
+      )}
+    </motion.div>
   );
 }
 
 function ProgressDot({
   index,
-  scrollProgress,
+  progress,
 }: {
   index: number;
-  scrollProgress: MotionValue<number>;
+  progress: MotionValue<number>;
 }) {
-  const width = useTransform(scrollProgress, (v: number) => {
-    const distance = Math.abs(v - index);
-    return distance < 0.5 ? 24 : 6;
-  });
-  const bgColor = useTransform(scrollProgress, (v: number) => {
-    const distance = Math.abs(v - index);
-    return distance < 0.5 ? "#1a1a1a" : "#d4d4d4";
-  });
+  const width = useTransform(progress, (v: number) =>
+    Math.abs(v - index) < 0.5 ? 24 : 6,
+  );
+  const bgColor = useTransform(progress, (v: number) =>
+    Math.abs(v - index) < 0.5 ? "#1a1a1a" : "#d4d4d4",
+  );
 
   return (
     <motion.div
