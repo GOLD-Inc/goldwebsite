@@ -14,8 +14,8 @@ import { PulsingBorderIcon } from "@/components/ui/pulsing-border-icon";
 const screens = [
   {
     image: "/learn-more/1.png",
-    heading: "Introducing your\nnew coach.",
-    mobileHeading: "Introducing\nyour new coach.",
+    heading: "Introducing your\nnew AI coach.",
+    mobileHeading: "Introducing\nyour new AI coach.",
     subtext: "Always with you. Always free.",
   },
   {
@@ -68,13 +68,13 @@ function DesktopShowcase() {
   return (
     <section
       ref={containerRef}
-      className="relative hidden md:block"
-      style={{ height: `${screens.length * 100}vh` }}
+      className="relative hidden pt-24 md:block scroll-mt-20"
+      style={{ height: `${screens.length * 45}vh` }}
     >
-      <div className="sticky top-0 flex min-h-screen items-center justify-center overflow-hidden bg-white">
-        <div className="mx-auto flex w-full max-w-4xl items-center justify-center gap-16 px-8 lg:gap-24">
+      <div className="sticky top-20 flex min-h-[70vh] items-center justify-center overflow-hidden bg-white py-6 z-30">
+        <div className="mx-auto flex w-full max-w-3xl items-center justify-center gap-6 px-6 lg:gap-10">
           {/* Phone */}
-          <div className="relative w-[300px] shrink-0 lg:w-[340px]">
+          <div className="relative w-[220px] shrink-0 lg:w-[260px]">
             <div className="relative aspect-[320/693] w-full overflow-hidden rounded-xl">
               {screens.map((screen, i) => (
                 <ScrollImage
@@ -88,7 +88,7 @@ function DesktopShowcase() {
           </div>
 
           {/* Text */}
-          <div className="relative min-h-[380px] w-[380px] shrink-0 lg:w-[420px]">
+          <div className="relative min-h-[220px] w-[300px] shrink-0 lg:w-[340px]">
             {screens.map((screen, i) => (
               <ScrollContent
                 key={screen.heading}
@@ -103,7 +103,7 @@ function DesktopShowcase() {
         </div>
 
         {/* Progress dots */}
-        <div className="absolute bottom-12 left-0 right-0 flex items-center justify-center gap-2">
+        <div className="absolute bottom-4 left-0 right-0 flex items-center justify-center gap-2">
           {screens.map((_, i) => (
             <ProgressDot key={i} index={i} progress={activeIndex} />
           ))}
@@ -114,67 +114,123 @@ function DesktopShowcase() {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Mobile — stacked cards with fade-in (< md)                        */
+/*  Mobile — scroll-driven (same as desktop, stacked layout)           */
 /* ------------------------------------------------------------------ */
 
 function MobileShowcase() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
+
+  const activeIndex = useTransform(
+    scrollYProgress,
+    [0, 0.33, 0.66, 1],
+    [0, 0, 1, 2],
+  );
+
   return (
-    <section className="md:hidden">
-      {screens.map((screen, i) => (
-        <motion.div
-          key={screen.heading}
-          className="flex flex-col items-center px-6 py-16"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          {/* Phone image */}
-          <div className="relative w-[240px] shrink-0 sm:w-[280px]">
-            <div className="relative aspect-[320/693] w-full overflow-hidden rounded-xl">
-              <Image
+    <section
+      ref={containerRef}
+      className="relative pt-20 md:hidden scroll-mt-20"
+      style={{ height: `${screens.length * 45}vh` }}
+    >
+      <div className="sticky top-20 flex min-h-[70vh] flex-row items-center justify-center gap-4 overflow-hidden bg-white px-4 py-6 z-30 sm:gap-6">
+        {/* Image — crossfades on scroll */}
+        <div className="relative w-[140px] shrink-0 sm:w-[180px]">
+          <div className="relative aspect-[320/693] w-full overflow-hidden rounded-xl">
+            {screens.map((screen, i) => (
+              <ScrollImage
+                key={screen.image}
                 src={screen.image}
-                alt=""
-                width={320}
-                height={693}
-                className="h-full w-full object-cover"
-                loading={i === 0 ? "eager" : "lazy"}
+                index={i}
+                progress={activeIndex}
               />
-            </div>
+            ))}
           </div>
+        </div>
 
-          {/* Text */}
-          <div className="mt-8 flex flex-col items-center text-center">
-            <PulsingBorderIcon
-              size={70}
-              className="mb-5"
-              text="Health for Every Body by Gold Health"
+        {/* Text — crossfades on scroll, icon high, heading aligns with phone center */}
+        <div className="relative min-h-[160px] w-full max-w-[180px] flex-1 sm:max-w-[220px]">
+          {screens.map((screen, i) => (
+            <MobileScrollContent
+              key={screen.heading}
+              heading={screen.mobileHeading || screen.heading}
+              subtext={screen.subtext}
+              cta={screen.cta}
+              index={i}
+              progress={activeIndex}
             />
+          ))}
+        </div>
 
-            <h3 className="whitespace-pre-line text-[2rem] font-bold leading-[1.4] tracking-tight text-slate-900 sm:text-4xl">
-              {screen.mobileHeading || screen.heading}
-            </h3>
-
-            {screen.subtext && (
-              <p className="mt-4 text-base text-slate-500 sm:text-lg">
-                {screen.subtext}
-              </p>
-            )}
-
-            {screen.cta && (
-              <div className="mt-6">
-                <Link
-                  href={screen.cta.href}
-                  className="inline-flex rounded-full bg-[#FF8D25] px-7 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-[#e67d1e] hover:shadow-md active:scale-[0.97]"
-                >
-                  {screen.cta.label}
-                </Link>
-              </div>
-            )}
-          </div>
-        </motion.div>
-      ))}
+        {/* Progress dots — stays below navbar with sticky top-20 */}
+        <div className="absolute bottom-4 left-0 right-0 flex items-center justify-center gap-2">
+          {screens.map((_, i) => (
+            <ProgressDot key={i} index={i} progress={activeIndex} />
+          ))}
+        </div>
+      </div>
     </section>
+  );
+}
+
+function MobileScrollContent({
+  heading,
+  subtext,
+  cta,
+  index,
+  progress,
+}: {
+  heading: string;
+  subtext: string | null;
+  cta?: { label: string; href: string };
+  index: number;
+  progress: MotionValue<number>;
+}) {
+  const opacity = useTransform(progress, (v: number) =>
+    Math.abs(v - index) < 0.5 ? 1 : 0,
+  );
+  const y = useTransform(progress, (v: number) => {
+    const d = v - index;
+    if (Math.abs(d) >= 0.5) return d > 0 ? -20 : 20;
+    return 0;
+  });
+
+  return (
+    <motion.div
+      className="absolute inset-0 flex flex-col items-center justify-center text-center"
+      style={{ opacity, y }}
+    >
+      <div className="opacity-70 -mt-3 mb-1">
+        <PulsingBorderIcon
+          size={50}
+          text="Health for Every Body by Gold Health"
+        />
+      </div>
+
+      <h3 className="whitespace-pre-line text-lg font-bold leading-tight tracking-tight text-slate-900 sm:text-xl">
+        {heading}
+      </h3>
+
+      {subtext && (
+        <p className="mt-2 text-xs font-medium text-slate-500 sm:text-sm">
+          {subtext}
+        </p>
+      )}
+
+      {cta && (
+        <div className="mt-5">
+          <Link
+            href={cta.href}
+            className="inline-flex rounded-full bg-[#FF8D25] px-5 py-2 text-xs font-semibold text-white shadow-sm transition-all duration-200 hover:bg-[#e67d1e] hover:shadow-md active:scale-[0.97] sm:text-sm"
+          >
+            {cta.label}
+          </Link>
+        </div>
+      )}
+    </motion.div>
   );
 }
 
@@ -240,30 +296,32 @@ function ScrollContent({
 
   return (
     <motion.div
-      className="absolute inset-0 flex flex-col items-start justify-center text-left"
+      className="absolute inset-0 flex flex-col items-start justify-center text-left -mt-4 lg:-mt-6"
       style={{ opacity, y }}
     >
-      <PulsingBorderIcon
-        size={90}
-        className="mb-6"
-        text="Health for Every Body by Gold Health"
-      />
+      <div className="opacity-50 -mt-2">
+        <PulsingBorderIcon
+          size={70}
+          className="mb-1"
+          text="Health for Every Body by Gold Health"
+        />
+      </div>
 
-      <h3 className="whitespace-pre-line text-4xl font-bold leading-[1.4] tracking-tight text-slate-900 lg:text-[3.2rem] lg:leading-[1.35]">
+      <h3 className="whitespace-pre-line text-2xl font-bold leading-tight tracking-tight text-slate-900 lg:text-3xl">
         {heading}
       </h3>
 
       {subtext && (
-        <p className="mt-6 text-lg text-slate-500 lg:mt-7 lg:text-xl">
+        <p className="mt-2 text-sm font-medium text-slate-500 lg:mt-3 lg:text-base">
           {subtext}
         </p>
       )}
 
       {cta && (
-        <div className="mt-8">
+        <div className="mt-5">
           <Link
             href={cta.href}
-            className="inline-flex rounded-full bg-[#FF8D25] px-7 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-[#e67d1e] hover:shadow-md active:scale-[0.97]"
+            className="inline-flex rounded-full bg-[#FF8D25] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-[#e67d1e] hover:shadow-md active:scale-[0.97]"
           >
             {cta.label}
           </Link>

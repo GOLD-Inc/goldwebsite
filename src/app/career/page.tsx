@@ -24,7 +24,7 @@ export default function CareerPage() {
         <h1 className="text-4xl font-bold text-slate-900 sm:text-5xl lg:text-7xl">
           Work with us.
         </h1>
-        <p className="mx-auto mt-5 sm:mt-6 max-w-2xl text-lg sm:text-xl lg:text-2xl font-medium text-slate-700 leading-relaxed">
+        <p className="mx-auto mt-5 sm:mt-6 max-w-4xl text-lg sm:text-xl lg:text-2xl font-medium text-slate-700 leading-relaxed">
           Join our innovative team and help improve the health of millions
           worldwide.
         </p>

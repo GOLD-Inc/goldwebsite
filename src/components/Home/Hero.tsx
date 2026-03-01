@@ -1,13 +1,5 @@
 "use client";
 import Image from "next/image";
-// import { useRef } from "react";
-// import { MeshGradient, PulsingBorder } from "@paper-design/shaders-react";
-// import { motion, useScroll, useTransform } from "framer-motion";
-// import { Confetti, ConfettiRef } from "../ui/confetti";
-// import { HeroBadge } from "../ui/hero-badge";
-// import { GetAppButton } from "../ui/get-app-button";
-// import { AnimatedTooltip } from "../ui/animated-tooltip";
-// import { IPhoneFrame } from "../ui/iphone-frame";
 
 export default function Hero() {
   return (

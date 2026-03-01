@@ -6,26 +6,91 @@ import { ChevronDown } from "lucide-react";
 
 const faqs = [
   {
+    question: "What is GOLD?",
+    answer:
+      "GOLD is an AI-powered wellness coaching app for iPhone.\n\nIt’s the first system to fully integrate workouts, meals, sleep, and overall wellbeing into one interconnected coaching experience. Instead of managing separate apps for fitness, nutrition, and recovery, GOLD brings everything together — intelligently.\n\nBuilt on Olympic medal–winning performance science and powered by 10 foundational patents, GOLD delivers one unified plan for how you live, train, eat, and recover.",
+  },
+  {
     question: "How can GOLD benefit me?",
     answer:
-      "GOLD is an iOS wellness coaching app built for all ages and fitness levels, bringing Olympic medal\u2013winning science into everyday life. Powered by patented AI Coaching and supported by real human coaches, GOLD delivers adaptive, real-time guidance across meals, workouts, sleep, and wellbeing\u2014so you always know the best next action to take. The app helps you create structure, build consistency, and helps small daily improvements compound into enormous health and fitness gains.",
+      "GOLD helps you make the right decision at the right time.\n\nBecause workouts, nutrition, sleep, and stress are deeply connected, your coaching should be too. GOLD continuously adapts across all four pillars — so a tough workout influences recovery guidance, sleep impacts training intensity, and nutrition aligns with your daily demands.\n\nYou get:\n\n• Clear next actions instead of scattered tracking\n• Daily structure without complexity\n• Smarter adjustments based on how your body is responding\n• Small improvements that compound over time\n\nIt’s built for all ages and fitness levels — from foundational habit builders to high performers.",
   },
   {
     question: "What makes GOLD different?",
     answer:
-      "We combine Olympic medal-winning secrets with AI Avatar Coaching to drive the most simple to do, impactful, scientifically proven daily behaviors. While most platforms rely on retrospective tracking, generic graphs, and surface-level insights\u2014often built by engineers and business operators without deep human performance expertise\u2014we\u2019re engineered from the ground up by world-class athletes and researchers who know what truly moves the needle. Powered by 10 patents and elite performance science, we\u2019re building a new category of precision lifestyle coaching designed for global scale and real results.",
+      "Most platforms focus on one pillar — fitness, food, or sleep — and show you what already happened.\n\nGOLD integrates all four pillars into one adaptive AI coaching system. Every recommendation is interconnected. Nothing lives in isolation.\n\nYour workout plan considers your sleep.\nYour nutrition adjusts to your training load.\nYour recovery reflects your stress and wellbeing.\n\nThis system is powered by 10 patents designed to translate elite performance science into simple, daily actions.\n\nGOLD doesn’t just track your life. It coaches it — as one system.",
   },
   {
-    question: "How does GOLD scale coaching?",
+    question: "How does AI Coaching work?",
     answer:
-      "We scale human coaching by training emotionally intelligent AI Avatar Coaches to mirror the most effective qualities of live support\u2014like empathy, presence, and accountability\u2014while making it available 24/7, in any language, across cultures. Our approach draws from decades of Olympic coaching insights, behavior science, and the principle of unconditional positive regard, then encodes it into an adaptive AI system backed by 10 foundational patents. For users who want deeper support, real human coaching sessions are also available, creating a seamless blend of always-on AI guidance and expert live coaching. The result is an experience where people still feel seen, heard, and supported\u2014delivered with a level of consistency and scalability that human coaches alone can\u2019t provide.",
+      "GOLD uses emotionally intelligent AI Avatar Coaching trained on decades of Olympic performance insights and behavior science.\n\nThe system analyzes patterns across:\n\n• Training\n• Nutrition\n• Sleep\n• Recovery\n• Daily wellbeing\n\nBecause these pillars are integrated, the AI adapts holistically — not in silos. If one area changes, your entire plan adjusts intelligently.\n\nCoaching is available 24/7, personalized to your goals and behaviors, and delivered in clear, achievable steps.",
   },
   {
-    question: "When can I start using GOLD?",
+    question: "Is there live human coaching?",
     answer:
-      "We are currently offering closed beta testing to select users prior to our February 2026 iOS launch prior to the 2026 Winter Olympics. If you are interested in applying, please click the \u2018Get App\u2019 button on the header.",
+      "No.\n\nGOLD is fully AI-powered. Our patented AI coaching system is designed to deliver consistent, adaptive support at scale — without the limitations of scheduling or availability.",
+  },
+  {
+    question: "Who is GOLD for?",
+    answer:
+      "GOLD is designed for anyone who wants a more intelligent, structured approach to health.\n\nWhether you’re:\n\n• Building foundational habits\n• Balancing a demanding schedule\n• Training competitively\n• Or simply wanting to feel better daily\n\nGOLD adapts to your level and evolves with you.",
+  },
+  {
+    question: "Do I need special equipment?",
+    answer:
+      "No.\n\nGOLD works on its own, and can optionally integrate with Apple Health to enhance personalization through activity and sleep data — with your permission.",
+  },
+  {
+    question: "How does GOLD use my data?",
+    answer:
+      "Your data powers personalization across all four pillars of your coaching system.\n\nHealth information is encrypted and securely stored. You control what is shared. GOLD does not sell personal data.",
+  },
+  {
+    question: "Why combine workouts, meals, sleep, and wellbeing?",
+    answer:
+      "Because your body doesn’t separate them — and your coaching shouldn’t either.\n\nPerformance, energy, recovery, and long-term health are the result of how these pillars work together. GOLD is the first system built from the ground up to treat them as one interconnected ecosystem, not separate features.\n\nThat integration is what allows coaching to feel intuitive, precise, and adaptive.",
+  },
+  {
+    question: "Where can I download GOLD?",
+    answer:
+      "GOLD is available now on the App Store for iPhone.\n\nDownload today and experience the Gold Standard of integrated AI coaching.",
   },
 ];
+
+function FAQAnswer({ answer }: { answer: string }) {
+  const blocks = answer.split(/\n\n+/);
+  return (
+    <div className="space-y-4 pb-6 text-base leading-relaxed text-black">
+      {blocks.map((block, i) => {
+        const trimmed = block.trim();
+        if (!trimmed) return null;
+        const lines = trimmed.split("\n").map((l) => l.trim()).filter(Boolean);
+        const bulletLines = lines.filter((l) => l.startsWith("•"));
+        if (bulletLines.length > 0) {
+          return (
+            <ul key={i} className="list-disc space-y-2 pl-6 marker:text-black">
+              {bulletLines.map((line, j) => (
+                <li key={j} className="pl-2">
+                  {line.replace(/^•\s*/, "").trim()}
+                </li>
+              ))}
+            </ul>
+          );
+        }
+        return (
+          <p key={i}>
+            {lines.map((line, j) => (
+              <span key={j}>
+                {j > 0 && <br />}
+                {line}
+              </span>
+            ))}
+          </p>
+        );
+      })}
+    </div>
+  );
+}
 
 function FAQItem({ faq }: { faq: { question: string; answer: string } }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,9 +119,7 @@ function FAQItem({ faq }: { faq: { question: string; answer: string } }) {
             transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="overflow-hidden"
           >
-            <p className="pb-6 text-base leading-relaxed text-slate-600">
-              {faq.answer}
-            </p>
+            <FAQAnswer answer={faq.answer} />
           </motion.div>
         )}
       </AnimatePresence>
