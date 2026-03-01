@@ -32,8 +32,8 @@ export default function SimpleActions() {
         <div className="absolute inset-x-0 bottom-0 h-[30%] bg-linear-to-t from-white to-transparent" />
 
         {/* Text overlaid on bottom of image */}
-        <div className="absolute inset-x-0 bottom-[-150px] px-6 text-center">
-          <h3 className="text-4xl font-bold text-slate-900 sm:text-5xl lg:text-6xl xl:text-7xl">
+        <div className="absolute inset-x-0 bottom-[-200px] px-6 text-center">
+          <h3 className="text-4xl font-bold text-slate-900 pb-5 sm:text-5xl lg:text-6xl xl:text-7xl">
             Simple actions,
             <br />
             <span className="bg-gradient-to-r from-[#EC7013] to-[#f4d03f] bg-clip-text text-transparent">
@@ -49,7 +49,7 @@ export default function SimpleActions() {
       </div>
 
       {/* Scrolling tags */}
-      <div className="relative mt-60 mb-20 overflow-hidden">
+      <div className="relative mt-80 mb-20 overflow-hidden">
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-white to-transparent sm:w-40" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-white to-transparent sm:w-40" />
 
