@@ -15,7 +15,7 @@ const screens = [
   {
     image: "/learn-more/1.png",
     heading: "Introducing your\nnew AI coach.",
-    mobileHeading: "Introducing\nyour new AI coach.",
+    mobileHeading: "Introducing your\nnew AI coach.",
     subtext: "Always with you. Always free.",
   },
   {
@@ -61,20 +61,20 @@ function DesktopShowcase() {
 
   const activeIndex = useTransform(
     scrollYProgress,
-    [0, 0.33, 0.66, 1],
-    [0, 0, 1, 2],
+    [0, 0.25, 0.35, 0.6, 0.7, 1],
+    [0, 0, 1, 1, 2, 2],
   );
 
   return (
     <section
       ref={containerRef}
       className="relative hidden pt-24 md:block scroll-mt-20"
-      style={{ height: `${screens.length * 45}vh` }}
+      style={{ height: `${screens.length * 85}vh` }}
     >
       <div className="sticky top-20 flex min-h-[70vh] items-center justify-center overflow-hidden bg-white py-6 z-30">
-        <div className="mx-auto flex w-full max-w-4xl items-start justify-center gap-6 px-6 lg:gap-10">
+        <div className="mx-auto flex w-full max-w-6xl items-start justify-center gap-6 px-6 lg:gap-10">
           {/* Phone */}
-          <div className="relative w-[260px] shrink-0 lg:w-[300px]">
+          <div className="relative w-[390px] shrink-0 lg:w-[450px]">
             <div className="relative aspect-[320/693] w-full overflow-hidden rounded-xl">
               {screens.map((screen, i) => (
                 <ScrollImage
@@ -88,7 +88,7 @@ function DesktopShowcase() {
           </div>
 
           {/* Text */}
-          <div className="relative mt-5 min-h-[220px] w-[300px] shrink-0 lg:mt-6 lg:w-[400px]">
+          <div className="relative mt-5 min-h-[220px] w-[300px] shrink-0 lg:mt-6 lg:w-[500px]">
             {screens.map((screen, i) => (
               <ScrollContent
                 key={screen.heading}
@@ -126,19 +126,19 @@ function MobileShowcase() {
 
   const activeIndex = useTransform(
     scrollYProgress,
-    [0, 0.33, 0.66, 1],
-    [0, 0, 1, 2],
+    [0, 0.25, 0.35, 0.6, 0.7, 1],
+    [0, 0, 1, 1, 2, 2],
   );
 
   return (
     <section
       ref={containerRef}
       className="relative pt-20 md:hidden scroll-mt-20"
-      style={{ height: `${screens.length * 45}vh` }}
+      style={{ height: `${screens.length * 85}vh` }}
     >
       <div className="sticky top-20 flex min-h-[70vh] flex-row items-start justify-center gap-4 overflow-hidden bg-white px-4 py-6 z-30 sm:gap-6">
         {/* Image — crossfades on scroll */}
-        <div className="relative w-[160px] shrink-0 sm:w-[200px]">
+        <div className="relative w-[180px] shrink-0 sm:w-[300px]">
           <div className="relative aspect-[320/693] w-full overflow-hidden rounded-xl">
             {screens.map((screen, i) => (
               <ScrollImage
@@ -189,13 +189,14 @@ function MobileScrollContent({
   index: number;
   progress: MotionValue<number>;
 }) {
-  const opacity = useTransform(progress, (v: number) =>
-    Math.abs(v - index) < 0.5 ? 1 : 0,
-  );
+  const opacity = useTransform(progress, (v: number) => {
+    const dist = Math.abs(v - index);
+    return 1 - smoothStep(0.3, 0.7, dist);
+  });
   const y = useTransform(progress, (v: number) => {
     const d = v - index;
-    if (Math.abs(d) >= 0.5) return d > 0 ? -20 : 20;
-    return 0;
+    const sign = d > 0 ? -1 : 1;
+    return sign * 20 * smoothStep(0.3, 0.7, Math.abs(d));
   });
 
   return (
@@ -203,7 +204,7 @@ function MobileScrollContent({
       className="absolute inset-0 flex flex-col items-start justify-center text-left"
       style={{ opacity, y }}
     >
-      <div className="opacity-70 mb-3 mt-16">
+      <div className="opacity-70 mb-3 mt-24">
         <PulsingBorderIcon
           size={50}
           text="Health for Every Body by Gold Health"
@@ -238,6 +239,11 @@ function MobileScrollContent({
 /*  Desktop sub-components (scroll-driven)                             */
 /* ------------------------------------------------------------------ */
 
+function smoothStep(edge0: number, edge1: number, x: number) {
+  const t = Math.max(0, Math.min(1, (x - edge0) / (edge1 - edge0)));
+  return t * t * (3 - 2 * t);
+}
+
 function ScrollImage({
   src,
   index,
@@ -247,12 +253,14 @@ function ScrollImage({
   index: number;
   progress: MotionValue<number>;
 }) {
-  const opacity = useTransform(progress, (v: number) =>
-    Math.abs(v - index) < 0.5 ? 1 : 0,
-  );
-  const scale = useTransform(progress, (v: number) =>
-    Math.abs(v - index) < 0.5 ? 1 : 0.95,
-  );
+  const opacity = useTransform(progress, (v: number) => {
+    const dist = Math.abs(v - index);
+    return 1 - smoothStep(0.3, 0.7, dist);
+  });
+  const scale = useTransform(progress, (v: number) => {
+    const dist = Math.abs(v - index);
+    return 1 - 0.05 * smoothStep(0.3, 0.7, dist);
+  });
 
   return (
     <motion.div
@@ -285,21 +293,22 @@ function ScrollContent({
   index: number;
   progress: MotionValue<number>;
 }) {
-  const opacity = useTransform(progress, (v: number) =>
-    Math.abs(v - index) < 0.5 ? 1 : 0,
-  );
+  const opacity = useTransform(progress, (v: number) => {
+    const dist = Math.abs(v - index);
+    return 1 - smoothStep(0.3, 0.7, dist);
+  });
   const y = useTransform(progress, (v: number) => {
     const d = v - index;
-    if (Math.abs(d) >= 0.5) return d > 0 ? -24 : 24;
-    return 0;
+    const sign = d > 0 ? -1 : 1;
+    return sign * 24 * smoothStep(0.3, 0.7, Math.abs(d));
   });
 
   return (
     <motion.div
-      className="absolute inset-0 flex flex-col items-start justify-center text-left -mt-4 lg:-mt-6"
+      className="absolute inset-0 flex flex-col items-start justify-center text-left mt-20"
       style={{ opacity, y }}
     >
-      <div className="opacity-50 mt-24 mb-5">
+      <div className="opacity-50 mt-32 mb-5">
         <PulsingBorderIcon
           size={70}
           className="mb-1"
