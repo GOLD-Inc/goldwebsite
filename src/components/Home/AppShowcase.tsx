@@ -203,7 +203,7 @@ function MobileScrollContent({
       className="absolute inset-0 flex flex-col items-start justify-center text-left"
       style={{ opacity, y }}
     >
-      <div className="opacity-70 mb-3 mt-10">
+      <div className="opacity-70 mb-3 mt-16">
         <PulsingBorderIcon
           size={50}
           text="Health for Every Body by Gold Health"
@@ -299,7 +299,7 @@ function ScrollContent({
       className="absolute inset-0 flex flex-col items-start justify-center text-left -mt-4 lg:-mt-6"
       style={{ opacity, y }}
     >
-      <div className="opacity-50 mt-15 mb-5">
+      <div className="opacity-50 mt-24 mb-5">
         <PulsingBorderIcon
           size={70}
           className="mb-1"
@@ -307,7 +307,7 @@ function ScrollContent({
         />
       </div>
 
-      <h3 className="whitespace-pre-line text-3xl font-bold tracking-tight text-slate-900 lg:text-4xl xl:text-5xl">
+      <h3 className="whitespace-pre-line text-4xl font-bold text-slate-900 lg:text-5xl xl:text-6xl">
         {heading}
       </h3>
 
