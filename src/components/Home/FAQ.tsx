@@ -8,17 +8,17 @@ const faqs = [
   {
     question: "What is GOLD?",
     answer:
-      "GOLD is an AI-powered wellness coaching app for iPhone.\n\nIt’s the first system to fully integrate workouts, meals, sleep, and overall wellbeing into one interconnected coaching experience. Instead of managing separate apps for fitness, nutrition, and recovery, GOLD brings everything together — intelligently.\n\nBuilt on Olympic medal–winning performance science and powered by 10 foundational patents, GOLD delivers one unified plan for how you live, train, eat, and recover.",
+      "GOLD is an AI-powered wellness coaching app for iPhone.\n\nIt's the first system to fully integrate workouts, meals, sleep, and overall wellbeing into one interconnected coaching experience. Instead of managing separate apps for fitness, nutrition, and recovery, GOLD brings everything together — intelligently.\n\nBuilt on Olympic medal–winning performance science and powered by 10 foundational patents, GOLD delivers one unified plan for how you live, train, eat, and recover.",
   },
   {
     question: "How can GOLD benefit me?",
     answer:
-      "GOLD helps you make the right decision at the right time.\n\nBecause workouts, nutrition, sleep, and stress are deeply connected, your coaching should be too. GOLD continuously adapts across all four pillars — so a tough workout influences recovery guidance, sleep impacts training intensity, and nutrition aligns with your daily demands.\n\nYou get:\n\n• Clear next actions instead of scattered tracking\n• Daily structure without complexity\n• Smarter adjustments based on how your body is responding\n• Small improvements that compound over time\n\nIt’s built for all ages and fitness levels — from foundational habit builders to high performers.",
+      "GOLD helps you make the right decision at the right time.\n\nBecause workouts, nutrition, sleep, and stress are deeply connected, your coaching should be too. GOLD continuously adapts across all four pillars — so a tough workout influences recovery guidance, sleep impacts training intensity, and nutrition aligns with your daily demands.\n\nYou get:\n\n• Clear next actions instead of scattered tracking\n• Daily structure without complexity\n• Smarter adjustments based on how your body is responding\n• Small improvements that compound over time\n\nIt's built for all ages and fitness levels — from foundational habit builders to high performers.",
   },
   {
     question: "What makes GOLD different?",
     answer:
-      "Most platforms focus on one pillar — fitness, food, or sleep — and show you what already happened.\n\nGOLD integrates all four pillars into one adaptive AI coaching system. Every recommendation is interconnected. Nothing lives in isolation.\n\nYour workout plan considers your sleep.\nYour nutrition adjusts to your training load.\nYour recovery reflects your stress and wellbeing.\n\nThis system is powered by 10 patents designed to translate elite performance science into simple, daily actions.\n\nGOLD doesn’t just track your life. It coaches it — as one system.",
+      "Most platforms focus on one pillar — fitness, food, or sleep — and show you what already happened.\n\nGOLD integrates all four pillars into one adaptive AI coaching system. Every recommendation is interconnected. Nothing lives in isolation.\n\n• Your workout plan considers your sleep.\n• Your nutrition adjusts to your training load.\n• Your recovery reflects your stress and wellbeing.\n\nThis system is powered by 10 patents designed to translate elite performance science into simple, daily actions.\n\nGOLD doesn't just track your life. It coaches it — as one system.",
   },
   {
     question: "How does AI Coaching work?",
@@ -33,7 +33,7 @@ const faqs = [
   {
     question: "Who is GOLD for?",
     answer:
-      "GOLD is designed for anyone who wants a more intelligent, structured approach to health.\n\nWhether you’re:\n\n• Building foundational habits\n• Balancing a demanding schedule\n• Training competitively\n• Or simply wanting to feel better daily\n\nGOLD adapts to your level and evolves with you.",
+      "GOLD is designed for anyone who wants a more intelligent, structured approach to health.\n\nWhether you're:\n\n• Building foundational habits\n• Balancing a demanding schedule\n• Training competitively\n• Or simply wanting to feel better daily\n\nGOLD adapts to your level and evolves with you.",
   },
   {
     question: "Do I need special equipment?",
@@ -48,7 +48,7 @@ const faqs = [
   {
     question: "Why combine workouts, meals, sleep, and wellbeing?",
     answer:
-      "Because your body doesn’t separate them — and your coaching shouldn’t either.\n\nPerformance, energy, recovery, and long-term health are the result of how these pillars work together. GOLD is the first system built from the ground up to treat them as one interconnected ecosystem, not separate features.\n\nThat integration is what allows coaching to feel intuitive, precise, and adaptive.",
+      "Because your body doesn't separate them — and your coaching shouldn't either.\n\nPerformance, energy, recovery, and long-term health are the result of how these pillars work together. GOLD is the first system built from the ground up to treat them as one interconnected ecosystem, not separate features.\n\nThat integration is what allows coaching to feel intuitive, precise, and adaptive.",
   },
   {
     question: "Where can I download GOLD?",
@@ -70,7 +70,7 @@ function FAQAnswer({ answer }: { answer: string }) {
           return (
             <ul key={i} className="list-disc space-y-2 pl-6 marker:text-black">
               {bulletLines.map((line, j) => (
-                <li key={j} className="pl-2">
+                <li key={j} className="pl-2 text-black">
                   {line.replace(/^•\s*/, "").trim()}
                 </li>
               ))}
@@ -78,7 +78,7 @@ function FAQAnswer({ answer }: { answer: string }) {
           );
         }
         return (
-          <p key={i}>
+          <p key={i} className="text-black">
             {lines.map((line, j) => (
               <span key={j}>
                 {j > 0 && <br />}
@@ -101,11 +101,11 @@ function FAQItem({ faq }: { faq: { question: string; answer: string } }) {
         onClick={() => setIsOpen(!isOpen)}
         className="flex w-full items-center justify-between py-6 text-left cursor-pointer"
       >
-        <h3 className="pr-4 text-lg font-semibold text-slate-900 sm:text-xl">
+        <h3 className="pr-4 text-lg font-semibold text-black sm:text-xl">
           {faq.question}
         </h3>
         <ChevronDown
-          className={`h-5 w-5 shrink-0 text-slate-500 transition-transform duration-300 ${
+          className={`h-5 w-5 shrink-0 text-black/70 transition-transform duration-300 ${
             isOpen ? "rotate-180" : ""
           }`}
         />
@@ -129,14 +129,14 @@ function FAQItem({ faq }: { faq: { question: string; answer: string } }) {
 
 export default function FAQ() {
   return (
-    <section className="relative py-24 sm:py-32">
+    <section className="relative py-24 sm:py-32 bg-white">
       <div className="mx-auto max-w-3xl px-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
-          className="mb-12 text-center text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl"
+          className="mb-12 text-center text-3xl font-bold tracking-tight text-black sm:text-4xl lg:text-5xl"
         >
           Questions
         </motion.h2>
@@ -146,7 +146,7 @@ export default function FAQ() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
-          className="divide-y divide-slate-200/60"
+          className="divide-y divide-black/20"
         >
           {faqs.map((faq) => (
             <FAQItem key={faq.question} faq={faq} />
