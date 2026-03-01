@@ -69,7 +69,7 @@ function DesktopShowcase() {
     <section
       ref={containerRef}
       className="relative hidden pt-24 md:block scroll-mt-20"
-      style={{ height: `${screens.length * 85}vh` }}
+      style={{ height: `${screens.length * 120}vh` }}
     >
       <div className="sticky top-20 flex min-h-[70vh] items-center justify-center overflow-hidden bg-white py-6 z-30">
         <div className="mx-auto flex w-full max-w-6xl items-start justify-center gap-6 px-6 lg:gap-10">
@@ -103,7 +103,7 @@ function DesktopShowcase() {
         </div>
 
         {/* Progress dots */}
-        <div className="absolute bottom-4 left-0 right-0 flex items-center justify-center gap-2">
+        <div className="absolute bottom-4 left-0 right-0 flex items-center justify-center gap-3">
           {screens.map((_, i) => (
             <ProgressDot key={i} index={i} progress={activeIndex} />
           ))}
@@ -134,11 +134,11 @@ function MobileShowcase() {
     <section
       ref={containerRef}
       className="relative pt-20 md:hidden scroll-mt-20"
-      style={{ height: `${screens.length * 85}vh` }}
+      style={{ height: `${screens.length * 120}vh` }}
     >
-      <div className="sticky top-20 flex min-h-[70vh] flex-row items-start justify-center gap-4 overflow-hidden bg-white px-4 py-6 z-30 sm:gap-6">
+      <div className="sticky top-20 flex min-h-[70vh] flex-col items-center justify-start gap-6 overflow-hidden bg-white px-4 py-6 pb-12 z-30">
         {/* Image — crossfades on scroll */}
-        <div className="relative w-[180px] shrink-0 sm:w-[300px]">
+        <div className="relative w-[250px] shrink-0 sm:w-[290px]">
           <div className="relative aspect-[320/693] w-full overflow-hidden rounded-xl">
             {screens.map((screen, i) => (
               <ScrollImage
@@ -151,8 +151,8 @@ function MobileShowcase() {
           </div>
         </div>
 
-        {/* Text — same layout as desktop: left-aligned */}
-        <div className="relative mt-5 min-h-[160px] w-full max-w-[180px] flex-1 sm:mt-6 sm:max-w-[220px]">
+        {/* Text — below image, left-aligned, shifted right */}
+        <div className="relative min-h-[140px] w-full max-w-[320px] flex-1 flex flex-col items-start justify-start text-left ml-24 -mt-12">
           {screens.map((screen, i) => (
             <MobileScrollContent
               key={screen.heading}
@@ -166,7 +166,7 @@ function MobileShowcase() {
         </div>
 
         {/* Progress dots — stays below navbar with sticky top-20 */}
-        <div className="absolute bottom-4 left-0 right-0 flex items-center justify-center gap-2">
+        <div className="absolute bottom-2 left-0 right-0 flex items-center justify-center gap-3">
           {screens.map((_, i) => (
             <ProgressDot key={i} index={i} progress={activeIndex} />
           ))}
@@ -201,28 +201,19 @@ function MobileScrollContent({
 
   return (
     <motion.div
-      className="absolute inset-0 flex flex-col items-start justify-center text-left"
+      className="absolute inset-0 flex flex-col items-start justify-start text-left pt-4"
       style={{ opacity, y }}
     >
-      <div className="opacity-70 mb-3 mt-24">
-        <PulsingBorderIcon
-          size={50}
-          text="Health for Every Body by Gold Health"
-        />
-      </div>
-
-      <h3 className="whitespace-pre-line text-xl font-bold leading-tight tracking-tight text-slate-900 sm:text-2xl">
+      <h3 className="whitespace-pre-line text-3xl font-bold leading-tight tracking-tight text-slate-900">
         {heading}
       </h3>
 
       {subtext && (
-        <p className="mt-5 text-sm font-semibold text-slate-900 sm:text-base">
-          {subtext}
-        </p>
+        <p className="mt-4 text-xl font-semibold text-slate-900">{subtext}</p>
       )}
 
       {cta && (
-        <div className="mt-10">
+        <div className="mt-6">
           <Link
             href={cta.href}
             className="inline-flex rounded-full bg-[#FF8D25] px-5 py-2 text-xs font-semibold text-white shadow-sm transition-all duration-200 hover:bg-[#e67d1e] hover:shadow-md active:scale-[0.97] sm:text-sm"

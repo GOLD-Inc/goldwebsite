@@ -30,7 +30,7 @@ export default function Hero() {
             className="w-[100px] sm:w-[140px] md:w-[180px] h-auto"
           />
           {/* Heading */}
-          <h1 className="mt-5 sm:mt-6 text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold leading-[1.05] text-black drop-shadow-sm">
+          <h1 className="mt-5 sm:mt-6 text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] text-black drop-shadow-sm">
             Medal winning
             <br />
             secrets for life.
