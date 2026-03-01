@@ -40,7 +40,7 @@ export default function SimpleActions() {
               huge benefits.
             </span>
           </h3>
-          <p className="mx-auto mt-5 sm:mt-6 max-w-2xl text-lg sm:text-xl lg:text-2xl font-medium text-slate-700 leading-relaxed">
+          <p className="mx-auto mt-5 sm:mt-6 max-w-2xl text-lg sm:text-xl lg:text-2xl font-medium text-black leading-relaxed">
             Designed by Olympic athletes to transform
             <br className="hidden sm:block" />
             small daily changes into powerful results.

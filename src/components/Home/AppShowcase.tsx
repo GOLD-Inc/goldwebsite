@@ -221,7 +221,7 @@ function MobileScrollContent({
       )}
 
       {cta && (
-        <div className="mt-5">
+        <div className="mt-10">
           <Link
             href={cta.href}
             className="inline-flex rounded-full bg-[#FF8D25] px-5 py-2 text-xs font-semibold text-white shadow-sm transition-all duration-200 hover:bg-[#e67d1e] hover:shadow-md active:scale-[0.97] sm:text-sm"
@@ -318,7 +318,7 @@ function ScrollContent({
       )}
 
       {cta && (
-        <div className="mt-5">
+        <div className="mt-10">
           <Link
             href={cta.href}
             className="inline-flex rounded-full bg-[#FF8D25] px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-[#e67d1e] hover:shadow-md active:scale-[0.97]"
