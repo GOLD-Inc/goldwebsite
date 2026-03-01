@@ -74,7 +74,7 @@ function DesktopShowcase() {
       <div className="sticky top-20 flex min-h-[70vh] items-center justify-center overflow-hidden bg-white py-6 z-30">
         <div className="mx-auto flex w-full max-w-4xl items-start justify-center gap-6 px-6 lg:gap-10">
           {/* Phone */}
-          <div className="relative w-[220px] shrink-0 lg:w-[260px]">
+          <div className="relative w-[260px] shrink-0 lg:w-[300px]">
             <div className="relative aspect-[320/693] w-full overflow-hidden rounded-xl">
               {screens.map((screen, i) => (
                 <ScrollImage
@@ -138,7 +138,7 @@ function MobileShowcase() {
     >
       <div className="sticky top-20 flex min-h-[70vh] flex-row items-start justify-center gap-4 overflow-hidden bg-white px-4 py-6 z-30 sm:gap-6">
         {/* Image — crossfades on scroll */}
-        <div className="relative w-[140px] shrink-0 sm:w-[180px]">
+        <div className="relative w-[160px] shrink-0 sm:w-[200px]">
           <div className="relative aspect-[320/693] w-full overflow-hidden rounded-xl">
             {screens.map((screen, i) => (
               <ScrollImage
