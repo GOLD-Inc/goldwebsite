@@ -72,7 +72,7 @@ function DesktopShowcase() {
       style={{ height: `${screens.length * 45}vh` }}
     >
       <div className="sticky top-20 flex min-h-[70vh] items-center justify-center overflow-hidden bg-white py-6 z-30">
-        <div className="mx-auto flex w-full max-w-3xl items-center justify-center gap-6 px-6 lg:gap-10">
+        <div className="mx-auto flex w-full max-w-4xl items-start justify-center gap-6 px-6 lg:gap-10">
           {/* Phone */}
           <div className="relative w-[220px] shrink-0 lg:w-[260px]">
             <div className="relative aspect-[320/693] w-full overflow-hidden rounded-xl">
@@ -88,7 +88,7 @@ function DesktopShowcase() {
           </div>
 
           {/* Text */}
-          <div className="relative min-h-[220px] w-[300px] shrink-0 lg:w-[340px]">
+          <div className="relative mt-5 min-h-[220px] w-[300px] shrink-0 lg:mt-6 lg:w-[400px]">
             {screens.map((screen, i) => (
               <ScrollContent
                 key={screen.heading}
@@ -136,7 +136,7 @@ function MobileShowcase() {
       className="relative pt-20 md:hidden scroll-mt-20"
       style={{ height: `${screens.length * 45}vh` }}
     >
-      <div className="sticky top-20 flex min-h-[70vh] flex-row items-center justify-center gap-4 overflow-hidden bg-white px-4 py-6 z-30 sm:gap-6">
+      <div className="sticky top-20 flex min-h-[70vh] flex-row items-start justify-center gap-4 overflow-hidden bg-white px-4 py-6 z-30 sm:gap-6">
         {/* Image — crossfades on scroll */}
         <div className="relative w-[140px] shrink-0 sm:w-[180px]">
           <div className="relative aspect-[320/693] w-full overflow-hidden rounded-xl">
@@ -151,8 +151,8 @@ function MobileShowcase() {
           </div>
         </div>
 
-        {/* Text — crossfades on scroll, icon high, heading aligns with phone center */}
-        <div className="relative min-h-[160px] w-full max-w-[180px] flex-1 sm:max-w-[220px]">
+        {/* Text — same layout as desktop: left-aligned */}
+        <div className="relative mt-5 min-h-[160px] w-full max-w-[180px] flex-1 sm:mt-6 sm:max-w-[220px]">
           {screens.map((screen, i) => (
             <MobileScrollContent
               key={screen.heading}
@@ -200,22 +200,22 @@ function MobileScrollContent({
 
   return (
     <motion.div
-      className="absolute inset-0 flex flex-col items-center justify-center text-center"
+      className="absolute inset-0 flex flex-col items-start justify-center text-left"
       style={{ opacity, y }}
     >
-      <div className="opacity-70 -mt-3 mb-1">
+      <div className="opacity-70 mb-3 mt-10">
         <PulsingBorderIcon
           size={50}
           text="Health for Every Body by Gold Health"
         />
       </div>
 
-      <h3 className="whitespace-pre-line text-lg font-bold leading-tight tracking-tight text-slate-900 sm:text-xl">
+      <h3 className="whitespace-pre-line text-xl font-bold leading-tight tracking-tight text-slate-900 sm:text-2xl">
         {heading}
       </h3>
 
       {subtext && (
-        <p className="mt-2 text-xs font-medium text-slate-500 sm:text-sm">
+        <p className="mt-5 text-sm font-semibold text-slate-900 sm:text-base">
           {subtext}
         </p>
       )}
@@ -299,7 +299,7 @@ function ScrollContent({
       className="absolute inset-0 flex flex-col items-start justify-center text-left -mt-4 lg:-mt-6"
       style={{ opacity, y }}
     >
-      <div className="opacity-50 -mt-2">
+      <div className="opacity-50 mt-15 mb-5">
         <PulsingBorderIcon
           size={70}
           className="mb-1"
@@ -307,12 +307,12 @@ function ScrollContent({
         />
       </div>
 
-      <h3 className="whitespace-pre-line text-2xl font-bold leading-tight tracking-tight text-slate-900 lg:text-3xl">
+      <h3 className="whitespace-pre-line text-3xl font-bold tracking-tight text-slate-900 lg:text-4xl xl:text-5xl">
         {heading}
       </h3>
 
       {subtext && (
-        <p className="mt-2 text-sm font-medium text-slate-500 lg:mt-3 lg:text-base">
+        <p className="mt-5 text-base font-semibold text-slate-900 lg:text-lg xl:text-xl">
           {subtext}
         </p>
       )}
