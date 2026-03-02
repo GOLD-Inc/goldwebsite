@@ -68,7 +68,7 @@ const buildingTheFuture: TeamMember[] = [
     name: "Bekzod Rakhmatov",
     role: "Lead AI Engineer",
     photo: "/Team-Photos/Headshots/Bekzod.jpg.webp",
-    landscapePhoto: "/Team-Photos/landscape-imges/Bekzod.jpg",
+    landscapePhoto: "/Team-Photos/landscape-imges/bekzod-bio.png",
     linkedin: "https://www.linkedin.com/in/bekzodrakhmatov/",
     bio: [
       "Bekzod Rakhmatov is a Lead Software and Engineer at GOLD, where he leads mobile and AI architecture for next-generation coaching experiences. He specializes in building high-performance iOS systems paired with intelligent backend services, turning complex AI capabilities into fast, reliable product features.",

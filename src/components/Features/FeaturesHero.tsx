@@ -19,7 +19,7 @@ export default function FeaturesHero() {
               huge benefits.
             </span>
           </h1>
-          <p className="mx-auto mt-8 max-w-xl text-base sm:text-xl font-semibold text-black leading-relaxed">
+          <p className="mx-auto mt-8 max-w-xl text-lg sm:text-xl lg:text-2xl font-medium text-slate-700 leading-relaxed">
             Powerful features for all ages and fitness levels.
           </p>
         </motion.div>

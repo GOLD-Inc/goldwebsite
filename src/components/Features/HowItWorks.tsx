@@ -45,7 +45,7 @@ export default function HowItWorks() {
             3 Simple Steps to
             <br /> better health.
           </h2>
-          <p className="mx-auto mt-4 max-w-md leading-relaxed text-slate-600">
+          <p className="mx-auto mt-4 max-w-2xl text-lg sm:text-xl lg:text-2xl font-medium text-slate-700 leading-relaxed">
             Getting started takes less than two minutes. No complicated setup,
             no learning curve.
           </p>

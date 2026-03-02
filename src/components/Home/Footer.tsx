@@ -59,7 +59,7 @@ const XIcon = ({ className }: { className?: string }) => (
 );
 
 const socials = [
-  { icon: XIcon, href: "https://x.com/skylabs1?s=21", label: "X" },
+  { icon: XIcon, href: "https://x.com/GoldHealthAI", label: "X" },
   {
     icon: Linkedin,
     href: "https://www.linkedin.com/company/goldhealthinc/",
