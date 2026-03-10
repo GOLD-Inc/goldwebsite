@@ -16,11 +16,11 @@ export default function Hero() {
           className="w-full h-auto block"
         />
 
-        {/* Strong bottom fade — lower 40% */}
-        <div className="absolute inset-x-0 bottom-0 h-[45%] bg-gradient-to-t from-white via-white/80 to-transparent" />
+        {/* Strong bottom fade — lower 40% (pointer-events-none so it doesn't block button taps on mobile) */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[45%] bg-gradient-to-t from-white via-white/80 to-transparent" />
 
         {/* Badge, heading, and buttons — centered over image, slightly above middle */}
-        <div className="absolute inset-x-0 top-[52%] sm:top-[55%] flex flex-col items-center justify-center px-4 text-center">
+        <div className="absolute inset-x-0 top-[52%] sm:top-[55%] z-10 flex flex-col items-center justify-center px-4 text-center">
           {/* Badge */}
           <Image
             src="/Top-Badge.png"
