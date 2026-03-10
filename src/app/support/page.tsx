@@ -44,6 +44,11 @@ const topics = [
     prompt: "What investment opportunity are you interested in?",
   },
   {
+    id: "athletes",
+    label: "Athletes",
+    prompt: "Why would you like to be an athlete ambassador?",
+  },
+  {
     id: "contact",
     label: "Contact Us",
     prompt: "What can we help you with?",
