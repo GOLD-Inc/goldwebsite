@@ -298,7 +298,7 @@ export const NavbarLogo = () => {
       className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1"
     >
       <Image
-        src="GOLD-logo--black-vector.svg"
+        src="/gold-ai-logo.png"
         alt="Gold Health"
         width={100}
         height={40}
