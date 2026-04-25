@@ -17,7 +17,7 @@ const features: Feature[] = [
     title: "Personalized Goals",
     description:
       "Set and track health goals tailored to you — from weight management to sleep optimization — with milestone celebrations along the way.",
-    image: "/AppScreenshots/goal.png",
+    image: "/AppScreenshots/main-coach.png",
   },
   {
     id: "day-calendar",
@@ -52,7 +52,7 @@ const features: Feature[] = [
     title: "Sleep Insights",
     description:
       "Track your sleep patterns and receive actionable insights to improve rest quality, recovery, and overall well-being.",
-    image: "/AppScreenshots/sleep-setup-2.png",
+    image: "/AppScreenshots/sleep-screen.png",
   },
   {
     id: "workouts",

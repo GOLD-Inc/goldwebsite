@@ -49,7 +49,7 @@ const detailedFeatures: DetailedFeature[] = [
       "Recovery score tracking",
       "Bedtime optimization tips",
     ],
-    image: "/AppScreenshots/sleep-setup-2.png",
+    image: "/AppScreenshots/sleep-screen.png",
   },
   {
     icon: Dumbbell,
