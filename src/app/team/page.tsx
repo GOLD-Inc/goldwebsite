@@ -360,7 +360,7 @@ function ExpandableSection({
   title: string;
   children: React.ReactNode;
 }) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   return (
     <div className="border-t border-slate-200/60">

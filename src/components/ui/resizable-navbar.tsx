@@ -298,10 +298,11 @@ export const NavbarLogo = () => {
       className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1"
     >
       <Image
-        src="/gold-ai-logo.png"
+        src="/GOLD-AI.svg"
         alt="Gold Health"
-        width={100}
-        height={40}
+        width={173}
+        height={52}
+        priority
         className="h-9 w-auto"
       />
     </Link>
