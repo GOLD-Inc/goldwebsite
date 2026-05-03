@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import FeatureShowcase from "@/components/Home/FeatureShowcase";
 import CTA from "@/components/Home/CTA";
+import PricingStrip from "@/components/Home/PricingStrip";
 import FeaturesHero from "@/components/Features/FeaturesHero";
 import HowItWorks from "@/components/Features/HowItWorks";
 import FeaturesBanner from "@/components/Features/FeaturesBanner";
@@ -17,6 +18,7 @@ export default function FeaturesPage() {
       <FeaturesHero />
       <FeatureShowcase />
       <HowItWorks />
+      <PricingStrip />
       {/* <FeatureDetails /> */}
       {/* <Integrations /> */}
       <FeaturesBanner />

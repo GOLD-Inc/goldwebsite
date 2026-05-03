@@ -103,9 +103,7 @@ export default function Testimonials() {
           >
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white text-center">
               For your Personal{" "}
-              <span className="bg-linear-to-r from-[#EC7013] to-[#f4d03f] bg-clip-text text-transparent">
-                Gold.
-              </span>
+              <span className="text-white">Gold.</span>
             </h2>
             <p className="text-center mt-5 text-white max-w-md leading-relaxed">
               See how simple daily changes can be life changing.

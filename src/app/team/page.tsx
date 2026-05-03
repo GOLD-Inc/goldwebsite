@@ -417,7 +417,7 @@ export default function TeamPage() {
       <section className="mx-auto max-w-5xl px-6 pt-32">
         <div className="relative overflow-hidden rounded-[2rem] sm:rounded-[50px]">
           <Image
-            src="/Team-Photos/Team photos/GOLD-Team.jpeg"
+            src="/Team-Photos/group/GOLD-Team.jpeg"
             alt="Gold Health Team"
             width={2400}
             height={1600}

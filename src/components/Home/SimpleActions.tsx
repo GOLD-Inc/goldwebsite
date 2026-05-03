@@ -33,17 +33,14 @@ export default function SimpleActions() {
 
         {/* Text overlaid on bottom of image */}
         <div className="absolute inset-x-0 bottom-[-200px] px-6 text-center">
-          <h3 className="text-4xl font-bold text-slate-900 pb-5 sm:text-5xl lg:text-6xl xl:text-7xl">
-            Simple actions,
+          <h3 className="text-4xl font-bold text-black pb-5 sm:text-5xl lg:text-6xl xl:text-7xl">
+            Win your day.
             <br />
-            <span className="bg-gradient-to-r from-[#EC7013] to-[#f4d03f] bg-clip-text text-transparent">
-              huge benefits.
-            </span>
+            Every day.
           </h3>
           <p className="mx-auto mt-5 sm:mt-6 max-w-2xl text-lg sm:text-xl lg:text-2xl font-medium text-black leading-relaxed">
-            Designed by Olympic athletes to transform
-            <br className="hidden sm:block" />
-            small daily changes into powerful results.
+            Designed by Olympic athletes to transform small daily changes into
+            powerful results. All ages. All levels.
           </p>
         </div>
       </div>

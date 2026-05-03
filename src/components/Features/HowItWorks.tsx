@@ -15,21 +15,21 @@ const steps: Step[] = [
   {
     number: "01",
     icon: Download,
-    title: "Download & Set Up",
+    title: "Download",
     description:
       "Download Gold, create your profile, and tell us about your goals — fitness, recovery, nutrition, or all of the above.",
   },
   {
     number: "02",
     icon: Activity,
-    title: "Connect & Track",
+    title: "Personalize",
     description:
       "Connect with Apple Health and let Gold start learning your patterns from day one — sleep, activity, vitals, and more.",
   },
   {
     number: "03",
     icon: TrendingUp,
-    title: "Get Insights & Improve",
+    title: "Follow Plan & Improve",
     description:
       "Receive AI-powered coaching, personalized meal plans, and insights that adapt as you progress. Watch your health transform.",
   },

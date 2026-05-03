@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "motion/react";
 import { GetAppButton } from "@/components/ui/get-app-button";
 
@@ -7,50 +8,29 @@ export default function CTA() {
   return (
     <section className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-5xl px-6">
-        {/* Glass CTA card */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
-          className="relative overflow-hidden rounded-[2rem] sm:rounded-[50px] border border-white/30 bg-white/40 px-8 py-16 text-center shadow-[0_8px_60px_rgba(0,0,0,0.06)] backdrop-blur-2xl sm:px-16 sm:py-20"
+          className="relative rounded-[2rem] sm:rounded-[40px] bg-slate-100/80 px-8 py-16 text-center sm:px-16 sm:py-24"
         >
-          {/* Decorative gradient orbs */}
-          <div className="pointer-events-none absolute -top-20 -left-20 h-60 w-60 rounded-full bg-[#EC7013]/20 blur-[80px]" />
-          <div className="pointer-events-none absolute -bottom-20 -right-20 h-60 w-60 rounded-full bg-[#065b64]/15 blur-[80px]" />
-          <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-40 w-80 rounded-full bg-[#f4d03f]/10 blur-[60px]" />
+          <h2 className="mx-auto max-w-2xl text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl leading-[1.05]">
+            All ages. All levels.
+          </h2>
 
-          {/* Content */}
-          <div className="relative z-10">
-            <h2 className="mx-auto max-w-lg text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
-              Your health deserves <br />
-              <span className="bg-gradient-to-r from-[#EC7013] to-[#f4d03f] bg-clip-text text-transparent">
-                gold standard
-              </span>
-            </h2>
+          <div className="mt-10 flex justify-center">
+            <Image
+              src="/Top-Badge.png"
+              alt="Top-Rated App - Life Changing - Forbes, Fortune"
+              width={220}
+              height={193}
+              className="h-auto w-[180px] sm:w-[200px]"
+            />
+          </div>
 
-            <p className="mx-auto mt-5 max-w-md leading-relaxed text-slate-600">
-              Join thousands of athletes and wellness seekers who chose insights
-              over guesswork.
-            </p>
-
-            {/* Pillars */}
-            <div className="mx-auto mt-10 flex max-w-lg flex-wrap justify-center gap-3">
-              <div className="rounded-full border border-slate-200 bg-white/60 px-5 py-2 text-sm text-slate-600">
-                Olympic-Tested Science
-              </div>
-              <div className="rounded-full border border-slate-200 bg-white/60 px-5 py-2 text-sm text-slate-600">
-                AI-Powered Coaching
-              </div>
-            </div>
-
-            {/* CTA buttons */}
-            <div className="mt-10 flex flex-col items-center gap-3">
-              <GetAppButton size="lg" label="Download Free" />
-              <span className="text-xs text-slate-500">
-                Free on iOS &middot; No credit card required
-              </span>
-            </div>
+          <div className="mt-10 flex justify-center">
+            <GetAppButton size="lg" label="Get Started Free" />
           </div>
         </motion.div>
       </div>

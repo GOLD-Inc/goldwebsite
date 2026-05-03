@@ -172,7 +172,7 @@ export default function MissionPage() {
           {/* Image */}
           <div className="relative overflow-hidden rounded-[1.5rem] sm:rounded-[40px] lg:w-1/2">
             <Image
-              src="/Team-Photos/Team photos/GOLD-AI-Paris.jpg.webp"
+              src="/Team-Photos/group/GOLD-AI-Paris.jpg.webp"
               alt="GOLD AI at Paris Olympics"
               width={1200}
               height={800}

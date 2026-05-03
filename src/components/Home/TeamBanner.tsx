@@ -10,7 +10,7 @@ export default function TeamBanner() {
       {/* Image with overlay and text on top */}
       <div className="relative">
         <Image
-          src="/Team-Photos/Team photos/GOLD-Team.jpeg"
+          src="/Team-Photos/group/GOLD-Team.jpeg"
           alt="GOLD Health team holding patent plaques"
           width={2400}
           height={1600}

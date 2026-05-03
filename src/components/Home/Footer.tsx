@@ -93,9 +93,9 @@ export default function Footer() {
             <div className="max-w-sm space-y-6">
               <Link href="/" className="inline-block">
                 <Image
-                  src="GOLD-logo--black-vector.svg"
+                  src="/GOLD-AI.svg"
                   alt="Gold Health"
-                  width={130}
+                  width={173}
                   height={52}
                   className="h-10 w-auto"
                 />

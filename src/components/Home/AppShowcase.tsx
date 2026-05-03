@@ -14,10 +14,10 @@ import { IPhoneFrame } from "@/components/ui/iphone-frame";
 
 const screens = [
   {
-    image: "/AppScreenshots/main-coach.png",
+    image: "/app-coach-screen.png",
     heading: "Introducing your\nnew AI coach.",
     mobileHeading: "Introducing your\nnew AI coach.",
-    subtext: "Always with you. Always free.",
+    subtext: "Win your day. Every day.",
   },
   {
     image: "/AppScreenshots/day-calendar.png",
@@ -214,7 +214,7 @@ function MobileScrollContent({
       </h3>
 
       {subtext && (
-        <p className="mt-4 text-xl font-semibold text-slate-900">{subtext}</p>
+        <p className="mt-4 text-2xl font-bold text-slate-900">{subtext}</p>
       )}
 
       {cta && (
@@ -306,7 +306,7 @@ function ScrollContent({
     >
       <div className="opacity-50 mt-32 mb-5">
         <PulsingBorderIcon
-          size={70}
+          size={120}
           className="mb-1"
           text="Health for Every Body by Gold Health"
         />
@@ -317,7 +317,7 @@ function ScrollContent({
       </h3>
 
       {subtext && (
-        <p className="mt-5 text-base font-semibold text-slate-900 lg:text-lg xl:text-xl">
+        <p className="mt-6 text-xl font-bold text-slate-900 lg:text-2xl xl:text-3xl">
           {subtext}
         </p>
       )}
