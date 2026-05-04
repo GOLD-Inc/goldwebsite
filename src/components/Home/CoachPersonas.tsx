@@ -7,7 +7,6 @@ const coaches = [
   { name: "Steve", src: "/coach-photos/steve.png" },
   { name: "Annie", src: "/coach-photos/annie.png" },
   { name: "Sienna", src: "/coach-photos/sienna.png" },
-  { name: "Katie", src: "/coach-photos/katie.png" },
   { name: "Mark", src: "/coach-photos/mark.png" },
   { name: "Alicia", src: "/coach-photos/alicia.png" },
   { name: "Tyrese", src: "/coach-photos/tyrese.png" },
