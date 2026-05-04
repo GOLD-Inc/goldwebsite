@@ -156,8 +156,8 @@ function MobileShowcase() {
           </IPhoneFrame>
         </div>
 
-        {/* Text — below image, left-aligned, shifted right */}
-        <div className="relative min-h-[140px] w-full max-w-[320px] flex-1 flex flex-col items-start justify-start text-left ml-24 -mt-12">
+        {/* Text — below image, left-aligned, centered with breathing room */}
+        <div className="relative min-h-[140px] w-full max-w-[320px] flex flex-col items-start text-left mt-2">
           {screens.map((screen, i) => (
             <MobileScrollContent
               key={screen.heading}

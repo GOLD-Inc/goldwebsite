@@ -26,11 +26,6 @@ const faqs = [
       "GOLD uses emotionally intelligent AI Avatar Coaching trained on decades of Olympic performance insights and behavior science.\n\nThe system analyzes patterns across:\n\n• Training\n• Nutrition\n• Sleep\n• Recovery\n• Daily wellbeing\n\nBecause these pillars are integrated, the AI adapts holistically — not in silos. If one area changes, your entire plan adjusts intelligently.\n\nCoaching is available 24/7, personalized to your goals and behaviors, and delivered in clear, achievable steps.",
   },
   {
-    question: "Is there live human coaching?",
-    answer:
-      "No.\n\nGOLD is fully AI-powered. Our patented AI coaching system is designed to deliver consistent, adaptive support at scale — without the limitations of scheduling or availability.",
-  },
-  {
     question: "Who is GOLD for?",
     answer:
       "GOLD is designed for anyone who wants a more intelligent, structured approach to health.\n\nWhether you're:\n\n• Building foundational habits\n• Balancing a demanding schedule\n• Training competitively\n• Or simply wanting to feel better daily\n\nGOLD adapts to your level and evolves with you.",
@@ -39,16 +34,6 @@ const faqs = [
     question: "Do I need special equipment?",
     answer:
       "No.\n\nGOLD works on its own, and can optionally integrate with Apple Health to enhance personalization through activity and sleep data — with your permission.",
-  },
-  {
-    question: "How does GOLD use my data?",
-    answer:
-      "Your data powers personalization across all four pillars of your coaching system.\n\nHealth information is encrypted and securely stored. You control what is shared. GOLD does not sell personal data.",
-  },
-  {
-    question: "Why combine workouts, meals, sleep, and wellbeing?",
-    answer:
-      "Because your body doesn't separate them — and your coaching shouldn't either.\n\nPerformance, energy, recovery, and long-term health are the result of how these pillars work together. GOLD is the first system built from the ground up to treat them as one interconnected ecosystem, not separate features.\n\nThat integration is what allows coaching to feel intuitive, precise, and adaptive.",
   },
   {
     question: "Where can I download GOLD?",
