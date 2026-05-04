@@ -18,7 +18,7 @@ export default function PricingStrip() {
         </div>
 
         <div className="flex items-baseline gap-x-5 text-xl font-bold tracking-tight text-slate-900 sm:gap-x-6 sm:text-2xl">
-          <span className="whitespace-nowrap">Monthly $9.99</span>
+          <span className="whitespace-nowrap">Monthly $8.99</span>
           <span className="whitespace-nowrap">Yearly $49.99</span>
         </div>
       </div>
