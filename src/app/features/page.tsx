@@ -22,7 +22,22 @@ export default function FeaturesPage() {
       {/* <FeatureDetails /> */}
       {/* <Integrations /> */}
       <FeaturesBanner />
-      <CTA />
+      <section className="relative pt-4 pb-12 sm:pt-8 sm:pb-16">
+        <div className="mx-auto max-w-5xl px-6 text-center">
+          <h2 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
+            All ages. All levels.
+          </h2>
+        </div>
+      </section>
+      <CTA
+        heading={
+          <>
+            Win your day.
+            <br />
+            Every day.
+          </>
+        }
+      />
     </div>
   );
 }

@@ -11,7 +11,7 @@ const AppleIcon = ({ className }: { className?: string }) => (
 
 export default function PricingStrip() {
   return (
-    <section aria-label="Pricing" className="pt-2 pb-10 sm:pt-3 sm:pb-12">
+    <section aria-label="Pricing" className="pt-8 pb-12 sm:pt-10 sm:pb-14">
       <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-center gap-x-5 gap-y-3 px-6">
         <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-[0_10px_28px_rgba(15,23,42,0.18)] ring-1 ring-black/5">
           <AppleIcon className="h-6 w-6 text-slate-400" />

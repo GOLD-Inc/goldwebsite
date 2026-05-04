@@ -1,11 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "motion/react";
-import { GetAppButton } from "@/components/ui/get-app-button";
 
 export default function FeaturesHero() {
   return (
-    <section className="relative overflow-hidden pb-6 pt-36 sm:pt-44">
+    <section className="relative overflow-hidden pt-36 pb-12 sm:pt-44 sm:pb-16">
       <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -23,6 +23,24 @@ export default function FeaturesHero() {
           </p>
         </motion.div>
       </div>
+
+      {/* Hero composition — phone-in-hand, transparent PNG floats on the page */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+        className="relative z-10 mx-auto mt-12 w-full max-w-md px-6 sm:mt-16 sm:max-w-lg lg:max-w-xl"
+      >
+        <Image
+          src="/features-hero.png"
+          alt="Gold Health iPhone app shown in hand"
+          width={1080}
+          height={1260}
+          className="block h-auto w-full"
+          priority
+          sizes="(max-width: 640px) 90vw, (max-width: 1024px) 512px, 576px"
+        />
+      </motion.div>
     </section>
   );
 }

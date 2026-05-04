@@ -15,7 +15,7 @@ export default function SimpleActions() {
   const scrollTags = [...tags, ...tags, ...tags, ...tags];
 
   return (
-    <section className="relative overflow-hidden pb-10 sm:pb-14">
+    <section className="relative overflow-hidden pb-2 sm:pb-3">
       {/* Image with text overlay */}
       <div className="relative w-full">
         <Image
@@ -46,9 +46,9 @@ export default function SimpleActions() {
       </div>
 
       {/* Scrolling tags */}
-      <div className="relative mt-80 mb-20 overflow-hidden">
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-white to-transparent sm:w-40" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-white to-transparent sm:w-40" />
+      <div className="relative mx-auto mt-80 mb-12 max-w-6xl overflow-hidden">
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-28 bg-linear-to-r from-white via-white/80 to-transparent sm:w-44" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-28 bg-linear-to-l from-white via-white/80 to-transparent sm:w-44" />
 
         <div className="flex w-max animate-scroll-left gap-4">
           {scrollTags.map((tag, i) => (

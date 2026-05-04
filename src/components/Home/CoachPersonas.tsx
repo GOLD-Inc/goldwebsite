@@ -76,10 +76,11 @@ export default function CoachPersonas() {
   const stripHeight = (cardW * 1492) / 868;
 
   return (
-    <section className="relative py-20 sm:py-28">
+    <section className="relative pt-20 pb-32 sm:pt-28 sm:pb-40">
       <div className="mx-auto max-w-7xl px-6 text-center">
         <h2 className="text-4xl font-bold tracking-tight text-black sm:text-5xl lg:text-6xl">
-          Health &amp; Fitness made fun.
+          Health &amp; Fitness{" "}
+          <span className="block sm:inline">made fun.</span>
         </h2>
         <p className="mx-auto mt-4 max-w-md text-base text-slate-600 sm:text-lg">
           Choose from many inspirational coach personas.
