@@ -13,8 +13,8 @@ const coaches = [
   { name: "Tyrese", src: "/coach-photos/tyrese.png" },
 ];
 
-const CARD_W = 240;
-const CARD_W_MOBILE = 176;
+const CARD_W = 290;
+const CARD_W_MOBILE = 210;
 const MIN_GAP = 24;
 const SPEED = 45; // px per second
 
@@ -76,20 +76,20 @@ export default function CoachPersonas() {
   const stripHeight = (cardW * 1492) / 868;
 
   return (
-    <section className="relative pt-20 pb-32 sm:pt-28 sm:pb-40">
+    <section className="relative pt-28 pb-12 sm:pt-36 sm:pb-16">
       <div className="mx-auto max-w-7xl px-6 text-center">
         <h2 className="text-4xl font-bold tracking-tight text-black sm:text-5xl lg:text-6xl">
           Health &amp; Fitness{" "}
           <span className="block sm:inline">made fun.</span>
         </h2>
-        <p className="mx-auto mt-4 max-w-md text-base text-slate-600 sm:text-lg">
+        <p className="mx-auto mt-6 max-w-md text-base text-slate-600 sm:mt-8 sm:text-lg">
           Choose from many inspirational coach personas.
         </p>
       </div>
 
       <div
         ref={containerRef}
-        className="relative mt-12 w-full overflow-hidden sm:mt-16"
+        className="relative mt-20 w-full overflow-hidden sm:mt-28"
       >
         <div className="relative" style={{ height: stripHeight }}>
           {coaches.map((coach, i) => (

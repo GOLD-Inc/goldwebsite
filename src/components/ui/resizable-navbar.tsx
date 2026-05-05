@@ -134,7 +134,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
     <motion.div
       onMouseLeave={() => setHovered(null)}
       className={cn(
-        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-1 text-sm font-medium lg:flex",
+        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-3 text-base font-semibold lg:flex",
         className,
       )}
     >

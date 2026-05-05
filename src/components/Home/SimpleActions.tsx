@@ -1,66 +1,43 @@
 "use client";
 
-import Image from "next/image";
+import Link from "next/link";
 
-const tags = [
-  { label: "Better sleep", color: "bg-[#EC7013]" },
-  { label: "Lean muscle", color: "bg-[#f4d03f]" },
-  { label: "Fat loss", color: "bg-[#e8836a]" },
-  { label: "Well-being", color: "bg-[#5bbad5]" },
-  { label: "More energy", color: "bg-[#6dc876]" },
-  { label: "Nutrition", color: "bg-[#9b7dd4]" },
+const benefits = [
+  { label: "Better Sleep", color: "bg-[#5bbad5]" },
+  { label: "Lean Muscle", color: "bg-[#f4d03f]" },
+  { label: "Fat Loss", color: "bg-[#e8836a]" },
+  { label: "Well-being", color: "bg-[#6dc876]" },
 ];
 
 export default function SimpleActions() {
-  const scrollTags = [...tags, ...tags, ...tags, ...tags];
-
   return (
-    <section className="relative overflow-hidden pb-2 sm:pb-3">
-      {/* Image with text overlay */}
-      <div className="relative w-full">
-        <Image
-          src="/User-Panel.jpg"
-          alt="Woman using Gold Health app"
-          width={1920}
-          height={900}
-          className="w-full h-auto block"
-          sizes="100vw"
-          priority
-        />
-
-        {/* Bottom fade to white — lower 30% only */}
-        <div className="absolute inset-x-0 bottom-0 h-[30%] bg-linear-to-t from-white to-transparent" />
-
-        {/* Text overlaid on bottom of image */}
-        <div className="absolute inset-x-0 bottom-[-200px] px-6 text-center">
-          <h3 className="text-4xl font-bold text-black pb-5 sm:text-5xl lg:text-6xl xl:text-7xl">
-            Win your day.
-            <br />
-            Every day.
-          </h3>
-          <p className="mx-auto mt-5 sm:mt-6 max-w-2xl text-lg sm:text-xl lg:text-2xl font-medium text-black leading-relaxed">
-            Designed by Olympic athletes to transform small daily changes into
-            powerful results. All ages. All levels.
-          </p>
-        </div>
+    <section className="relative overflow-hidden pt-16 pb-16 sm:pt-24 sm:pb-24">
+      {/* Heading and description */}
+      <div className="px-6 text-center">
+        <h3 className="pb-5 text-4xl font-bold text-black sm:text-5xl lg:text-6xl xl:text-7xl">
+          Win your day.
+          <br />
+          Every day.
+        </h3>
+        <p className="mx-auto mt-5 max-w-2xl text-lg font-medium leading-relaxed text-black sm:mt-6 sm:text-xl lg:text-2xl">
+          Designed by Olympic athletes to transform small daily changes into
+          powerful results. All ages. All levels.
+        </p>
       </div>
 
-      {/* Scrolling tags */}
-      <div className="relative mx-auto mt-80 mb-12 max-w-6xl overflow-hidden">
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-28 bg-linear-to-r from-white via-white/80 to-transparent sm:w-44" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-28 bg-linear-to-l from-white via-white/80 to-transparent sm:w-44" />
-
-        <div className="flex w-max animate-scroll-left gap-4">
-          {scrollTags.map((tag, i) => (
-            <div
-              key={`${tag.label}-${i}`}
-              className={`shrink-0 rounded-full ${tag.color} px-6 py-2.5 text-sm font-semibold text-white shadow-sm`}
-            >
-              {tag.label}
-            </div>
-          ))}
-        </div>
+      {/* 4 benefit pills — each links to /features */}
+      <div className="mx-auto mt-16 flex max-w-3xl flex-wrap justify-center gap-3 px-6 sm:mt-20 sm:gap-4">
+        {benefits.map((benefit) => (
+          <Link
+            key={benefit.label}
+            href="/features"
+            className={`shrink-0 rounded-full ${benefit.color} px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-md`}
+          >
+            {benefit.label}
+          </Link>
+        ))}
       </div>
     </section>
   );
 }
+
