@@ -5,7 +5,6 @@ import { Download, Activity, TrendingUp } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 interface Step {
-  number: string;
   icon: LucideIcon;
   title: string;
   description: string;
@@ -13,21 +12,18 @@ interface Step {
 
 const steps: Step[] = [
   {
-    number: "01",
     icon: Download,
     title: "Download",
     description:
       "Download Gold, create your profile, and tell us about your goals — fitness, recovery, nutrition, or all of the above.",
   },
   {
-    number: "02",
     icon: Activity,
     title: "Personalize",
     description:
       "Connect with Apple Health and let Gold start learning your patterns from day one — sleep, activity, vitals, and more.",
   },
   {
-    number: "03",
     icon: TrendingUp,
     title: "Follow Plan & Improve",
     description:
@@ -55,7 +51,7 @@ export default function HowItWorks() {
         <div className="grid gap-6 md:grid-cols-3">
           {steps.map((step, i) => (
             <motion.div
-              key={step.number}
+              key={step.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{
@@ -66,12 +62,9 @@ export default function HowItWorks() {
               viewport={{ once: true }}
               className="group relative rounded-[2rem] sm:rounded-[50px] border border-white/50 bg-white/30 p-8 shadow-[0_8px_32px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.6)] backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.8)]"
             >
-              {/* Step number */}
-              <div className="mb-6 flex items-center gap-4">
-                <span className="text-4xl font-bold text-slate-200">
-                  {step.number}
-                </span>
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-[#EC7013] to-[#f4d03f] text-white shadow-lg shadow-[#EC7013]/20">
+              {/* Icon */}
+              <div className="mb-6">
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-linear-to-br from-[#EC7013] to-[#f4d03f] text-white shadow-lg shadow-[#EC7013]/20">
                   <step.icon className="h-5 w-5" />
                 </div>
               </div>

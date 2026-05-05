@@ -29,7 +29,7 @@ export default function FeaturesHero() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-        className="relative z-10 mx-auto mt-12 w-full max-w-md px-6 sm:mt-16 sm:max-w-lg lg:max-w-xl"
+        className="relative z-10 mx-auto mt-12 w-full max-w-lg -translate-x-6 px-6 sm:mt-16 sm:max-w-xl sm:-translate-x-10 lg:max-w-2xl lg:-translate-x-14"
       >
         <Image
           src="/features-hero.png"
@@ -38,7 +38,7 @@ export default function FeaturesHero() {
           height={1260}
           className="block h-auto w-full"
           priority
-          sizes="(max-width: 640px) 90vw, (max-width: 1024px) 512px, 576px"
+          sizes="(max-width: 640px) 90vw, (max-width: 1024px) 640px, 768px"
         />
       </motion.div>
     </section>

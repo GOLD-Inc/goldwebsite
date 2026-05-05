@@ -2,7 +2,6 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { Plus, ChevronUp, ChevronDown } from "lucide-react";
 import Image from "next/image";
-import { IPhoneFrame } from "@/components/ui/iphone-frame";
 
 interface Feature {
   id: string;
@@ -13,67 +12,74 @@ interface Feature {
 
 const features: Feature[] = [
   {
-    id: "goals",
-    title: "Personalized Goals",
-    description:
-      "Set and track health goals tailored to you — from weight management to sleep optimization — with milestone celebrations along the way.",
-    image: "/AppScreenshots/main-coach.png",
-  },
-  {
-    id: "day-calendar",
-    title: "Day Calendar",
-    description:
-      "Your complete daytime schedule — meals, workouts, supplements, and habits — all mapped out and optimized to keep you performing at your best.",
-    image: "/AppScreenshots/day-calendar.png",
-  },
-  {
-    id: "night-calendar",
-    title: "Night Calendar",
-    description:
-      "Wind-down routines, sleep targets, and recovery protocols planned for your evening — so you wake up refreshed and ready to go.",
-    image: "/AppScreenshots/night-calendar.png",
-  },
-  {
     id: "ai-coach",
     title: "AI Health Coach",
     description:
       "Get personalized guidance from an AI coach that adapts to your lifestyle, goals, and health data — available 24/7 to keep you on track.",
-    image: "/AppScreenshots/select-coach.png",
+    image: "/App-Screen-Outputs/coaches.png",
+  },
+  {
+    id: "live-calls",
+    title: "Live AI Coach Calls",
+    description:
+      "Talk live with your AI coach for real-time guidance, motivation, and check-ins — like having an Olympic-grade expert in your pocket whenever you need one.",
+    image: "/App-Screen-Outputs/5.png",
+  },
+  {
+    id: "goals",
+    title: "Personalized Goals",
+    description:
+      "Set and track health goals tailored to you — from weight management to sleep optimization — with milestone celebrations along the way.",
+    image: "/App-Screen-Outputs/main-home.png",
+  },
+  {
+    id: "calendar",
+    title: "Daily Calendar",
+    description:
+      "Your complete daily schedule — meals, workouts, supplements, and habits — all mapped out and optimized to keep you performing at your best.",
+    image: "/App-Screen-Outputs/calendar.png",
   },
   {
     id: "meal-planning",
     title: "Smart Meal Planning",
     description:
-      "Receive tailored meal recommendations based on your nutritional needs, dietary preferences, and fitness goals",
-    image: "/AppScreenshots/meal-recommendation.png",
+      "Receive tailored meal recommendations based on your nutritional needs, dietary preferences, and fitness goals.",
+    image: "/App-Screen-Outputs/meals.png",
   },
   {
-    id: "sleep-tracking",
-    title: "Sleep Insights",
+    id: "macros",
+    title: "Macros & Nutrition",
     description:
-      "Track your sleep patterns and receive actionable insights to improve rest quality, recovery, and overall well-being.",
-    image: "/AppScreenshots/sleep-screen.png",
+      "Track macros, protein, and key nutrients — automatically calibrated to your training load and recovery needs.",
+    image: "/App-Screen-Outputs/macros.png",
   },
   {
     id: "workouts",
     title: "Workout Programs",
     description:
       "Follow structured workout plans designed for your fitness level, with real-time tracking and progress visualization.",
-    image: "/AppScreenshots/workout-setup-1.png",
+    image: "/App-Screen-Outputs/workout-plan.png",
+  },
+  {
+    id: "sleep-tracking",
+    title: "Sleep Insights",
+    description:
+      "Track your sleep patterns and receive actionable insights to improve rest quality, recovery, and overall well-being.",
+    image: "/App-Screen-Outputs/sleep-options.png",
   },
   {
     id: "apple-health",
     title: "Apple Health Sync",
     description:
       "Seamlessly integrates with Apple Health to combine all your vitals, activity, and health records in one unified view.",
-    image: "/AppScreenshots/apple-health.png",
+    image: "/App-Screen-Outputs/apple-health.png",
   },
   {
     id: "results",
     title: "Health Results",
     description:
-      "See your progress with clear, health metrics and trend analysis that help you understand your body better.",
-    image: "/AppScreenshots/results.png",
+      "See your progress with clear health metrics and trend analysis that help you understand your body better.",
+    image: "/App-Screen-Outputs/results.png",
   },
 ];
 
@@ -138,8 +144,8 @@ export default function FeatureShowcase() {
           <div className="flex flex-col items-center gap-8 lg:flex-row lg:items-start lg:gap-14">
             {/* Left — Phone mockup */}
             <div className="relative flex flex-1 items-center justify-center order-2 lg:order-none">
-              <IPhoneFrame className="w-[240px] sm:w-[270px] md:w-[300px]">
-                {/* Image — simple crossfade */}
+              <div className="relative w-[240px] sm:w-[270px] md:w-[300px]">
+                {/* Image — simple crossfade. New images include their own phone frame. */}
                 <div className="relative aspect-[320/693]">
                   {features.map((feature, index) => (
                     <div
@@ -155,13 +161,13 @@ export default function FeatureShowcase() {
                         alt={feature.title}
                         width={320}
                         height={693}
-                        className="h-full w-full object-cover"
+                        className="h-full w-full object-contain"
                         loading={index === 0 ? "eager" : "lazy"}
                       />
                     </div>
                   ))}
                 </div>
-              </IPhoneFrame>
+              </div>
             </div>
 
             {/* Right — Feature list */}

@@ -10,23 +10,22 @@ import {
   type MotionValue,
 } from "motion/react";
 import { PulsingBorderIcon } from "@/components/ui/pulsing-border-icon";
-import { IPhoneFrame } from "@/components/ui/iphone-frame";
 
 const screens = [
   {
-    image: "/app-coach-screen.png",
+    image: "/App-Screen-Outputs/1.png",
     heading: "Introducing your\nnew AI coach.",
     mobileHeading: "Introducing your\nnew AI coach.",
     subtext: "Win your day. Every day.",
   },
   {
-    image: "/AppScreenshots/day-calendar.png",
+    image: "/App-Screen-Outputs/2.png",
     heading: "Keeps you\noptimal.",
     mobileHeading: "Keeps you\noptimal.",
     subtext: "Easy-to-follow daily actions.",
   },
   {
-    image: "/AppScreenshots/sleep-screen.png",
+    image: "/App-Screen-Outputs/3.png",
     heading: "Day and\nnight.",
     mobileHeading: "Day and\nnight.",
     subtext: null,
@@ -73,25 +72,23 @@ function DesktopShowcase() {
       style={{ height: `${screens.length * 120}vh` }}
     >
       <div className="sticky top-20 flex min-h-[70vh] items-center justify-center overflow-hidden bg-white py-6 z-30">
-        <div className="mx-auto flex w-full max-w-6xl items-start justify-center gap-6 px-6 lg:gap-10">
+        <div className="mx-auto flex w-full max-w-4xl items-start justify-center gap-8 px-6 lg:gap-12">
           {/* Phone */}
           <div className="relative w-[290px] shrink-0 lg:w-[330px]">
-            <IPhoneFrame>
-              <div className="relative aspect-[320/693] w-full overflow-hidden">
-                {screens.map((screen, i) => (
-                  <ScrollImage
-                    key={screen.image}
-                    src={screen.image}
-                    index={i}
-                    progress={activeIndex}
-                  />
-                ))}
-              </div>
-            </IPhoneFrame>
+            <div className="relative aspect-[320/693] w-full overflow-hidden">
+              {screens.map((screen, i) => (
+                <ScrollImage
+                  key={screen.image}
+                  src={screen.image}
+                  index={i}
+                  progress={activeIndex}
+                />
+              ))}
+            </div>
           </div>
 
           {/* Text */}
-          <div className="relative mt-5 min-h-[220px] w-[300px] shrink-0 lg:mt-6 lg:w-[500px]">
+          <div className="relative mt-5 min-h-[220px] w-[300px] shrink-0 lg:mt-6 lg:w-[380px]">
             {screens.map((screen, i) => (
               <ScrollContent
                 key={screen.heading}
@@ -142,18 +139,16 @@ function MobileShowcase() {
       <div className="sticky top-20 flex min-h-[70vh] flex-col items-center justify-start gap-6 overflow-hidden bg-white px-4 py-6 pb-12 z-30">
         {/* Image — crossfades on scroll */}
         <div className="relative w-[200px] shrink-0 sm:w-[230px]">
-          <IPhoneFrame>
-            <div className="relative aspect-[320/693] w-full overflow-hidden">
-              {screens.map((screen, i) => (
-                <ScrollImage
-                  key={screen.image}
-                  src={screen.image}
-                  index={i}
-                  progress={activeIndex}
-                />
-              ))}
-            </div>
-          </IPhoneFrame>
+          <div className="relative aspect-[320/693] w-full overflow-hidden">
+            {screens.map((screen, i) => (
+              <ScrollImage
+                key={screen.image}
+                src={screen.image}
+                index={i}
+                progress={activeIndex}
+              />
+            ))}
+          </div>
         </div>
 
         {/* Text — below image, left-aligned, centered with breathing room */}
