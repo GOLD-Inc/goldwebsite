@@ -72,33 +72,37 @@ function DesktopShowcase() {
       style={{ height: `${screens.length * 120}vh` }}
     >
       <div className="sticky top-20 flex min-h-[70vh] items-center justify-center overflow-hidden bg-white py-6 z-30">
-        <div className="mx-auto flex w-full max-w-4xl items-start justify-center gap-8 px-6 lg:gap-12">
-          {/* Phone */}
-          <div className="relative w-[290px] shrink-0 lg:w-[330px]">
-            <div className="relative aspect-[320/693] w-full overflow-hidden">
+        <div className="mx-auto flex w-full max-w-6xl items-start px-6">
+          {/* Phone — right-aligned in left half so it ends at viewport center */}
+          <div className="flex w-1/2 justify-end pr-6 lg:pr-10">
+            <div className="relative w-[290px] shrink-0 lg:w-[330px]">
+              <div className="relative aspect-[320/693] w-full overflow-hidden">
+                {screens.map((screen, i) => (
+                  <ScrollImage
+                    key={screen.image}
+                    src={screen.image}
+                    index={i}
+                    progress={activeIndex}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Text — left-aligned in right half so it starts at viewport center */}
+          <div className="flex w-1/2 justify-start pl-6 lg:pl-10">
+            <div className="relative mt-5 min-h-[220px] w-full max-w-[440px] lg:mt-6 lg:max-w-[480px]">
               {screens.map((screen, i) => (
-                <ScrollImage
-                  key={screen.image}
-                  src={screen.image}
+                <ScrollContent
+                  key={screen.heading}
+                  heading={screen.heading}
+                  subtext={screen.subtext}
+                  cta={screen.cta}
                   index={i}
                   progress={activeIndex}
                 />
               ))}
             </div>
-          </div>
-
-          {/* Text */}
-          <div className="relative mt-5 min-h-[220px] w-[300px] shrink-0 lg:mt-6 lg:w-[380px]">
-            {screens.map((screen, i) => (
-              <ScrollContent
-                key={screen.heading}
-                heading={screen.heading}
-                subtext={screen.subtext}
-                cta={screen.cta}
-                index={i}
-                progress={activeIndex}
-              />
-            ))}
           </div>
         </div>
 
