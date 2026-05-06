@@ -12,7 +12,7 @@ export default function PrivacyPage() {
     <LegalPage
       title="Privacy Policy"
       subtitle='Welcome to GOLD, Inc. ("we," "our," "us"). We are committed to protecting your privacy and ensuring the security of your personal information.'
-      lastUpdated="January 5, 2026"
+      lastUpdated="May 5th, 2026"
     >
       <section>
         <h2>1. Summary</h2>
@@ -34,6 +34,10 @@ export default function PrivacyPage() {
             Apple Health).
           </li>
         </ul>
+        <p>
+          We may use artificial intelligence (AI) to help generate personalized
+          coaching responses based on information you choose to provide.
+        </p>
         <Callout variant="info">
           <strong>HIPAA Notice:</strong> GOLD is generally not a HIPAA-covered
           entity (see Section 12).
@@ -47,8 +51,8 @@ export default function PrivacyPage() {
           provide the Services and the features you use.
         </p>
         <p>
-          You can limit what you share and disconnect third-party integrations at
-          any time.
+          You can limit what you share, control how your data is used for
+          coaching, and disconnect third-party integrations at any time.
         </p>
       </section>
 
@@ -73,8 +77,8 @@ export default function PrivacyPage() {
 
         <h3>Health and fitness information (optional)</h3>
         <p>
-          If you connect Apple Health or provide data manually, we may collect
-          the data types you authorize, such as:
+          If you provide data manually or connect Apple Health (HealthKit), we
+          may collect the data types you authorize, such as:
         </p>
         <ul>
           <li>Activity and workouts</li>
