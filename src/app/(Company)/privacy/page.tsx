@@ -31,16 +31,19 @@ export default function PrivacyPage() {
           </li>
           <li>
             give you controls over what you share (including integrations like
-            Apple Health).
+            Apple Health) and over your AI Coach conversation history.
           </li>
         </ul>
         <p>
           We may use artificial intelligence (AI) to help generate personalized
-          coaching responses based on information you choose to provide.
+          coaching responses based on information you choose to provide. Your
+          inputs to the AI Coach are <strong>not used to train</strong> our AI
+          providers&apos; general-purpose foundation models. See Section 14 for
+          details.
         </p>
         <Callout variant="info">
           <strong>HIPAA Notice:</strong> GOLD is generally not a HIPAA-covered
-          entity (see Section 12).
+          entity (see Section 13).
         </Callout>
       </section>
 
@@ -71,6 +74,15 @@ export default function PrivacyPage() {
           </li>
           <li>
             Messages and transcribed voice with the AI Coach or human coaches
+          </li>
+          <li>
+            Voice recordings (when you use voice input), used to generate a
+            transcript and typically deleted after transcription unless you save
+            them
+          </li>
+          <li>
+            AI Coach context and memory derived from your messages (for
+            example, summarized goals and preferences)
           </li>
           <li>Appointment-related details</li>
         </ul>
@@ -114,6 +126,10 @@ export default function PrivacyPage() {
         <p>We use information to:</p>
         <ul>
           <li>Provide and personalize coaching and recommendations</li>
+          <li>
+            Generate AI-powered coaching responses tailored to your goals and
+            inputs
+          </li>
           <li>Adjust your plan over time</li>
           <li>Support paid coaching appointments</li>
           <li>Communicate about your account and service updates</li>
@@ -124,7 +140,37 @@ export default function PrivacyPage() {
       </section>
 
       <section>
-        <h2>5. De-Identification and Analytics (Core Commitment)</h2>
+        <h2>5. AI Processing and Third-Party Services</h2>
+        <p>
+          To provide AI-powered coaching features, we may securely transmit
+          selected user data to third-party services, including artificial
+          intelligence providers.
+        </p>
+        <ul>
+          <li>
+            We share only the data necessary to generate relevant coaching
+            responses,
+          </li>
+          <li>
+            Data is used solely to provide responses and improve the Services,
+          </li>
+          <li>We do not sell your personal or health data, and</li>
+          <li>
+            Where feasible, we minimize, de-identify, or aggregate data before
+            analysis.
+          </li>
+        </ul>
+        <p>
+          These providers are contractually required to safeguard data and use
+          it only for authorized purposes. We work with AI providers under
+          contracts that prohibit using your inputs to train their
+          general-purpose foundation models, and that apply zero or short
+          data-retention terms where available.
+        </p>
+      </section>
+
+      <section>
+        <h2>6. De-Identification and Analytics (Core Commitment)</h2>
         <p>
           When we analyze data to improve coaching and user experience, we use{" "}
           <strong>de-identified and/or aggregated data</strong> when reasonably
@@ -137,18 +183,25 @@ export default function PrivacyPage() {
         <h3>De-identified/aggregated data may be used to:</h3>
         <ul>
           <li>Improve personalization,</li>
-          <li>Evaluate coaching effectiveness,</li>
-          <li>Develop and test new features, and</li>
+          <li>Evaluate coaching effectiveness and AI Coach quality,</li>
+          <li>Develop and test new features and AI prompts/models, and</li>
           <li>Improve the Services for all users.</li>
         </ul>
         <p>
           De-identification reduces risk but does not eliminate it. We take
           reasonable steps to prevent re-identification.
         </p>
+        <p>
+          <strong>Foundation model training.</strong> We do not allow our AI
+          providers to use your AI Coach inputs (messages, transcripts, or
+          health data) to train their general-purpose foundation models. Where
+          we fine-tune or evaluate models internally, we use de-identified data
+          and apply additional safeguards.
+        </p>
       </section>
 
       <section>
-        <h2>6. Sensitive Information (HIPAA-Adjacent Practice)</h2>
+        <h2>7. Sensitive Information (HIPAA-Adjacent Practice)</h2>
         <p>
           Some information may be sensitive (for example, health and fitness
           metrics). We apply heightened protections such as restricted access,
@@ -157,7 +210,7 @@ export default function PrivacyPage() {
       </section>
 
       <section>
-        <h2>7. How We Share Information</h2>
+        <h2>8. How We Share Information</h2>
         <p>
           We share information only as needed to operate the Services:
         </p>
@@ -167,6 +220,11 @@ export default function PrivacyPage() {
           We use vendors for hosting, analytics, customer support, payments, and
           appointment scheduling. They are required by contract to protect
           information and use it only for authorized purposes.
+        </p>
+
+        <h3>AI providers</h3>
+        <p>
+          See Section 5 for how data is shared with AI service providers.
         </p>
 
         <h3>Coaches</h3>
@@ -194,7 +252,7 @@ export default function PrivacyPage() {
       </section>
 
       <section>
-        <h2>8. Apple Health and Other Integrations</h2>
+        <h2>9. Apple Health and Other Integrations</h2>
         <p>If you connect Apple Health:</p>
         <ul>
           <li>We access only the data types you authorize,</li>
@@ -209,7 +267,7 @@ export default function PrivacyPage() {
       </section>
 
       <section>
-        <h2>9. Security</h2>
+        <h2>10. Security</h2>
         <p>
           We use{" "}
           <strong>
@@ -223,9 +281,14 @@ export default function PrivacyPage() {
             Encryption in transit and at rest where appropriate,
           </li>
           <li>Access controls and least-privilege policies,</li>
+          <li>
+            Encrypted handling of AI Coach conversations and tightly scoped
+            internal access for safety and quality review,
+          </li>
           <li>Monitoring and incident response procedures, and</li>
           <li>
-            Vendor security diligence and contractual protections.
+            Vendor security diligence and contractual protections, including
+            for AI providers.
           </li>
         </ul>
         <p>
@@ -235,17 +298,30 @@ export default function PrivacyPage() {
       </section>
 
       <section>
-        <h2>10. Retention</h2>
+        <h2>11. Retention</h2>
         <p>
           We retain information as long as reasonably necessary to provide the
           Services, meet legal obligations, resolve disputes, and enforce
           agreements. We may retain de-identified/aggregated data longer for
           legitimate purposes.
         </p>
+        <h3>AI Coach conversations</h3>
+        <p>
+          We retain your AI Coach messages and transcripts so the coach can
+          maintain context across sessions and so you can review your history.
+          You can delete individual conversations or your full AI Coach
+          history at any time from in-app settings, subject to short backup
+          retention windows.
+        </p>
+        <p>
+          Voice recordings used as input to the AI Coach are typically deleted
+          after transcription unless you choose to save them or we are required
+          to keep them for safety, security, or legal reasons.
+        </p>
       </section>
 
       <section>
-        <h2>11. Your Choices and Rights</h2>
+        <h2>12. Your Choices and Rights</h2>
         <p>Depending on your location, you may have rights to:</p>
         <ul>
           <li>
@@ -253,6 +329,26 @@ export default function PrivacyPage() {
           </li>
           <li>Object to or restrict certain processing, and</li>
           <li>Withdraw consent where applicable.</li>
+        </ul>
+        <h3>AI Coach controls</h3>
+        <p>
+          You can also, from in-app settings or by contacting us:
+        </p>
+        <ul>
+          <li>Delete individual AI Coach conversations or your full history,</li>
+          <li>Reset the AI Coach&apos;s long-term memory about you,</li>
+          <li>
+            Disconnect Apple Health or other integrations so the AI Coach no
+            longer uses that data,
+          </li>
+          <li>
+            Opt out of having your interactions used to improve the Services
+            (beyond what is needed to operate them and keep them safe), and
+          </li>
+          <li>
+            Request human review of significant decisions that were materially
+            based on AI output, where applicable law provides this right.
+          </li>
         </ul>
         <p>
           To request these rights:{" "}
@@ -263,7 +359,7 @@ export default function PrivacyPage() {
       </section>
 
       <section>
-        <h2>12. HIPAA Notice</h2>
+        <h2>13. HIPAA Notice</h2>
         <Callout variant="info">
           GOLD is a consumer wellness and performance platform and generally{" "}
           <strong>is not a HIPAA-covered entity</strong>. Unless GOLD enters
@@ -279,17 +375,75 @@ export default function PrivacyPage() {
       </section>
 
       <section>
-        <h2>13. AI Transparency and Improvement</h2>
+        <h2>14. AI Transparency and Improvement</h2>
+        <p>
+          The AI Coach uses artificial intelligence — including large language
+          models and speech-to-text systems — to generate personalized coaching
+          responses based on the information you share and the data sources you
+          connect.
+        </p>
+
+        <h3>How the AI Coach uses your data</h3>
+        <ul>
+          <li>
+            Your messages, voice transcripts, goals, preferences, and
+            authorized health and fitness data may be sent to AI providers as
+            input to generate a response.
+          </li>
+          <li>
+            We may include a summarized memory of your prior conversations so
+            recommendations stay coherent over time. You can reset this memory
+            at any time.
+          </li>
+          <li>
+            We do not use your AI Coach inputs to train third-party
+            general-purpose foundation models, and we contract with AI
+            providers under zero or short data-retention terms where available.
+          </li>
+        </ul>
+
+        <h3>Limitations of AI</h3>
+        <Callout variant="warning">
+          AI output may be inaccurate, incomplete, or inappropriate. The AI
+          Coach is not a medical professional and does not provide medical
+          advice, diagnosis, or treatment. You are responsible for deciding
+          what to follow and for using your judgment. See our{" "}
+          <a href="/terms">Terms of Service</a> for more.
+        </Callout>
+
+        <h3>Human review</h3>
+        <p>
+          Trained personnel may review a limited, de-identified sample of AI
+          Coach interactions to evaluate quality, detect safety issues, fix
+          bugs, and improve prompts and models. Access is restricted on a
+          need-to-know basis.
+        </p>
+
+        <h3>Improving the Services</h3>
         <p>
           We may use de-identified and/or aggregated information to improve
           coaching quality, personalization, and safety. We may analyze user
           interactions (including messages) to improve the Services in a
-          privacy-protective manner consistent with this policy.
+          privacy-protective manner consistent with this policy. You can opt
+          out of the use of your interactions for improvement (beyond what is
+          needed to operate the Services and keep them safe) — see Section 12.
+        </p>
+
+        <h3>Automated decisions</h3>
+        <p>
+          The AI Coach provides recommendations, not decisions that produce
+          legal or similarly significant effects on you. Where applicable law
+          gives you a right to human review of automated decisions, you may
+          contact us at{" "}
+          <a href="mailto:privacy@gold.com">
+            <code>privacy@gold.com</code>
+          </a>
+          .
         </p>
       </section>
 
       <section>
-        <h2>14. Children&apos;s Privacy</h2>
+        <h2>15. Children&apos;s Privacy</h2>
         <p>
           The Services are not intended for children under{" "}
           <strong>13</strong> (or higher where required). If we learn we
@@ -298,16 +452,18 @@ export default function PrivacyPage() {
       </section>
 
       <section>
-        <h2>15. International Users</h2>
+        <h2>16. International Users</h2>
         <p>
-          If you use the Services outside the United States, your information may
-          be transferred and processed in the U.S. or other countries where we
-          and our vendors operate.
+          If you use the Services outside the United States, your information
+          may be transferred and processed in the U.S. or other countries where
+          we and our vendors operate, including our hosting and AI service
+          providers. These countries may have different data protection laws
+          than your country of residence.
         </p>
       </section>
 
       <section>
-        <h2>16. Changes to This Policy</h2>
+        <h2>17. Changes to This Policy</h2>
         <p>
           We may update this Privacy Policy. If changes are material, we will
           provide notice. Continued use means you accept the updated policy.
@@ -315,7 +471,7 @@ export default function PrivacyPage() {
       </section>
 
       <section>
-        <h2>17. Contact</h2>
+        <h2>18. Contact</h2>
         <p>
           <strong>GOLD, Inc.</strong>
         </p>
