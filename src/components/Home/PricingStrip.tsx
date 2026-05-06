@@ -17,9 +17,8 @@ export default function PricingStrip() {
           <AppleIcon className="h-6 w-6 text-slate-400" />
         </div>
 
-        <div className="flex items-baseline gap-x-5 text-xl font-bold tracking-tight text-slate-900 sm:gap-x-6 sm:text-2xl">
-          <span className="whitespace-nowrap">Monthly $8.99</span>
-          <span className="whitespace-nowrap">Yearly $49.99</span>
+        <div className="flex items-baseline text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">
+          <span className="whitespace-nowrap">Basic plan free. Premium plan $8.99/mo.</span>
         </div>
       </div>
     </section>

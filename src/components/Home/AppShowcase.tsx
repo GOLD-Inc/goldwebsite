@@ -22,7 +22,7 @@ const screens = [
     image: "/App-Screen-Outputs/2.png",
     heading: "Keeps you\noptimal.",
     mobileHeading: "Keeps you\noptimal.",
-    subtext: "Easy-to-follow daily actions.",
+    subtext: "Simple and Adaptive.",
   },
   {
     image: "/App-Screen-Outputs/3.png",
