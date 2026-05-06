@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import FeatureShowcase from "@/components/Home/FeatureShowcase";
+import CoachPersonas from "@/components/Home/CoachPersonas";
 import CTA from "@/components/Home/CTA";
 import PricingStrip from "@/components/Home/PricingStrip";
 import FeaturesHero from "@/components/Features/FeaturesHero";
@@ -17,6 +18,7 @@ export default function FeaturesPage() {
     <div className="relative">
       <FeaturesHero />
       <FeatureShowcase />
+      <CoachPersonas />
       <HowItWorks />
       <PricingStrip />
       {/* <FeatureDetails /> */}
