@@ -76,7 +76,7 @@ const thirdColumn = testimonials.slice(6, 9);
 
 export default function Testimonials() {
   return (
-    <section className="relative my-0 overflow-hidden">
+    <section className="relative my-0 overflow-hidden bg-black">
       {/* Background diving image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -85,6 +85,12 @@ export default function Testimonials() {
           fill
           className="object-cover"
           sizes="100vw"
+          style={{
+            maskImage:
+              "linear-gradient(to bottom, transparent 0%, transparent 48%, black 52%, black 100%)",
+            WebkitMaskImage:
+              "linear-gradient(to bottom, transparent 0%, transparent 48%, black 52%, black 100%)",
+          }}
         />
         {/* Dark overlay for readability */}
         <div className="absolute inset-0 bg-black/85" />
@@ -105,6 +111,16 @@ export default function Testimonials() {
               For your Personal{" "}
               <span className="text-white">Gold.</span>
             </h2>
+            <div className="mt-8 flex justify-center sm:mt-10">
+              <Image
+                src="/transparent.png"
+                alt="Celebrating with the Gold Health app"
+                width={920}
+                height={978}
+                priority={false}
+                className="h-auto w-[340px] sm:w-[440px] lg:w-[520px]"
+              />
+            </div>
             <p className="text-center mt-5 text-white max-w-md leading-relaxed">
               See how simple daily changes can be life changing.
             </p>
