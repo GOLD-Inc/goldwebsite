@@ -6,6 +6,7 @@ import PricingStrip from "@/components/Home/PricingStrip";
 import FeaturesHero from "@/components/Features/FeaturesHero";
 import HowItWorks from "@/components/Features/HowItWorks";
 import FeaturesBanner from "@/components/Features/FeaturesBanner";
+import RealTimeCalls from "@/components/Features/RealTimeCalls";
 
 export const metadata: Metadata = {
   title: "Features — Gold Health",
@@ -19,6 +20,7 @@ export default function FeaturesPage() {
       <FeaturesHero />
       <FeatureShowcase />
       <CoachPersonas />
+      <RealTimeCalls />
       <HowItWorks />
       <PricingStrip />
       {/* <FeatureDetails /> */}
